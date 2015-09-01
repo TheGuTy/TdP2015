@@ -4,9 +4,19 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
+import handler.Handler;
+
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class maingui {
 
+	
+	private Handler handler;
 	private JFrame frame;
 
 	/**
@@ -30,6 +40,7 @@ public class maingui {
 	 */
 	public maingui() {
 		initialize();
+		handler=new Handler();
 	}
 
 	/**
@@ -46,6 +57,20 @@ public class maingui {
 		
 		panel.setBounds(22, 11, 225, 251);
 		frame.getContentPane().add(panel);
+		
+		JLabel lblPresionarBoton = new JLabel("");
+		lblPresionarBoton.setBounds(257, 22, 175, 81);
+		frame.getContentPane().add(lblPresionarBoton);		
+		
+		JButton btnNewButton = new JButton("Presione Aqui");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				lblPresionarBoton.setText(handler.getFrase());
+			}
+		});
+		btnNewButton.setBounds(286, 173, 122, 59);
+		frame.getContentPane().add(btnNewButton);
+		
+		
 	}
-
 }
