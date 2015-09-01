@@ -9,13 +9,14 @@ import javax.swing.JPanel;
 public class ImagePanel extends JPanel {
 
 	private ImageIcon imagen;
-	String nombre;
+	private String nombre;
 	
 	public ImagePanel(String nombre) {
 		
-		this.nombre=nombre;
+		this.nombre = nombre;
 	}
 	
+	@Override
 	public void paint(Graphics g) {
 		
 		Dimension size=getSize();
@@ -24,5 +25,10 @@ public class ImagePanel extends JPanel {
 		setOpaque(false);
 		super.paint(g);
 		
+	}
+	
+	public void actualizarImagen(String nombre){
+		this.nombre = nombre;
+		repaint();
 	}
 }

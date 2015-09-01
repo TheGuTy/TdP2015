@@ -12,12 +12,13 @@ import handler.Handler;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class maingui {
 
 	
 	private Handler handler;
-	private JFrame frame;
+	private JFrame frmFrasesDeHomero;
 
 	/**
 	 * Launch the application.
@@ -27,7 +28,7 @@ public class maingui {
 			public void run() {
 				try {
 					maingui window = new maingui();
-					window.frame.setVisible(true);
+					window.frmFrasesDeHomero.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -39,37 +40,41 @@ public class maingui {
 	 * Create the application.
 	 */
 	public maingui() {
-		initialize();
 		handler=new Handler();
+		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmFrasesDeHomero = new JFrame();
+		frmFrasesDeHomero.setTitle("Frases de Homero - Proyecto 0 -  TDP");
+		frmFrasesDeHomero.setResizable(false);
+		frmFrasesDeHomero.setBounds(100, 100, 536, 338);
+		frmFrasesDeHomero.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmFrasesDeHomero.getContentPane().setLayout(null);
 		
-		JPanel panel = new ImagePanel("/imagen/Simpson.jpg");
+		ImagePanel panel = new ImagePanel(handler.getImagen());
 		
-		
-		panel.setBounds(22, 11, 225, 251);
-		frame.getContentPane().add(panel);
+		panel.setBounds(10, 11, 263, 212);
+		frmFrasesDeHomero.getContentPane().add(panel);
 		
 		JLabel lblPresionarBoton = new JLabel("");
-		lblPresionarBoton.setBounds(257, 22, 175, 81);
-		frame.getContentPane().add(lblPresionarBoton);		
+		lblPresionarBoton.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPresionarBoton.setVerticalAlignment(SwingConstants.TOP);
+		lblPresionarBoton.setBounds(295, 11, 223, 212);
+		frmFrasesDeHomero.getContentPane().add(lblPresionarBoton);		
 		
 		JButton btnNewButton = new JButton("Presione Aqui");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				lblPresionarBoton.setText(handler.getFrase());
+				panel.actualizarImagen(handler.getImagen());
 			}
 		});
-		btnNewButton.setBounds(286, 173, 122, 59);
-		frame.getContentPane().add(btnNewButton);
+		btnNewButton.setBounds(206, 251, 122, 28);
+		frmFrasesDeHomero.getContentPane().add(btnNewButton);
 		
 		
 	}
