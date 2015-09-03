@@ -7,9 +7,11 @@ import java.util.Random;
 public class GeneradorFrases {
 
 	private List<String> frases;
+	private int position;
 	
 	public GeneradorFrases() {
 		
+		position=0;
 		frases=new ArrayList<String>();
 		frases.add("<html>¿Qué sentido tiene salir afuera?<br>Si vamos a volver aquí de todas maneras</html>");
 		frases.add("<html>He aprendido que la vida<br>no es más que una devastadora <br> derrota tras otra,<br>hasta que simplemente deseas<br>que Flanders muera</html>");
@@ -24,7 +26,6 @@ public class GeneradorFrases {
 	
 	public String getFrase() {
 		
-		Random rnd=new Random();
-		return frases.get(rnd.nextInt(frases.size()));
+		return frases.get((position++)%frases.size());
 	}
 }

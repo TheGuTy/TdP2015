@@ -6,10 +6,12 @@ import java.util.Random;
 
 public class GeneradorImagen {
 
+	private int position;
 	private List<String> images;
 	
 	public GeneradorImagen() {
 		
+		position=0;
 		images=new ArrayList<String>();
 		images.add("/imagen/Simpsons1.jpg");
 		images.add("/imagen/Simpsons2.jpg");
@@ -19,7 +21,6 @@ public class GeneradorImagen {
 	
 	public String getImagen() {
 		
-		Random rnd=new Random();
-		return images.get(rnd.nextInt(images.size()));
+		return images.get((position++)%images.size());
 	}
 }
