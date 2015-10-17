@@ -26,6 +26,7 @@ public class Bomberman extends Personaje {
 	
 	public void colocarBomba () {
 		
+		miTablero.colocarBomba(miCelda.getX(), miCelda.getY(), miAlcanceBomba);
 	}
 	
 	public void moverArriba () {
@@ -46,13 +47,16 @@ public class Bomberman extends Personaje {
 	
 	public void duplicarVelocidad () {
 		
+		velocidad *= 2;
 	}
 	
 	public void aumentarBombasDisponibles () {
-		
+	
+		bombasDisponibles ++;
 	}
 	
 	public void duplicarAlcance () {
 		
+		miAlcanceBomba *= 2;
 	}
 }

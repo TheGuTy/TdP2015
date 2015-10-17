@@ -30,6 +30,8 @@ public class Tablero {
 	
 	public void colocarBomba (int x, int y, int alcance) {
 		
+		Celda c = getCelda(x, y);
+		Bomba b = new Bomba(c, 1, this);
 	}
 	
 	public Celda getCelda (int x, int y) {

@@ -15,11 +15,18 @@ public class Juego {
 	public Juego () {
 		
 		puntaje = 0;
+		miTablero = new Tablero(50, this, 31, 31);
+		miBomberman = new Bomberman(miTablero.getCelda(0, 0), miTablero);
 	}
 	
 	public void aumentarPuntaje (int p) {
 		
 		puntaje += p;
+	}
+	
+	public Bomberman getBomberman () {
+		
+		return miBomberman;
 	}
 	
 	public void iniciarJuego () {

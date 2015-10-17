@@ -16,6 +16,12 @@ public class Celda {
 	
 	public Celda (int x, int y, Tablero t) {
 		
+		this.x = x;
+		this.y = y;
+		miTablero = t;
+		miPowerUp = null;
+		miEstado = null;
+		misPersonajes = new LinkedList<Personaje>();
 	}
 	
 	public void avanzar (Personaje p) {
@@ -42,14 +48,26 @@ public class Celda {
 	
 	public void aumentarPuntaje (int p) {
 		
+		miTablero.aumentarPuntaje(p);
 	}
 	
 	public void agregarPersonaje (Personaje p) {
 		
+		misPersonajes.add(p);
 	}
 	
 	public void eliminarPersonaje (Personaje p) {
 		
+		
 	}
 	
+	public int getX () {
+		
+		return x;
+	}
+	
+	public int getY() {
+		
+		return y;
+	}
 }

@@ -6,6 +6,7 @@ public class Tiempo {
 	
 	public Tiempo () {
 		
+		horaInicio = 0;
 	}
 	
 	public void comenzar () {
