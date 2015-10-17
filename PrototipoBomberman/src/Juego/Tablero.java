@@ -18,7 +18,9 @@ public class Tablero {
 		
 		for (int i = 0; i < ancho; i++) {
 			for (int j = 0; j < alto; j++) {
-				misCeldas [i][j] = new Celda(i, j, this);
+				Celda c = misCeldas [i][j];
+				c = new Celda(i, j, this);
+				c.setEstado(new EstadoTransitable());	//Al crear todas las celdas asumo que todas son transitables
 			}
 		}
 		
@@ -32,19 +34,24 @@ public class Tablero {
 	
 	public Celda getCelda (int x, int y) {
 		
-		return null;
+		return misCeldas[x][y];
 	}
 	
 	private void crearNoDestruibles () {
 		
+		Celda c;
 		for (int i = 0; i < ancho; i++) {
-			misCeldas[i][0].setEstado(new EstadoNoDestruible());
-			misCeldas[i][alto-1].setEstado(new EstadoNoDestruible());
+			c = misCeldas[i][0];
+			c.setEstado(new EstadoNoDestruible());
+			c = misCeldas[i][alto-1];
+			c.setEstado(new EstadoNoDestruible());			
 		}
 		
 		for (int i = 0; i < alto; i++) {
-			misCeldas[0][i].setEstado(new EstadoNoDestruible());
-			misCeldas[ancho-1][i].setEstado(new EstadoNoDestruible());
+			c = misCeldas[0][i];
+			c.setEstado(new EstadoNoDestruible());
+			c = misCeldas[ancho-1][i];
+			c.setEstado(new EstadoNoDestruible());			
 		}			
 		
 	}
@@ -55,7 +62,7 @@ public class Tablero {
 	
 	public void aumentarPuntaje (int p) {
 		
-		
+		miJuego.aumentarPuntaje(p);
 	}
 	
 	public void eliminarEnemigo (Enemigo e) {
