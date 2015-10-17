@@ -1,12 +1,12 @@
-package Juego;
+package PowerUps;
 
 import Personajes.Bomberman;
 
-public class SpeedUp extends PowerUp {
+public class Masacrality extends PowerUp {
 
-	public SpeedUp () {
+	public Masacrality () {
 		
-		super (30);
+		super (50);
 	}
 
 	@Override

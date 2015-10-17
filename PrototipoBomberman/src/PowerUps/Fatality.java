@@ -1,4 +1,4 @@
-package Juego;
+package PowerUps;
 
 import Personajes.Bomberman;
 
