@@ -24,16 +24,7 @@ public class Tiempo extends Thread {
 		return 0;
 	}
 	
-	public void run () {
+	public void run () {		
 		
-		while (true) {
-			try {
-				Thread.sleep(1000);
-				miJuego.moverEnemigos();				
-
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} 
-		}
 	}
 }

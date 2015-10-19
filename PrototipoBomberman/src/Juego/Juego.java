@@ -25,11 +25,13 @@ public class Juego {
 		
 		Random r = new Random();
 		int rnd = r.nextInt(31);
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 1; i++) {
 			int rx = r.nextInt(31), ry = r.nextInt(31);
 			Enemigo e = new Altair(miTablero.getCelda(rx, ry), miTablero);
-			misEnemigos.add(e);
-		}
+			e.start();
+			misEnemigos.add(e);			
+		}				
+		
 	}
 	
 	public void aumentarPuntaje (int p) {
@@ -40,11 +42,7 @@ public class Juego {
 	public Bomberman getBomberman () {
 		
 		return miBomberman;
-	}
-	
-	public void iniciarJuego () {
-		
-	}
+	}	
 	
 	public void finalizarJuego () {
 		
@@ -52,14 +50,8 @@ public class Juego {
 	
 	public void eliminarEnemigo (Enemigo e) {
 		
-	}
+	}	
 	
-	public void moverEnemigos () {
-		
-		for (Enemigo e : misEnemigos) {
-			e.mover();
-		}
-	}
 	
 	public void moverBomberman (int dir) {
 		

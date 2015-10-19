@@ -1,5 +1,7 @@
 package Personajes;
 
+import java.util.Random;
+
 import Juego.Celda;
 import Juego.Tablero;
 
@@ -13,7 +15,7 @@ public class Altair extends Enemigo {
 	@Override
 	public void mover() {
 		
-		
+		super.mover();
 	}
 
 	@Override

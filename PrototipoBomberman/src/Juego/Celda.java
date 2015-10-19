@@ -1,5 +1,6 @@
 package Juego;
 
+import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 import Personajes.Personaje;
@@ -14,6 +15,11 @@ public class Celda {
 	protected EstadoCelda miEstado;
 	protected LinkedList<Personaje> misPersonajes;
 	
+	public static final int LEFT = KeyEvent.VK_LEFT;
+	public static final int RIGHT = KeyEvent.VK_RIGHT;
+	public static final int UP = KeyEvent.VK_UP;
+	public static final int DOWN = KeyEvent.VK_DOWN;
+	
 	public Celda (int x, int y, Tablero t) {
 		
 		this.x = x;
@@ -25,7 +31,7 @@ public class Celda {
 	}
 	
 	public void avanzar (Personaje p) {
-		
+		miEstado.avanzar(p, this);
 	}
 	
 	public void setPowerUp (PowerUp p) {

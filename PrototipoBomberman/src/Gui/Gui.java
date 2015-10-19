@@ -44,13 +44,9 @@ public class Gui extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.setBackground(Color.GREEN);
+		contentPane.setBackground(Color.GREEN);		
 				
-		
-				
-		miJuego = new Juego();
-		miTiempo = new Tiempo(miJuego);
-		miTiempo.start();
+		miJuego = new Juego();				
 	}
 	
 	private void mover (KeyEvent key) {
