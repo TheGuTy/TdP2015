@@ -15,12 +15,12 @@ public class Tablero {
 		miJuego = juego;
 		this.ancho = ancho;
 		this.alto = alto;
+		misCeldas = new Celda[31][31];
 		
-		for (int i = 0; i < ancho; i++) {
-			for (int j = 0; j < alto; j++) {
-				Celda c = misCeldas [i][j];
-				c = new Celda(i, j, this);
-				c.setEstado(new EstadoTransitable());	//Al crear todas las celdas asumo que todas son transitables
+		for (int i = 0; i < this.ancho; i++) {
+			for (int j = 0; j < this.alto; j++) {
+				misCeldas [i][j] = new Celda(i, j, this);
+				misCeldas [i][j].setEstado(new EstadoTransitable());	//Al crear todas las celdas asumo que todas son transitables
 			}
 		}
 		
@@ -42,7 +42,7 @@ public class Tablero {
 	private void crearNoDestruibles () {
 		
 		Celda c;
-		for (int i = 0; i < ancho; i++) {
+		for (int i = 0; i < this.ancho; i++) {
 			c = misCeldas[i][0];
 			c.setEstado(new EstadoNoDestruible());
 			c = misCeldas[i][alto-1];

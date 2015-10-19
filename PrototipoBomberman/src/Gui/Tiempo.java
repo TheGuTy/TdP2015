@@ -1,4 +1,6 @@
-package Juego;
+package Gui;
+
+import Juego.Juego;
 
 public class Tiempo extends Thread {
 
