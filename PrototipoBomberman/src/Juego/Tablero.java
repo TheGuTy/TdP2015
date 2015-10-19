@@ -70,4 +70,14 @@ public class Tablero {
 	public void eliminarEnemigo (Enemigo e) {
 		
 	}
+	
+	public int getAncho () {
+		
+		return ancho;
+	}
+	
+	public int getAlto () {
+		
+		return alto;
+	}
 }

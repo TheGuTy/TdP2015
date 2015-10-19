@@ -39,16 +39,32 @@ public class Bomberman extends Personaje {
 		
 		switch (dir){
 		case KeyEvent.VK_UP : //Arriba
-			nueva = miTablero.getCelda(x, y-1);
+			y--;
+			if (y <= 0)
+				y = 0;
+			nueva = miTablero.getCelda(x, y);
+			System.out.println("ARRIBA");
 			break;
 		case KeyEvent.VK_DOWN : //Abajo
+			y++;
+			if (y == miTablero.getAlto())
+				y--;
 			nueva = miTablero.getCelda(x, y+1);
+			System.out.println("ABAJO");
 			break;
 		case KeyEvent.VK_LEFT : //Izquierda
-			nueva = miTablero.getCelda(x-1, y);
+			x--;
+			if (x <= 0)
+				x = 0;
+			nueva = miTablero.getCelda(x, y);
+			System.out.println("IZQUIERDA");
 			break;
 		case KeyEvent.VK_RIGHT : //Derecha
-			nueva = miTablero.getCelda(x+1, y);
+			x++;
+			if (x == miTablero.getAncho())
+				x--;
+			nueva = miTablero.getCelda(x, y);
+			System.out.println("DERECHA");
 			break;
 		default: {
 			this.setCelda(nueva);

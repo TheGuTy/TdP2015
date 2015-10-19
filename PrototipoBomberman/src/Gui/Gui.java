@@ -26,7 +26,7 @@ public class Gui extends JFrame {
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent arg0) {
-				//mover(arg0);
+				mover(arg0);
 			}
 		});
 		
@@ -37,16 +37,26 @@ public class Gui extends JFrame {
 		pack();
 		setLocationRelativeTo(null);
 		setVisible(true);
-		setFocusable(true);
+		setFocusable(true);		
+		getContentPane().setLayout(null);		
+		setBounds(100, 100, 800, 600);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		contentPane.setBackground(Color.GREEN);
+				
+		
 				
 		miJuego = new Juego();
 		miTiempo = new Tiempo(miJuego);
 		miTiempo.start();
 	}
 	
-	private void mover (int dir) {
+	private void mover (KeyEvent key) {
 		
-		
+		miJuego.moverBomberman(key.getKeyCode());
+		this.repaint();
 	}
 	
 	public static void main(String[] args) {

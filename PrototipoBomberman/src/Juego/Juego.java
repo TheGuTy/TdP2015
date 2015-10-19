@@ -60,4 +60,9 @@ public class Juego {
 			e.mover();
 		}
 	}
+	
+	public void moverBomberman (int dir) {
+		
+		miBomberman.mover(dir);
+	}
 }
