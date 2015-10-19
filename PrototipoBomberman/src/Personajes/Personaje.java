@@ -14,7 +14,7 @@ public abstract class Personaje {
 		
 		this.modoDios = modoDios;
 		velocidad = vel;
-		miCelda = c;
+		miCelda = c;		
 		miTablero = t;
 	}
 	
@@ -27,5 +27,6 @@ public abstract class Personaje {
 	
 	public void setCelda (Celda c) {
 		
+		miCelda = c;
 	}
 }

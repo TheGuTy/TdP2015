@@ -1,16 +1,16 @@
 package Juego;
 
-import java.util.LinkedList;
+import java.util.List;
 
 import Personajes.Bomberman;
 import Personajes.Enemigo;
 
 public class Juego {
 
-	protected int puntaje;
-	protected Tablero miTablero;
-	protected Bomberman miBomberman;
-	protected LinkedList<Enemigo> misEnemigos;
+	private int puntaje;
+	private Tablero miTablero;
+	private Bomberman miBomberman;
+	private List<Enemigo> misEnemigos;
 	
 	public Juego () {
 		
@@ -39,5 +39,12 @@ public class Juego {
 	
 	public void eliminarEnemigo (Enemigo e) {
 		
+	}
+	
+	public void moverEnemigos () {
+		
+		for (Enemigo e : misEnemigos) {
+			e.mover();
+		}
 	}
 }

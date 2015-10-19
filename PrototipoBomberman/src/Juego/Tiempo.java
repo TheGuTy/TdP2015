@@ -1,12 +1,12 @@
 package Juego;
 
-public class Tiempo {
+public class Tiempo extends Thread {
 
-	protected long horaInicio;
+	protected Juego miJuego;	
 	
-	public Tiempo () {
+	public Tiempo (Juego j) {
 		
-		horaInicio = 0;
+		miJuego = j;
 	}
 	
 	public void comenzar () {
@@ -20,5 +20,18 @@ public class Tiempo {
 	public long tiempoTranscurrido () {
 		
 		return 0;
+	}
+	
+	public void run () {
+		
+		while (true) {
+			try {
+				Thread.sleep(1000);
+				miJuego.moverEnemigos();				
+
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} 
+		}
 	}
 }
