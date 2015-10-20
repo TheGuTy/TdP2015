@@ -43,8 +43,7 @@ public class Juego {
 		
 		misEnemigos.add(e1);
 		//misEnemigos.add(e2);
-		//misEnemigos.add(e3);
-		
+		//misEnemigos.add(e3);		
 		
 		
 	}				
