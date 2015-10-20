@@ -6,7 +6,9 @@ import java.awt.Dimension;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -16,7 +18,7 @@ import Gui.Tiempo;
 public class Gui extends JFrame {
 
 	private Juego miJuego;
-	private JPanel contentPane;
+	public JPanel contentPane;
 	
 	private Gui (String nombre) {
 		
@@ -35,19 +37,22 @@ public class Gui extends JFrame {
 		setLayout(new BorderLayout());				
 		pack();
 		setLocationRelativeTo(null);
-		setVisible(true);
+		
 		setFocusable(true);		
 		getContentPane().setLayout(null);		
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		contentPane.setBackground(Color.GREEN);		
+		contentPane.setLayout(new BorderLayout());
+		contentPane.setBackground(Color.GREEN);
+		
+			
+		repaint();
+		setVisible(true);
 				
 		
-		miJuego = new Juego();
-		miJuego.iniciarJuego();
+		miJuego = new Juego(this);		
 	}
 	
 	private void mover (KeyEvent key) {
@@ -55,7 +60,13 @@ public class Gui extends JFrame {
 		this.repaint();
 	}
 	
+	private void iniciarJuego () {
+		
+		miJuego.iniciarJuego();
+	}
+	
 	public static void main(String[] args) {
 		Gui g = new Gui("Bomberman");
+		g.iniciarJuego();
 	}
 }

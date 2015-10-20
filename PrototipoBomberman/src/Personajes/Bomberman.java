@@ -2,6 +2,7 @@ package Personajes;
 
 import java.awt.event.KeyEvent;
 
+import Graficos.GraficoBomberman;
 import Juego.Celda;
 import Juego.Tablero;
 
@@ -13,6 +14,7 @@ public class Bomberman extends Personaje {
 	public Bomberman(Celda c, Tablero tablero) {
 
 		super(false, 1, c, tablero);
+		this.miGrafico = new GraficoBomberman(1, 1, 1);
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package Graficos;
 
+import java.awt.Color;
 import java.awt.Point;
 
 import javax.swing.Icon;
@@ -50,7 +51,7 @@ public abstract class GraficoPersonaje {
 				break;
 		}
 		
-		this.grafico.setIcon(this.imagenes[direccion]);
+		this.grafico.setIcon(this.imagenes[direccion]);		
 	}
 	
 	public void mover(int dir){
@@ -95,9 +96,7 @@ public abstract class GraficoPersonaje {
 		if(this.grafico == null){
 			this.grafico = new JLabel(imagenes[0]);
 			this.grafico.setBounds(this.pos.x, this.pos.y, ancho, alto);
-		}
-		
+		}		
 		return this.grafico;
 	}
-
 }

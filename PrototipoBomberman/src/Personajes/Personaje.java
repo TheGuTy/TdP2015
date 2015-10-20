@@ -1,5 +1,7 @@
 package Personajes;
 
+import javax.swing.JLabel;
+
 import Graficos.GraficoPersonaje;
 import Juego.Celda;
 import Juego.Tablero;
@@ -13,7 +15,7 @@ public abstract class Personaje extends Thread {
 	protected volatile boolean estoyVivo;
 	protected GraficoPersonaje miGrafico;
 	
-	protected Personaje (boolean modoDios, int vel, Celda c, Tablero t) {
+	public Personaje (boolean modoDios, int vel, Celda c, Tablero t) {
 		
 		this.modoDios = modoDios;
 		velocidad = vel;
@@ -37,5 +39,10 @@ public abstract class Personaje extends Thread {
 
 	public Celda getCelda() {
 		return miCelda;
+	}
+	
+	public JLabel getGrafico () {		
+		
+		return miGrafico.getGrafico();
 	}
 }
