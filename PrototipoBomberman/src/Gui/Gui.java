@@ -33,7 +33,7 @@ public class Gui extends JFrame {
 		setPreferredSize(new Dimension(800, 600));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
-		setLayout(new BorderLayout());				
+		setLayout(null);				
 		pack();
 		setLocationRelativeTo(null);
 		
@@ -52,7 +52,24 @@ public class Gui extends JFrame {
 	}
 	
 	private void mover (KeyEvent key) {
-		miJuego.moverBomberman(key.getKeyCode());
+		
+		int direccion = 0;
+		switch (key.getKeyCode()) {
+		case 38: // Arriba
+			direccion = 0;			
+			break;
+		case 40: // Abajo
+			direccion = 1;
+			break;
+		case 37: // Izquierda
+			direccion = 2;
+			break;
+		case 39: // Derecha
+			direccion = 3;
+			break;
+		}
+		
+		miJuego.moverBomberman(direccion);
 		this.revalidate();
 	}
 	

@@ -23,7 +23,7 @@ public abstract class Enemigo extends Personaje {
 	public void mover () {
 		
 		int random = r.nextInt(4);
-		super.mover(random);
+		//super.mover(random);
 	}
 
 	public void run () {

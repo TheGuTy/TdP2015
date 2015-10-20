@@ -56,9 +56,8 @@ public abstract class Personaje extends Thread {
 		case 0: {	//arriba					
 			yActual--;
 			if (yActual < 0)
-				yActual = 0;	
-			
-			ultimoMovimiento = "arriba";
+				yActual = 0;			
+			ultimoMovimiento = "arriba";			
 			break;
 		}
 		case 1: {	//abajo
@@ -84,11 +83,14 @@ public abstract class Personaje extends Thread {
 			break;
 		}		
 		}
-		
+		miGrafico.mover(dir);
+		miGrafico.changeIcon(dir);
 		celdaSiguiente = miTablero.getCelda(xActual, yActual);
 		
 		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion antes de moverme es x: " + getCelda().getX() + " - y: " + getCelda().getY());
 		celdaSiguiente.avanzar(this);
 		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY() + ". Mi movimiento fue " + ultimoMovimiento);
+		System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + miGrafico.getPos().getX() + " - y: " + miGrafico.getPos().getY() + ". Mi movimiento fue " + ultimoMovimiento);
+		
 	}
 }

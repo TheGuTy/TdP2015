@@ -36,15 +36,12 @@ public class Juego {
 		misEnemigos = new LinkedList<Enemigo>();
 		miTiempo = new Tiempo();
 		
-		gui.add(new JLabel(new ImageIcon(this.getClass().getResource("/Recursos/arr.png"))));
-		gui.revalidate();
-
 		Random r = new Random();
-		Enemigo e1 = new Altair(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
+		//Enemigo e1 = new Altair(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
 		//Enemigo e2 = new Rugulus(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
 		//Enemigo e3 = new Sirius(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
 		
-		misEnemigos.add(e1);
+		//misEnemigos.add(e1);
 		//misEnemigos.add(e2);
 		//misEnemigos.add(e3);		
 		
@@ -58,10 +55,20 @@ public class Juego {
 	public void iniciarJuego(){
 		
 		miBomberman.start();
-		for (Enemigo e : misEnemigos)
-			e.start();
-		
-		miTiempo.start();
+		gui.add(miBomberman.getGrafico());
+		gui.revalidate();		
+		miTiempo.start();		
+		try {
+			while (true) {
+							
+				
+				gui.revalidate();
+				Thread.sleep(500);
+			}
+		} catch (InterruptedException e1) {
+			
+			e1.printStackTrace();
+		}
 	}
 	
 	public void aumentarPuntaje (int p) {
@@ -81,7 +88,6 @@ public class Juego {
 	public void eliminarEnemigo (Enemigo e) {
 		
 	}	
-	
 	
 	public void moverBomberman (int dir) {
 		
