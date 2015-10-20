@@ -10,9 +10,9 @@ public class Bomberman extends Personaje {
 	protected int bombasDisponibles;
 	protected int miAlcanceBomba;
 
-	public Bomberman(Celda c, Tablero t) {
+	public Bomberman(Celda c, Tablero tablero) {
 
-		super(false, 1, c, t);
+		super(false, 1, c, tablero);
 	}
 
 	@Override
@@ -30,47 +30,42 @@ public class Bomberman extends Personaje {
 		miTablero.colocarBomba(miCelda.getX(), miCelda.getY(), miAlcanceBomba);
 	}
 
-	public void mover(int dir) {
+	public void mover(int dir) {		
 
-		int x = miCelda.getX();
-		int y = miCelda.getY();
-		Celda nueva = null;
+		int xActual = miCelda.getX();
+		int yActual = miCelda.getY();
+		Celda nueva = null;		
 
 		switch (dir) {
-		case KeyEvent.VK_UP: // Arriba
-			y--;
-			if (y <= 0)
-				y = 0;
-			nueva = miTablero.getCelda(x, y);
-			System.out.println("ARRIBA");
+		case 38: // Arriba
+			yActual--;
+			if (yActual <= 0)
+				yActual = 0;
+			nueva = miTablero.getCelda(xActual, yActual);			
 			break;
-		case KeyEvent.VK_DOWN: // Abajo
-			y++;
-			if (y >= miTablero.getAlto())
-				y = miTablero.getAlto() - 1;
-			nueva = miTablero.getCelda(x, y + 1);
-			System.out.println("ABAJO");
-			break;
-		case KeyEvent.VK_LEFT: // Izquierda
-			x--;
-			if (x <= 0)
-				x = 0;
-			nueva = miTablero.getCelda(x, y);
-			System.out.println("IZQUIERDA");
-			break;
-		case KeyEvent.VK_RIGHT: // Derecha
-			x++;
-			if (x == miTablero.getAncho())
-				x = miTablero.getAncho();
-			nueva = miTablero.getCelda(x, y);
-			System.out.println("DERECHA");
-			break;
-		default: {
-			this.setCelda(nueva);
-		}
-		}
+		case 40: // Abajo
+			yActual++;
+			if (yActual >= miTablero.getAlto())
+				yActual = miTablero.getAlto() - 1;
+			nueva = miTablero.getCelda(xActual, yActual);
 
-		System.out.println("Soy bomberman. Mi pos actual es x: " + x + " - y: " + y);
+			break;
+		case 37: // Izquierda
+			xActual--;
+			if (xActual <= 0)
+				xActual = 0;
+			nueva = miTablero.getCelda(xActual, yActual);
+
+			break;
+		case 39: // Derecha
+			xActual++;			
+			if (xActual == miTablero.getAncho())
+				xActual = miTablero.getAncho();
+			nueva = miTablero.getCelda(xActual, yActual);	
+		}
+		this.setCelda(nueva);
+		System.out.println("Soy bomberman. Mi pos actual es x: " + xActual + " - y: " + yActual);
+
 	}
 
 	private void moverArriba() {

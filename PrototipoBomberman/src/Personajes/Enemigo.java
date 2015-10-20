@@ -24,6 +24,7 @@ public abstract class Enemigo extends Personaje {
 		
 		int random = r.nextInt(4);		
 		int xActual = miCelda.getX(), yActual = miCelda.getY();
+		//System.out.println("xActual: "+xActual+" yActual: "+yActual);
 		Celda celdaSiguiente;
 		
 		switch (random) {
@@ -37,27 +38,24 @@ public abstract class Enemigo extends Personaje {
 			yActual++;
 			if (yActual >= miTablero.getAlto())
 				yActual = miTablero.getAlto() - 1;
-			;
 			break;
 		}
 		case 2: {	//izquierda
 			xActual--;
 			if (xActual <= 0)
 				xActual = 0;			
-			
-			
 			break;
 		}
 		case 3: {	//derecha
 			xActual++;
 			if (xActual >= miTablero.getAncho())
-				xActual = miTablero.getAncho() - 1;
-						
+				xActual = miTablero.getAncho() - 1;						
 			break;
 		}		
 		}
 		celdaSiguiente = miTablero.getCelda(xActual, yActual);
-		celdaSiguiente.avanzar(this);
+		this.setCelda(celdaSiguiente);
+		
 	}
 
 	public void run () {

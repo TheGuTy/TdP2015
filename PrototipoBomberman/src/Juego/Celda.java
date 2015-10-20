@@ -30,7 +30,7 @@ public class Celda {
 		misPersonajes = new LinkedList<Personaje>();
 	}
 	
-	public void avanzar (Personaje p) {
+	public void avanzar (Personaje p) {		
 		miEstado.avanzar(p, this);
 	}
 	
