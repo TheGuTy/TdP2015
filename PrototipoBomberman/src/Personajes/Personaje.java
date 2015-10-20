@@ -34,4 +34,8 @@ public abstract class Personaje extends Thread {
 		
 		miCelda = c;
 	}
+
+	public Celda getCelda() {
+		return miCelda;
+	}
 }

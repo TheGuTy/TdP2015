@@ -58,13 +58,11 @@ public class Celda {
 	}
 	
 	public void agregarPersonaje (Personaje p) {
-		
 		misPersonajes.add(p);
 	}
 	
 	public void eliminarPersonaje (Personaje p) {
-		
-		
+		misPersonajes.remove(p);
 	}
 	
 	public int getX () {
