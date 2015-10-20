@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Juego.Juego;
-import Gui.Tiempo;
 
 public class Gui extends JFrame {
 

@@ -27,4 +27,8 @@ public class Tiempo extends Thread {
 	public long tiempoTranscurrido (){
 		return System.currentTimeMillis() - horaInicioEnMillis;
 	}
+	
+	public void detener(){
+		this.interrupt();
+	}
 }
