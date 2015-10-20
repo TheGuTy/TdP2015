@@ -14,5 +14,6 @@ public class EstadoTransitable extends EstadoCelda {
 		p.getCelda().eliminarPersonaje(p);
 		p.setCelda(c);
 		c.agregarPersonaje(p);
+		
 	}
 }

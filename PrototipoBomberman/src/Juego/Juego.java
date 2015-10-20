@@ -2,6 +2,7 @@ package Juego;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Point;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -61,8 +62,11 @@ public class Juego {
 				miBomberman.start();
 				miTiempo.start();
 				
-				JLabel grafBomberman = miBomberman.getGrafico();
-				
+				JLabel grafBomberman = miBomberman.getLabel();
+				miBomberman.getGrafico().changeIcon(3);
+				grafBomberman.setLocation(miBomberman.getPos());
+				gui.add(grafBomberman);
+				gui.revalidate();
 				try {
 					while (true) {
 						grafBomberman.setLocation(miBomberman.getPos());
