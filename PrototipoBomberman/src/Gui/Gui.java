@@ -53,29 +53,43 @@ public class Gui extends JFrame {
 	}
 
 	private void mover(KeyEvent key) {
-		if (!lock) {
-			lock = true;
-			
-			int direccion = 0;
-			switch (key.getKeyCode()) {
-			case 38: // Arriba
-				direccion = 0;
-				break;
-			case 40: // Abajo
-				direccion = 1;
-				break;
-			case 37: // Izquierda
-				direccion = 2;
-				break;
-			case 39: // Derecha
-				direccion = 3;
-				break;
-			}
 
-			miJuego.moverBomberman(direccion);
-			this.revalidate();
-		}
-		lock = !lock;
+		Thread t = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				try {
+					if (!lock) {
+						lock = true;
+
+						int direccion = 0;
+						switch (key.getKeyCode()) {
+						case 38: // Arriba
+							direccion = 0;
+							break;
+						case 40: // Abajo
+							direccion = 1;
+							break;
+						case 37: // Izquierda
+							direccion = 2;
+							break;
+						case 39: // Derecha
+							direccion = 3;
+							break;
+						}
+
+						Thread.sleep(350);
+
+						miJuego.moverBomberman(direccion);
+						revalidate();
+						lock = !lock;
+					}
+				} catch (Exception e) {
+				}
+			}
+		});
+		t.start();
+
 	}
 
 	private void iniciarJuego() {

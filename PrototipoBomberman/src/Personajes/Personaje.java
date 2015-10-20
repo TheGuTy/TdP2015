@@ -16,90 +16,92 @@ public abstract class Personaje extends Thread {
 	protected Tablero miTablero;
 	protected volatile boolean estoyVivo;
 	protected GraficoPersonaje miGrafico;
-	
-	public Personaje (boolean modoDios, int vel, Celda c, Tablero t) {
-		
+
+	public Personaje(boolean modoDios, int vel, Celda c, Tablero t) {
+
 		this.modoDios = modoDios;
 		velocidad = vel;
-		miCelda = c;		
+		miCelda = c;
 		miTablero = t;
 		estoyVivo = true;
 		miGrafico = null;
 	}
-	
-	public abstract void matar ();
-	
-	public boolean enModoDios () {
-		
+
+	public abstract void matar();
+
+	public boolean enModoDios() {
+
 		return modoDios;
 	}
-	
-	public void setCelda (Celda c) {
-		
+
+	public void setCelda(Celda c) {
+
 		miCelda = c;
 	}
 
 	public Celda getCelda() {
 		return miCelda;
 	}
-	
-	public JLabel getLabel () {		
-		
+
+	public JLabel getLabel() {
+
 		return miGrafico.getGrafico();
 	}
-	
+
 	public GraficoPersonaje getGrafico() {
-		
+
 		return miGrafico;
 	}
-	
-	public Point getPos(){
+
+	public Point getPos() {
 		return miGrafico.getPos();
 	}
-	
-	public void mover(int dir){
+
+	public void mover(int dir) {
 		int xActual = miCelda.getX();
 		int yActual = miCelda.getY();
 		Celda celdaSiguiente;
 		String ultimoMovimiento = "";
-		
+
 		switch (dir) {
-		case 0: {	//arriba					
-			yActual--;
-			if (yActual < 0)
-				yActual = 0;			
-			ultimoMovimiento = "arriba";			
-			break;
-		}
-		case 1: {	//abajo
-			yActual++;
-			if (yActual >= miTablero.getAlto())
-				yActual = miTablero.getAlto() - 1;
-			
-			ultimoMovimiento = "abajo";
-			break;
-		}
-		case 2: {	//izquierda
-			xActual--;
-			if (xActual <= 0)
-				xActual = 0;		
-			ultimoMovimiento = "izquierda";
-			break;
-		}
-		case 3: {	//derecha
-			xActual++;
-			if (xActual >= miTablero.getAncho())
-				xActual = miTablero.getAncho() - 1;		
-			ultimoMovimiento = "derecha";
-			break;
-		}		
+			case 0: { // arriba
+				yActual--;
+				if (yActual < 0)
+					yActual = 0;
+				ultimoMovimiento = "arriba";
+				break;
+			}
+			case 1: { // abajo
+				yActual++;
+				if (yActual >= miTablero.getAlto())
+					yActual = miTablero.getAlto() - 1;
+	
+				ultimoMovimiento = "abajo";
+				break;
+			}
+			case 2: { // izquierda
+				xActual--;
+				if (xActual <= 0)
+					xActual = 0;
+				ultimoMovimiento = "izquierda";
+				break;
+			}
+			case 3: { // derecha
+				xActual++;
+				if (xActual >= miTablero.getAncho())
+					xActual = miTablero.getAncho() - 1;
+				ultimoMovimiento = "derecha";
+				break;
+			}
 		}
 		miGrafico.mover(dir);
 		miGrafico.changeIcon(dir);
 		celdaSiguiente = miTablero.getCelda(xActual, yActual);
-		
-		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion antes de moverme es x: " + getCelda().getX() + " - y: " + getCelda().getY());
+
+		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion antes de moverme es x: "
+				+ getCelda().getX() + " - y: " + getCelda().getY());
 		celdaSiguiente.avanzar(this);
-		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY() + ". Mi movimiento fue " + ultimoMovimiento);
+		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX()
+				+ " - y: " + getCelda().getY() + ". Mi movimiento fue " + ultimoMovimiento);
 	}
 }
