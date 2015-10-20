@@ -54,21 +54,29 @@ public class Juego {
 
 	public void iniciarJuego(){
 		
-		miBomberman.start();
-		gui.add(miBomberman.getGrafico());
-		gui.revalidate();		
-		miTiempo.start();		
-		try {
-			while (true) {
-							
-				
-				gui.revalidate();
-				Thread.sleep(500);
-			}
-		} catch (InterruptedException e1) {
+		Thread t = new Thread(new Runnable() {
 			
-			e1.printStackTrace();
-		}
+			@Override
+			public void run() {
+				miBomberman.start();
+				miTiempo.start();
+				
+				JLabel grafBomberman = miBomberman.getGrafico();
+				
+				try {
+					while (true) {
+						grafBomberman.setLocation(miBomberman.getPos());
+						gui.add(grafBomberman);
+						gui.revalidate();
+						Thread.sleep(50);
+					}
+				} catch (InterruptedException e1) {
+					
+					e1.printStackTrace();
+				}
+			}
+		});
+		t.start();
 	}
 	
 	public void aumentarPuntaje (int p) {

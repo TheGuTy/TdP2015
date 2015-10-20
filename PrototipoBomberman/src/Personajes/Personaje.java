@@ -1,5 +1,7 @@
 package Personajes;
 
+import java.awt.Point;
+
 import javax.swing.JLabel;
 
 import Graficos.GraficoPersonaje;
@@ -44,6 +46,10 @@ public abstract class Personaje extends Thread {
 	public JLabel getGrafico () {		
 		
 		return miGrafico.getGrafico();
+	}
+	
+	public Point getPos(){
+		return miGrafico.getPos();
 	}
 	
 	public void mover(int dir){

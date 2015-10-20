@@ -47,29 +47,29 @@ public abstract class GraficoPersonaje {
 					case 0 : // Arriba
 						for(int i = 0; i < this.alto; i += this.velocidad){
 							this.grafico.setBounds(this.pos.x, this.pos.y -= this.velocidad, ancho, alto);
-							Thread.sleep(100);
+//							Thread.sleep(100);
 						}
 						break;
 					case 1 : // Abajo
 						for(int i = 0; i < this.alto; i += this.velocidad){
 							this.grafico.setBounds(this.pos.x, this.pos.y += this.velocidad, ancho, alto);
-							Thread.sleep(100);
+//							Thread.sleep(100);
 						}
 						break;
 					case 3 : // Derecha
 						for(int i = 0; i < this.ancho; i += this.velocidad){
 							this.grafico.setBounds(this.pos.x += this.velocidad, this.pos.y, ancho, alto);
-							Thread.sleep(100);
+//							Thread.sleep(100);
 						}
 						break;
 					case 2 : // Izquierda
 						for(int i = 0; i < this.ancho; i += this.velocidad){
 							this.grafico.setBounds(this.pos.x -= this.velocidad, this.pos.y, ancho, alto);
-							Thread.sleep(100);
+//							Thread.sleep(100);
 						}
 						break;
 				}
-			} catch (InterruptedException e) {				
+			} catch (Exception e) {				
 				e.printStackTrace();
 			}
 		}
