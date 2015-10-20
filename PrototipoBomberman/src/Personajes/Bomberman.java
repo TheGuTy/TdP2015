@@ -58,13 +58,13 @@ public class Bomberman extends Personaje {
 
 			break;
 		case 39: // Derecha
-			xActual++;			
+			xActual++;
+			
 			if (xActual == miTablero.getAncho())
 				xActual = miTablero.getAncho();
 			nueva = miTablero.getCelda(xActual, yActual);	
 		}
-		this.setCelda(nueva);
-		System.out.println("Soy bomberman. Mi pos actual es x: " + xActual + " - y: " + yActual);
+		this.setCelda(nueva);		
 
 	}
 
