@@ -1,15 +1,16 @@
 package Personajes;
 
-import java.util.Random;
-
 import Juego.Celda;
 import Juego.Tablero;
 
 public class Altair extends Enemigo {
 
-	public Altair (Celda c, Tablero t) {
+	private final static int VELOCIDAD_INICIAL = 1;
+	private final static int PUNTAJE = 20;
+	
+	public Altair (Celda celda, Tablero t) {
 		
-		super(true, 1, c, t, 20);
+		super(false, VELOCIDAD_INICIAL, celda, t, PUNTAJE);
 	}
 
 	@Override

@@ -55,6 +55,7 @@ public abstract class Enemigo extends Personaje {
 		}
 		celdaSiguiente = miTablero.getCelda(xActual, yActual);
 		this.setCelda(celdaSiguiente);
+		System.out.println("Soy un enemigo. Mi posicion es x: " + getCelda().getX() + " - y: " + getCelda().getY() + " Mi clase es " + this.getClass().getName());
 		
 	}
 
@@ -63,7 +64,7 @@ public abstract class Enemigo extends Personaje {
 		try {
 			while (estoyVivo) {
 
-				Thread.sleep(2000);
+				Thread.sleep(2000 / velocidad);
 				this.mover();
 			}
 		} catch (InterruptedException e) {			

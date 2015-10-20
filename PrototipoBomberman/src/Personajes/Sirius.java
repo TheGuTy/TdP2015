@@ -5,15 +5,18 @@ import Juego.Tablero;
 
 public class Sirius extends Enemigo {
 
-	public Sirius (Celda c, Tablero t) {
+	private final static int VELOCIDAD_INICIAL = 3;
+	private final static int PUNTAJE = 50;
+	
+	public Sirius (Celda celda, Tablero t) {
 		
-		super(false, 3, c, t, 50);
+		super(false, VELOCIDAD_INICIAL, celda, t, PUNTAJE);
 	}
 
 	@Override
 	public void mover() {
 		
-		
+		super.mover();
 	}
 
 	@Override

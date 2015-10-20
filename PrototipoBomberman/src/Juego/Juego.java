@@ -1,6 +1,5 @@
 package Juego;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -8,6 +7,8 @@ import java.util.Random;
 import Personajes.Altair;
 import Personajes.Bomberman;
 import Personajes.Enemigo;
+import Personajes.Rugulus;
+import Personajes.Sirius;
 
 public class Juego {
 
@@ -24,14 +25,18 @@ public class Juego {
 		misEnemigos = new LinkedList<Enemigo>();
 		
 		Random r = new Random();
-		int rnd = r.nextInt(31);
-		for (int i = 0; i < 1; i++) {
-			int rx = r.nextInt(31), ry = r.nextInt(31);
-			Enemigo e = new Altair(miTablero.getCelda(rx, ry), miTablero);
-			e.start();
-			misEnemigos.add(e);			
-		}				
+		Enemigo e1 = new Altair(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
+		Enemigo e2 = new Rugulus(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
+		Enemigo e3 = new Sirius(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
 		
+		misEnemigos.add(e1);
+		misEnemigos.add(e2);
+		misEnemigos.add(e3);
+	}				
+		
+	public void iniciarJuego(){
+		for (Enemigo e : misEnemigos)
+			e.start();
 	}
 	
 	public void aumentarPuntaje (int p) {

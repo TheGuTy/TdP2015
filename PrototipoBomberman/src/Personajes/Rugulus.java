@@ -5,15 +5,18 @@ import Juego.Tablero;
 
 public class Rugulus extends Enemigo {
 	
-	public Rugulus (Celda c, Tablero t) {
+	private final static int VELOCIDAD_INICIAL = 1;
+	private final static int PUNTAJE = 15;
+	
+	public Rugulus (Celda celda, Tablero t) {
 		
-		super(false, 1, c, t, 15);
+		super(false, VELOCIDAD_INICIAL, celda, t, PUNTAJE);
 	}
 
 	@Override
 	public void mover() {
 		
-		
+		super.mover();
 	}
 
 	@Override

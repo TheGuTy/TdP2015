@@ -1,1 +1,3 @@
 Quitar 37, 38, 39 y 40 como las teclas recibidas. Usar algo mas elegante y abstracto
+
+Chequear que al crear un enemigo, este no quede arriba de una celda no valida
