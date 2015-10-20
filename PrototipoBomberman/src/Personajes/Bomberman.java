@@ -1,8 +1,5 @@
 package Personajes;
 
-import java.awt.event.KeyEvent;
-
-import Graficos.GraficoBomberman;
 import Juego.Celda;
 import Juego.Tablero;
 
@@ -34,59 +31,20 @@ public class Bomberman extends Personaje {
 
 	public void mover(int dir) {
 
-		int xActual = miCelda.getX();
-		int yActual = miCelda.getY();
-		Celda celdaSiguiente;
-		String ultimoMovimiento = "";
-
 		switch (dir) {
 		case 38: // Arriba
-			yActual--;
-			if (yActual < 0)
-				yActual = 0;
-			ultimoMovimiento = "arriba";
+			super.mover(0);
 			break;
 		case 40: // Abajo
-			yActual++;
-			if (yActual >= miTablero.getAlto())
-				yActual = miTablero.getAlto() - 1;
-			ultimoMovimiento = "abajo";
+			super.mover(1);
 			break;
 		case 37: // Izquierda
-			xActual--;
-			if (xActual <= 0)
-				xActual = 0;
-			ultimoMovimiento = "izquierda";
+			super.mover(2);
 			break;
 		case 39: // Derecha
-			xActual++;
-			if (xActual == miTablero.getAncho())
-				xActual = miTablero.getAncho() - 1;
-			ultimoMovimiento = "derecha";
+			super.mover(3);
 			break;
 		}
-
-		celdaSiguiente = miTablero.getCelda(xActual, yActual);
-		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion antes de moverme es x: " + getCelda().getX() + " - y: " + getCelda().getY());
-		celdaSiguiente.avanzar(this);
-		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY()  + ". Mi movimiento fue " + ultimoMovimiento);
-
-	}
-
-	private void moverArriba() {
-
-	}
-
-	private void moverAbajo() {
-
-	}
-
-	private void moverIzquierda() {
-
-	}
-
-	private void moverDerecha() {
-
 	}
 
 	public void duplicarVelocidad() {

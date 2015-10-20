@@ -46,17 +46,14 @@ public class Gui extends JFrame {
 		contentPane.setLayout(new BorderLayout());
 		contentPane.setBackground(Color.GREEN);
 		
-			
-		repaint();
 		setVisible(true);
 				
-		
 		miJuego = new Juego(this);		
 	}
 	
 	private void mover (KeyEvent key) {
 		miJuego.moverBomberman(key.getKeyCode());
-		this.repaint();
+		this.revalidate();
 	}
 	
 	private void iniciarJuego () {

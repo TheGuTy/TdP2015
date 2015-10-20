@@ -28,14 +28,17 @@ public class Juego {
 	
 	public Juego (Gui gui) {
 		
+		this.gui = gui;
 		puntaje = 0;
 		miTablero = new Tablero(50, this, 31, 31);
 		miTiempo = new Tiempo();
 		miBomberman = new Bomberman(miTablero.getCelda(1, 1), miTablero);
 		misEnemigos = new LinkedList<Enemigo>();
 		miTiempo = new Tiempo();
-		this.gui = gui;
 		
+		gui.add(new JLabel(new ImageIcon(this.getClass().getResource("/Recursos/arr.png"))));
+		gui.revalidate();
+
 		Random r = new Random();
 		Enemigo e1 = new Altair(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
 		//Enemigo e2 = new Rugulus(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
@@ -53,11 +56,6 @@ public class Juego {
 	}
 
 	public void iniciarJuego(){
-		
-		JLabel label = new JLabel("asdasd");
-		label.setBackground(Color.BLUE);
-		label.setIcon(new ImageIcon(this.getClass().getResource("/Recursos/arr.png")));
-		gui.add(label,BorderLayout.CENTER);	
 		
 		miBomberman.start();
 		for (Enemigo e : misEnemigos)

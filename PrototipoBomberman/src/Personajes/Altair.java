@@ -16,12 +16,6 @@ public class Altair extends Enemigo {
 	}
 
 	@Override
-	public void mover() {
-		
-		super.mover();
-	}
-
-	@Override
 	public void matar() {
 		
 		

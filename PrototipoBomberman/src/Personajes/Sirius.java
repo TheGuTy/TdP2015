@@ -14,12 +14,6 @@ public class Sirius extends Enemigo {
 	}
 
 	@Override
-	public void mover() {
-		
-		super.mover();
-	}
-
-	@Override
 	public void matar() {
 		
 		
