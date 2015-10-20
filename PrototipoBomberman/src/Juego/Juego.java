@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import Gui.Tiempo;
 import Personajes.Altair;
 import Personajes.Bomberman;
 import Personajes.Enemigo;
@@ -16,6 +17,7 @@ public class Juego {
 	private Tablero miTablero;
 	private Bomberman miBomberman;
 	private List<Enemigo> misEnemigos;
+	private Tiempo miTiempo;
 	
 	public Juego () {
 		
@@ -34,9 +36,15 @@ public class Juego {
 		misEnemigos.add(e3);
 	}				
 		
+	public Tiempo getMiTiempo() {
+		return miTiempo;
+	}
+
 	public void iniciarJuego(){
 		for (Enemigo e : misEnemigos)
 			e.start();
+		
+		miTiempo.start();
 	}
 	
 	public void aumentarPuntaje (int p) {

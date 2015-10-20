@@ -4,27 +4,27 @@ import Juego.Juego;
 
 public class Tiempo extends Thread {
 
-	protected Juego miJuego;	
-	
-	public Tiempo (Juego j) {
-		
-		miJuego = j;
+	private long horaInicioEnMillis;
+
+	public Tiempo() {
+		this.horaInicioEnMillis = System.currentTimeMillis();
 	}
 	
-	public void comenzar () {
-		
+	public void run() {
+		while(true){
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public long getHoraInicioEnMillis() {
+		return horaInicioEnMillis;
 	}
 	
-	public void detener () {
-		
-	}
-	
-	public long tiempoTranscurrido () {
-		
-		return 0;
-	}
-	
-	public void run () {		
-		
+	public long tiempoTranscurrido (){
+		return System.currentTimeMillis() - horaInicioEnMillis;
 	}
 }

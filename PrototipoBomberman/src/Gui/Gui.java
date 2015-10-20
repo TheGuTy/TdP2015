@@ -16,7 +16,6 @@ import Gui.Tiempo;
 public class Gui extends JFrame {
 
 	private Juego miJuego;
-	private Tiempo miTiempo;
 	private JPanel contentPane;
 	
 	private Gui (String nombre) {
@@ -46,7 +45,8 @@ public class Gui extends JFrame {
 		contentPane.setLayout(null);
 		contentPane.setBackground(Color.GREEN);		
 				
-		miJuego = new Juego();	
+		
+		miJuego = new Juego();
 		miJuego.iniciarJuego();
 	}
 	
