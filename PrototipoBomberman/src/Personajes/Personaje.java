@@ -94,7 +94,6 @@ public abstract class Personaje extends Thread {
 			break;
 		}		
 		}
-		System.out.println("Soy " + this.getClass().getName() + ". Mi POINT VIEJA es x: " + miGrafico.getPos().getX() + " - y: " + miGrafico.getPos().getY() + ". Mi movimiento fue " + ultimoMovimiento);
 		miGrafico.mover(dir);
 		miGrafico.changeIcon(dir);
 		celdaSiguiente = miTablero.getCelda(xActual, yActual);
@@ -102,8 +101,5 @@ public abstract class Personaje extends Thread {
 		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion antes de moverme es x: " + getCelda().getX() + " - y: " + getCelda().getY());
 		celdaSiguiente.avanzar(this);
 		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY() + ". Mi movimiento fue " + ultimoMovimiento);
-		
-		System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + miGrafico.getPos().getX() + " - y: " + miGrafico.getPos().getY() + ". Mi movimiento fue " + ultimoMovimiento);
-		
 	}
 }

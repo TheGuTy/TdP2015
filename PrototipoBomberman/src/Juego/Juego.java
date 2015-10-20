@@ -33,9 +33,10 @@ public class Juego {
 		puntaje = 0;
 		miTablero = new Tablero(50, this, 31, 31);
 		miTiempo = new Tiempo();
+		
 		miBomberman = new Bomberman(miTablero.getCelda(1, 1), miTablero);
+		
 		misEnemigos = new LinkedList<Enemigo>();
-		miTiempo = new Tiempo();
 		
 		Random r = new Random();
 		//Enemigo e1 = new Altair(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
@@ -45,7 +46,6 @@ public class Juego {
 		//misEnemigos.add(e1);
 		//misEnemigos.add(e2);
 		//misEnemigos.add(e3);		
-		
 		
 	}				
 		
@@ -66,7 +66,7 @@ public class Juego {
 				miBomberman.getGrafico().changeIcon(3);
 				grafBomberman.setLocation(miBomberman.getPos());
 				gui.add(grafBomberman);
-				gui.revalidate();
+				gui.repaint();
 				try {
 					while (true) {
 						grafBomberman.setLocation(miBomberman.getPos());
@@ -75,7 +75,6 @@ public class Juego {
 						Thread.sleep(50);
 					}
 				} catch (InterruptedException e1) {
-					
 					e1.printStackTrace();
 				}
 			}
