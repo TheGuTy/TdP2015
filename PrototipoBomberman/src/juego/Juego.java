@@ -6,7 +6,7 @@ import java.util.List;
 import javax.swing.JLabel;
 
 import gui.Const;
-import gui.Gui;
+import gui.GUI;
 import gui.Tiempo;
 import personajes.Altair;
 import personajes.Bomberman;
@@ -20,9 +20,9 @@ public class Juego {
 	private Bomberman miBomberman;
 	private List<EnemigoThread> misEnemigos;
 	private Tiempo miTiempo;
-	private Gui gui;
+	private GUI gui;
 	
-	public Juego (Gui gui) {
+	public Juego (GUI gui) {
 		
 		this.gui = gui;
 		puntaje = 0;

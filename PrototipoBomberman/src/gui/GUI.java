@@ -12,7 +12,7 @@ import javax.swing.border.EmptyBorder;
 import juego.Juego;
 
 @SuppressWarnings("serial")
-public class Gui extends JFrame {
+public class GUI extends JFrame {
 
 	private Juego miJuego;
 	public JPanel contentPane;
@@ -22,7 +22,7 @@ public class Gui extends JFrame {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Gui g = new Gui("Bomberman");
+		GUI g = new GUI("Bomberman");
 		g.iniciarJuego();
 
 		try {
@@ -36,7 +36,7 @@ public class Gui extends JFrame {
 		}
 	}
 
-	private Gui(String nombre) {
+	private GUI(String nombre) {
 
 		super(nombre);
 		setPreferredSize(new Dimension(Const.ANCHO_GUI, Const.ALTO_GUI));
