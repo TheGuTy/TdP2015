@@ -54,108 +54,130 @@ public abstract class Personaje {
 	public Point getPos() {
 		return miGrafico.getPos();
 	}
-	
+
 	/**
-	 * Basandose en la celda/posicion actual se calcula la que deberia ser la siguiente segun la direccion recibida
-	 * @param dir direccion hacia donde se desea avanzar a este personaje
+	 * Basandose en la celda/posicion actual se calcula la que deberia ser la
+	 * siguiente segun la direccion recibida
+	 * 
+	 * @param dir
+	 *            direccion hacia donde se desea avanzar a este personaje
 	 * @return la celda que deberia ser la siguiente segun la direccion recibida
 	 */
-	protected Celda calcularCeldaSiguiente(int dir){
+	protected Celda calcularCeldaSiguiente(int dir) {
 		int xActual = miCelda.getX();
 		int yActual = miCelda.getY();
 
 		switch (dir) {
-			case 0: { // arriba
-				yActual--;
-				if (yActual < 0)
-					yActual = 0;
-				break;
-			}
-			case 1: { // abajo
-				yActual++;
-				if (yActual >= miTablero.getAlto())
-					yActual = miTablero.getAlto() - 1;
-				break;
-			}
-			case 2: { // izquierda
-				xActual--;
-				if (xActual <= 0)
-					xActual = 0;
-				break;
-			}
-			case 3: { // derecha
-				xActual++;
-				if (xActual >= miTablero.getAncho())
-					xActual = miTablero.getAncho() - 1;
-				break;
-			}
+		case 0: { // arriba
+			yActual--;
+			if (yActual < 0)
+				yActual = 0;
+			break;
 		}
-		
+		case 1: { // abajo
+			yActual++;
+			if (yActual >= miTablero.getAlto())
+				yActual = miTablero.getAlto() - 1;
+			break;
+		}
+		case 2: { // izquierda
+			xActual--;
+			if (xActual <= 0)
+				xActual = 0;
+			break;
+		}
+		case 3: { // derecha
+			xActual++;
+			if (xActual >= miTablero.getAncho())
+				xActual = miTablero.getAncho() - 1;
+			break;
+		}
+		}
+
 		return miTablero.getCelda(xActual, yActual);
 	}
-	
+
 	/**
-	 * Clase encargada de mover el grafico del personaje segun la direccion recibida.
-	 * Se utiliza un Thread como recurso para emular la transicion del personaje de una celda a la otra.
-	 * Sin este thread no se podria lograr este efecto.
-	 * @param dir direccion donde el personaje debe dirigirse
+	 * Clase encargada de mover el grafico del personaje segun la direccion
+	 * recibida. Se utiliza un Thread como recurso para emular la transicion del
+	 * personaje de una celda a la otra. Sin este thread no se podria lograr
+	 * este efecto.
+	 * 
+	 * @param dir
+	 *            direccion donde el personaje debe dirigirse
 	 */
 	public void moverGrafica(int dir) {
-		
-		lock = true;
-		
-		if (this.miGrafico != null) {
+
+
+//		if (!lock) {
 			
-			miGrafico.changeIcon(dir);
+			lock = true;
 			
-			Thread t = new Thread(new Runnable() {
-				
-				@Override
-				public void run() {
-					try {
-						switch (dir) {
-						case Const.MOVIMIENTO_ARRIBA:
-							for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
-								miGrafico.getGrafico().setBounds(miGrafico.getPos().x, miGrafico.getPos().y -= velocidad, miGrafico.getAncho(), miGrafico.getAlto());
-								Thread.sleep(10);
+//			if (this.miGrafico != null) {
+
+				miGrafico.changeIcon(dir);
+				Thread t = new Thread(new Runnable() {
+
+					@Override
+					public void run() {
+						try {
+							switch (dir) {
+							case Const.MOVIMIENTO_ARRIBA:
+								for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+									miGrafico.getGrafico().setBounds(miGrafico.getPos().x,
+											miGrafico.getPos().y -= velocidad, miGrafico.getAncho(),
+											miGrafico.getAlto());
+									Thread.sleep(10);
+								}
+								break;
+							case Const.MOVIMIENTO_ABAJO:
+								for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+									miGrafico.getGrafico().setBounds(miGrafico.getPos().x,
+											miGrafico.getPos().y += velocidad, miGrafico.getAncho(),
+											miGrafico.getAlto());
+									Thread.sleep(10);
+								}
+								break;
+							case Const.MOVIMIENTO_IZQUIERDA:
+								for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+									miGrafico.getGrafico().setBounds(miGrafico.getPos().x -= velocidad,
+											miGrafico.getPos().y, miGrafico.getAncho(), miGrafico.getAlto());
+									Thread.sleep(10);
+								}
+								break;
+							case Const.MOVIMIENTO_DERECHA:
+								for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+									miGrafico.getGrafico().setBounds(miGrafico.getPos().x += velocidad,
+											miGrafico.getPos().y, miGrafico.getAncho(), miGrafico.getAlto());
+									Thread.sleep(10);
+								}
+								break;
 							}
-							break;
-						case Const.MOVIMIENTO_ABAJO:
-							for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
-								miGrafico.getGrafico().setBounds(miGrafico.getPos().x, miGrafico.getPos().y += velocidad, miGrafico.getAncho(), miGrafico.getAlto());
-								Thread.sleep(10);
-							}
-							break;
-						case Const.MOVIMIENTO_IZQUIERDA:
-							for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
-								miGrafico.getGrafico().setBounds(miGrafico.getPos().x -= velocidad, miGrafico.getPos().y, miGrafico.getAncho(), miGrafico.getAlto());
-								Thread.sleep(10);
-							}
-							break;
-						case Const.MOVIMIENTO_DERECHA:
-							for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
-								miGrafico.getGrafico().setBounds(miGrafico.getPos().x += velocidad, miGrafico.getPos().y, miGrafico.getAncho(), miGrafico.getAlto());
-								Thread.sleep(10);
-							}
-							break;
+							
+
+						} catch (InterruptedException e) {
+							e.printStackTrace();
 						}
-		
-					} catch (InterruptedException e) {
-						e.printStackTrace();
+						
+						lock = false;
+						System.out.println("TERMINO THREAD GRAF");
 					}
-				}
-			});
-			t.start();
-		}
-		
-		lock = false;
+				});
+				
+				t.start();
+//			}
+			
+//		}
+//		else
+//			System.out.println("estoy lock");
+
 	}
-	
+
 	public boolean getLock() {
 		return lock;
 	}
-	
-	public void lock(){
+
+	public void lock() {
 		lock = true;
 	}
 }

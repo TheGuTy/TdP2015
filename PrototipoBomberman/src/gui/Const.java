@@ -1,5 +1,7 @@
 package gui;
 
+import java.util.Date;
+
 public class Const {
 
 	public static final int MOVIMIENTO_ARRIBA    = 0;
@@ -19,4 +21,5 @@ public class Const {
 	public static final int ALTO_GUI = ALTO_CELDA * CANT_CELDAS_ALTO;
 	
 	public static final int PORCENTAJE_DESTRUIBLES = 50;
+	public static final int TIEMPO_DETONACION = 5000;
 }

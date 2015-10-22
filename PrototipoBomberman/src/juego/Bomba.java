@@ -2,6 +2,7 @@ package juego;
 
 import graficos.GraficoBomba;
 import graficos.GraficoEstructuras;
+import gui.Const;
 
 public class Bomba {
 
@@ -28,6 +29,6 @@ public class Bomba {
 				// con un for. Estamos dentro de un thread, asi que podemos llamar
 				// a Thread.sleep entre cada imagen y asi lograr el efecto.
 			}
-		}, 5000);
+		}, Const.TIEMPO_DETONACION);
 	}
 }
