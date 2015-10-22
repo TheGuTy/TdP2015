@@ -37,7 +37,8 @@ public class Tablero {
 	
 	public void colocarBomba (int x, int y, int alcance) {
 		Celda c = getCelda(x, y);
-		Bomba b = new Bomba(c, 1, this);
+		Bomba b = new Bomba(c, alcance, this);
+		gui.add(b.getGrafico().getLabel());
 		b.comenzarDetonacion();
 	}
 	
@@ -83,5 +84,9 @@ public class Tablero {
 	public int getAlto () {
 		
 		return this.alto;
+	}
+
+	public void devolverBomba() {
+		miJuego.getBomberman().aumentarBombasDisponibles();
 	}
 }

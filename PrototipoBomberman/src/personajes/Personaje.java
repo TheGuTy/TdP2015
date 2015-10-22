@@ -103,18 +103,12 @@ public abstract class Personaje {
 	 * personaje de una celda a la otra. Sin este thread no se podria lograr
 	 * este efecto.
 	 * 
-	 * @param dir
-	 *            direccion donde el personaje debe dirigirse
+	 * @param dir direccion donde el personaje debe dirigirse
 	 */
 	public void moverGrafica(int dir) {
 
-
-//		if (!lock) {
-			
 			lock = true;
 			
-//			if (this.miGrafico != null) {
-
 				miGrafico.changeIcon(dir);
 				Thread t = new Thread(new Runnable() {
 
@@ -160,7 +154,6 @@ public abstract class Personaje {
 						}
 						
 						lock = false;
-						System.out.println("TERMINO THREAD GRAF");
 					}
 				});
 				

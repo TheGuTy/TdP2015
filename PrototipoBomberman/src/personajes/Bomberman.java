@@ -14,6 +14,7 @@ public class Bomberman extends Personaje {
 
 		super(false, 2, c, tablero);
 		this.miGrafico = new GraficoBomberman(2, 1, 1);
+		bombasDisponibles = 1;
 	}
 
 	@Override
@@ -26,7 +27,13 @@ public class Bomberman extends Personaje {
 	}
 
 	public void colocarBomba() {
-		miTablero.colocarBomba(miCelda.getX(), miCelda.getY(), miAlcanceBomba);
+		if (bombasDisponibles > 0){
+			bombasDisponibles--;
+			miTablero.colocarBomba(miCelda.getX(), miCelda.getY(), miAlcanceBomba);
+		}
+		else{
+			System.out.println("No hay bombas disponibles!");
+		}
 	}
 
 	public void mover(int dir) {

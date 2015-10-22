@@ -28,7 +28,13 @@ public class Bomba {
 				// convenga que tenga varias imagenes la bomba y las recorremos
 				// con un for. Estamos dentro de un thread, asi que podemos llamar
 				// a Thread.sleep entre cada imagen y asi lograr el efecto.
+				miGrafico.getLabel().setIcon(null);
+				miTablero.devolverBomba();
 			}
 		}, Const.TIEMPO_DETONACION);
+	}
+	
+	public GraficoEstructuras getGrafico() {
+		return miGrafico;
 	}
 }
