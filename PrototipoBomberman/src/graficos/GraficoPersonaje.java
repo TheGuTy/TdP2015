@@ -10,8 +10,8 @@ import gui.Const;
 public abstract class GraficoPersonaje {
 	protected JLabel grafico;
 	protected Icon imagenes[];
-	protected final int ancho = Const.ANCHO_PERSONAJE;
-	protected final int alto = Const.ALTO_PERSONAJE;
+	protected final int ancho = Const.ANCHO_CELDA;
+	protected final int alto = Const.ALTO_CELDA;
 
 	protected int velocidad;
 

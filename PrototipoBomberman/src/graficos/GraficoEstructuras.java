@@ -8,16 +8,17 @@ import javax.swing.JLabel;
 import gui.Const;
 
 public abstract class GraficoEstructuras {
-	protected JLabel grafico;
+	protected JLabel label;
 	protected Icon imagenes[];
-	protected final int ancho = Const.ANCHO_PERSONAJE;
-	protected final int alto = Const.ALTO_PERSONAJE;
+	protected final int ancho = Const.ANCHO_CELDA;
+	protected final int alto = Const.ALTO_CELDA;
 
 	protected Point pos;
 
 	protected GraficoEstructuras(int x, int y) {
 		this.pos = new Point(x * this.ancho, y * this.alto);
 		this.imagenes = new Icon[1];
+		label = null;
 	}
 
 	public Point getPos() {
@@ -25,15 +26,15 @@ public abstract class GraficoEstructuras {
 	}
 
 	public void changeIcon(int dir) {
-		this.grafico.setIcon(this.imagenes[dir]);
+		this.label.setIcon(this.imagenes[dir]);
 	}
 
-	public JLabel getGrafico() {
-		if (this.grafico == null) {
-			this.grafico = new JLabel(imagenes[0]);
-			this.grafico.setBounds(this.pos.x, this.pos.y, ancho, alto);
+	public JLabel getLabel() {
+		if (this.label == null) {
+			this.label = new JLabel(imagenes[0]);
+			this.label.setBounds(this.pos.x, this.pos.y, ancho, alto);
 		}
-		return this.grafico;
+		return this.label;
 	}
 	
 	public int getAlto() {

@@ -1,8 +1,6 @@
 package juego;
 
-import graficos.GraficoParedNoDestruible;
 import gui.GUI;
-import personajes.Enemigo;
 
 public class Tablero {
 
@@ -24,12 +22,17 @@ public class Tablero {
 			for (int j = 0; j < this.alto; j++) {
 				misCeldas [i][j] = new Celda(i, j, this);
 				//TODO crear todas las celdas con sus graficas. Patron builder? Factory?
-				misCeldas [i][j].setEstado(new EstadoTransitable(i, j));	//Al crear todas las celdas asumo que todas son transitables
+				misCeldas [i][j].setEstado(new EstadoTransitable(i, j));	//Al crear todas las celdas asumo que todas son transitables				
 			}
 		}
 		
 		crearNoDestruibles();
 		distribuirDestruibles();
+		
+		//luego de setear todos los estados a la celda, agrego el JLabel de cada celda a la gui
+		for (int i = 0; i < this.ancho; i++)
+			for (int j = 0; j < this.alto; j++)				 
+				gui.add(misCeldas[i][j].getEstado().miGrafico.getLabel());
 	}
 	
 	public void colocarBomba (int x, int y, int alcance) {
@@ -44,44 +47,70 @@ public class Tablero {
 	
 	private void crearNoDestruibles () {
 		
-		Celda c;
+		Celda celda;
 		
-		for (int i = 0; i < this.alto; i++) {
-			c = misCeldas[0][i];
-			c.setEstado(new EstadoNoDestruible(0, i));
-			gui.add(c.getEstado().miGrafico.getGrafico());
-			c = misCeldas[ancho-1][i];
-			c.setEstado(new EstadoNoDestruible(ancho-1, i));
-			gui.add(c.getEstado().miGrafico.getGrafico());
+		/*
+		for (int i = 0; i < this.alto; i++) {			
+			
+			//columna izquierda
+			celda = misCeldas[0][i];
+			celda.setEstado(new EstadoNoDestruible(0, i));
+			
+			//columna derecha
+			celda = misCeldas[this.ancho-1][i];
+			celda.setEstado(new EstadoNoDestruible(this.ancho-1, i));			
 		}
+		
 		
 		for (int i = 0; i < this.ancho; i++){
-			c = misCeldas[i][0];
-			c.setEstado(new EstadoNoDestruible(i, 0));
-			gui.add(c.getEstado().miGrafico.getGrafico());
-			c = misCeldas[i][alto-20];
-			c.setEstado(new EstadoNoDestruible(i, alto-20));
-			gui.add(c.getEstado().miGrafico.getGrafico());
+			//fila superior 
+			celda = misCeldas[i][0];
+			celda.setEstado(new EstadoNoDestruible(i, 0));
+			
+			//fila inferior
+			celda = misCeldas[i][this.alto-1];
+			celda.setEstado(new EstadoNoDestruible(i, this.alto-1));			
 		}
+		
+		for (int i = 0; i < this.ancho; i++)
+			misCeldas[i][11].setEstado(new EstadoNoDestruible(i, 11));
+			*/
+		
+		//lado superior
+		for (int i = 0; i < this.ancho; i++)
+			misCeldas[i][0].setEstado(new EstadoNoDestruible(i, 0));
+		
+		//lado inferior
+		for (int i = 0; i < this.ancho; i++)
+			misCeldas[i][this.alto-2].setEstado(new EstadoNoDestruible(i, this.alto-2));
+		
+		//lado izquierdo
+		for (int i = 0; i < this.alto; i++)
+			misCeldas[0][i].setEstado(new EstadoNoDestruible(0, i));
+		
+		//lado derecho
+		for (int i = 0; i < this.alto; i++)
+			misCeldas[this.ancho-1][i].setEstado(new EstadoNoDestruible(this.ancho-1, i));
 	}
 	
 	private void distribuirDestruibles () {
 		
+		//crear paredes destruibles segun algun porcentaje. el inicial es 50%
 	}
 	
 	public void aumentarPuntaje (int p) {
-		miJuego.aumentarPuntaje(p);
-	}
-	
-	public void eliminarEnemigo (Enemigo e) {
 		
-	}
+		miJuego.aumentarPuntaje(p);
+	}	
+	
 	
 	public int getAncho () {
-		return ancho;
+		
+		return this.ancho;
 	}
 	
 	public int getAlto () {
-		return alto;
+		
+		return this.alto;
 	}
 }

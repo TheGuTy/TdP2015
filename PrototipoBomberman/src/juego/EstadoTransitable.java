@@ -1,5 +1,6 @@
 package juego;
 
+import graficos.GraficoCeldaTransitable;
 import graficos.GraficoEstructuras;
 import graficos.GraficoParedNoDestruible;
 import personajes.Bomberman;
@@ -8,7 +9,7 @@ import personajes.Enemigo;
 public class EstadoTransitable extends EstadoCelda {
 
 	protected EstadoTransitable(int x, int y) {
-		super(new GraficoParedNoDestruible(x, y));
+		super(new GraficoCeldaTransitable(x, y));
 	}
 
 
