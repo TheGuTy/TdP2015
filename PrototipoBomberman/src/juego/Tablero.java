@@ -57,22 +57,6 @@ public class Tablero {
 				if((i%2==0)&&(j%2==0)) misCeldas[i][j].setEstado(new EstadoNoDestruible(i, j));
 			}
 		}
-//		
-//		//lado superior
-//		for (int i = 0; i < Const.CANT_CELDAS_ANCHO; i++)
-//			misCeldas[i][0].setEstado(new EstadoNoDestruible(i, 0));
-//		
-//		//lado inferior
-//		for (int i = 0; i < Const.CANT_CELDAS_ANCHO; i++)
-//			misCeldas[i][Const.CANT_CELDAS_ANCHO-2].setEstado(new EstadoNoDestruible(i, Const.CANT_CELDAS_ANCHO-2));
-//		
-//		//lado izquierdo
-//		for (int i = 0; i < Const.CANT_CELDAS_ANCHO; i++)
-//			misCeldas[0][i].setEstado(new EstadoNoDestruible(0, i));
-//		
-//		//lado derecho
-//		for (int i = 0; i < Const.CANT_CELDAS_ANCHO; i++)
-//			misCeldas[Const.CANT_CELDAS_ANCHO-1][i].setEstado(new EstadoNoDestruible(Const.CANT_CELDAS_ANCHO-1, i));
 	}
 	
 	private void distribuirDestruibles () {
