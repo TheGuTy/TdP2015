@@ -21,50 +21,52 @@ public class EstadoBomba extends EstadoCelda {
 
 	@Override
 	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {
+		System.out.println("AVANZAR BOMBERMAN DESDE ESTADO BOMBA");
 
-		if (bomberman.enModoAtravesar()) {
-			if (celdaSiguiente.hayEnemigos()) {
-				bomberman.matar();
-				System.out.println("El bomberman colisiona con un enemigo");
-			} else {
-				if (bomberman.getLock() == false) {
-					bomberman.lock();
-					bomberman.getCelda().eliminarBomberman();
-					bomberman.setCelda(celdaSiguiente);
-					celdaSiguiente.agregarBomberman(bomberman);
-					
-					bomberman.moverGrafica(dir);
-				} else
-					System.out.println("Bomberman esta bloqueado");
-			}
-		}
+//		if (bomberman.enModoAtravesar()) {
+//			if (celdaSiguiente.hayEnemigos()) {
+//				bomberman.matar();
+//				System.out.println("El bomberman colisiona con un enemigo");
+//			} else {
+//				if (bomberman.getLock() == false) {
+//					bomberman.lock();
+//					bomberman.getCelda().eliminarBomberman();
+//					bomberman.setCelda(celdaSiguiente);
+//					celdaSiguiente.agregarBomberman(bomberman);
+//					
+//					bomberman.moverGrafica(dir);
+//				} else
+//					System.out.println("Bomberman esta bloqueado");
+//			}
+//		}
 	}
 
 	@Override
 	public void avanzar(Enemigo enemigo, Celda celdaSiguiente, int dir) {
 
-		if (enemigo.enModoAtravesar()) {
-			if (celdaSiguiente.hayBomberman()) {
-				if (enemigo.getLock() == false) {
-					enemigo.lock();
-					System.out.println("El enemigo colisiona con bomberman");
-					celdaSiguiente.matarBomberman();
-					enemigo.getCelda().eliminarEnemigo(enemigo);
-					enemigo.setCelda(celdaSiguiente);
-					celdaSiguiente.agregarEnemigo(enemigo);
-					
-					enemigo.moverGrafica(dir);
-				}
-			} else {
-				if (enemigo.getLock() == false) {
-					enemigo.lock();
-					enemigo.getCelda().eliminarEnemigo(enemigo);
-					enemigo.setCelda(celdaSiguiente);
-					celdaSiguiente.agregarEnemigo(enemigo);
-					
-					enemigo.moverGrafica(dir);
-				}
-			}
-		}
+		System.out.println("AVANZAR ENEMIGO DESDE ESTADO BOMBA");
+//		if (enemigo.enModoAtravesar()) {
+//			if (celdaSiguiente.hayBomberman()) {
+//				if (enemigo.getLock() == false) {
+//					enemigo.lock();
+//					System.out.println("El enemigo colisiona con bomberman");
+//					celdaSiguiente.matarBomberman();
+//					enemigo.getCelda().eliminarEnemigo(enemigo);
+//					enemigo.setCelda(celdaSiguiente);
+//					celdaSiguiente.agregarEnemigo(enemigo);
+//					
+//					enemigo.moverGrafica(dir);
+//				}
+//			} else {
+//				if (enemigo.getLock() == false) {
+//					enemigo.lock();
+//					enemigo.getCelda().eliminarEnemigo(enemigo);
+//					enemigo.setCelda(celdaSiguiente);
+//					celdaSiguiente.agregarEnemigo(enemigo);
+//					
+//					enemigo.moverGrafica(dir);
+//				}
+//			}
+//		}
 	}
 }

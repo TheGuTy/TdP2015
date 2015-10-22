@@ -14,13 +14,11 @@ public class Bomba {
 	protected int alcance;
 	protected Tablero miTablero;
 	protected Celda miCelda;
-	protected GraficoEstructuras miGrafico;
 
 	public Bomba(Celda c, int alcance, Tablero t) {
 		miCelda = c;
 		this.alcance = alcance;
 		miTablero = t;
-		miGrafico = new GraficoBomba(c.getX(), c.getY());
 	}
 
 	public void comenzarDetonacion() {
@@ -34,14 +32,13 @@ public class Bomba {
 				// con un for. Estamos dentro de un thread, asi que podemos llamar
 				// a Thread.sleep entre cada imagen y asi lograr el efecto.
 				
-				miGrafico.getLabel().setIcon(null);
 				List<Celda> celdasAfectadas = calcularCeldasAfectadas();
 				
 				for (Celda c : celdasAfectadas)
 					c.detonar();
 				
 				miTablero.devolverBombaABomberman();
-				miCelda.setEstado(new EstadoTransitable(miCelda.getX(), miCelda.getY()));
+				miTablero.restaurarCelda(miCelda);
 			}
 		}, Const.TIEMPO_DETONACION);
 	}
@@ -49,7 +46,7 @@ public class Bomba {
 	protected List<Celda> calcularCeldasAfectadas() {
 		List<Celda> celdasAf = new ArrayList<Celda>();
 		celdasAf.add(miCelda);
-		for (int i = 1; i <= 7; i++) {
+		for (int i = 1; i <= this.alcance; i++) {
 			if(miCelda.getY()-i>=0){
 				celdasAf.add(miTablero.getCelda(miCelda.getX(), miCelda.getY()-i));
 			}
@@ -65,10 +62,6 @@ public class Bomba {
 		}
 		
 		return celdasAf;
-	}
-
-	public GraficoEstructuras getGrafico() {
-		return miGrafico;
 	}
 
 	public Celda getCelda() {

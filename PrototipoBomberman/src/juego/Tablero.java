@@ -1,5 +1,6 @@
 package juego;
 
+import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -98,12 +99,24 @@ public class Tablero {
 	}
 
 	public void colocarBomba (int x, int y, int alcance) {
-		
 		Celda c = getCelda(x, y);
+		gui.remove(c.getEstado().getGrafico().getLabel());
 		c.setEstado(new EstadoBomba(x, y));
+		gui.add(c.getEstado().getGrafico().getLabel());
+		System.out.println("cambio a estado bomba la celda " + x + " " + y);
 		Bomba b = new Bomba(c, alcance, this);
 		
-//		gui.add(b.getGrafico().getLabel());
 		b.comenzarDetonacion();
+	}
+
+	public void restaurarCelda(Celda c) {
+		gui.remove(c.getEstado().getGrafico().getLabel());
+		c.getEstado().getGrafico().getLabel().setIcon(null);
+		c.getEstado().getGrafico().getLabel().repaint();
+		gui.repaint();
+		c.getEstado().getGrafico().getLabel().setIcon(null);
+		c.setEstado(new EstadoTransitable(c.getX(), c.getY()));
+		gui.add(c.getEstado().getGrafico().getLabel());
+		gui.repaint();
 	}
 }

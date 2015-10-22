@@ -21,9 +21,7 @@ public class EnemigoThread extends Thread {
 				Thread.sleep(1000);
 				mLogica.mover();
 			}
-			catch(InterruptedException e){
-				e.printStackTrace();
-			}
+			catch(InterruptedException e){}
 		}
 	}
 	
