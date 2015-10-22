@@ -1,6 +1,6 @@
 package personajes;
 
-import Graficos.GraficoBomberman;
+import graficos.GraficoBomberman;
 import juego.Celda;
 import juego.Tablero;
 
