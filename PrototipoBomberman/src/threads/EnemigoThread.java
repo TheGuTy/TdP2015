@@ -1,5 +1,7 @@
 package threads;
 
+import java.awt.Point;
+
 import personajes.Enemigo;
 
 public class EnemigoThread extends Thread {
@@ -14,7 +16,7 @@ public class EnemigoThread extends Thread {
 	
 	@Override
 	public void run() {
-		while (!this.mDetener){
+		while (mLogica.estoyVivo()){
 			try{
 				Thread.sleep(1000);
 				mLogica.mover();
@@ -26,8 +28,16 @@ public class EnemigoThread extends Thread {
 	}
 	
 	public void detener(){
-		this.interrupt();
-		
+		mLogica.getLabel().setIcon(null);
 		this.mDetener = true;
+		this.interrupt();
+	}
+	
+	public Point getPosicionCelda(){
+		Point p = new Point();
+		p.x = mLogica.getCelda().getX();
+		p.y = mLogica.getCelda().getY();
+		
+		return p;
 	}
 }

@@ -20,11 +20,12 @@ public class Bomberman extends Personaje {
 
 	@Override
 	public void matar() {
-		this.miGrafico.getLabel().setIcon(null);
+		System.out.println("Murio bommberguy");
+		estoyVivo = false;
 	}
 
-	public void setModoDios(boolean b) {
-		modoDios = b;
+	public void setModoAtravesar(boolean b) {
+		modoAtravesar = b;
 	}
 
 	public void colocarBomba() {

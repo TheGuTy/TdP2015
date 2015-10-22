@@ -9,9 +9,9 @@ public abstract class Enemigo extends Personaje {
 
 	protected int puntaje;
 
-	protected Enemigo (boolean modoDios, int vel, Celda c, Tablero t, int p) {
+	protected Enemigo (boolean modoAtravesar, int vel, Celda c, Tablero t, int p) {
 
-		super(modoDios, vel, c, t);
+		super(modoAtravesar, vel, c, t);
 	}
 
 	public int getPuntaje () {
@@ -26,11 +26,8 @@ public abstract class Enemigo extends Personaje {
 	
 	@Override
 	public void matar(){
-		if (!modoDios){
-			System.out.println("Murio " + this.getClass().getSimpleName());
-			getGrafico().getLabel().setIcon(null);
-		}
-		
+		System.out.println("Murio " + this.getClass().getSimpleName());
+		estoyVivo = false;
 		//TODO Eliminar/Detener el thread que contiene a este Enemigo
 	}
 }

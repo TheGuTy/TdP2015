@@ -20,7 +20,7 @@ public class EstadoDestruible extends EstadoCelda {
 	@Override
 	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {
 
-		if (bomberman.enModoDios()) {
+		if (bomberman.enModoAtravesar()) {
 			if (celdaSiguiente.hayEnemigos()) {
 				bomberman.matar();
 				System.out.println("El bomberman colisiona con un enemigo");
@@ -41,7 +41,7 @@ public class EstadoDestruible extends EstadoCelda {
 	@Override
 	public void avanzar(Enemigo enemigo, Celda celdaSiguiente, int dir) {
 
-		if (enemigo.enModoDios()) {
+		if (enemigo.enModoAtravesar()) {
 			if (celdaSiguiente.hayBomberman()) {
 				if (enemigo.getLock() == false) {
 					enemigo.lock();

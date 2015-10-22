@@ -16,7 +16,7 @@ public class Celda {
 	protected Tablero miTablero;
 	protected PowerUp miPowerUp;
 	protected EstadoCelda miEstado;
-	protected LinkedList<Enemigo> misEnemigos;
+	protected List<Enemigo> misEnemigos;
 	protected Bomberman miBomberman;
 
 	public Celda(int x, int y, Tablero t) {
@@ -63,6 +63,8 @@ public class Celda {
 		
 		for (Enemigo e : aMatar)
 			misEnemigos.remove(e);
+		
+		miTablero.getJuego().matarEnemigo(this);
 	}
 
 	public void aumentarPuntaje(int p) {

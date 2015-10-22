@@ -11,16 +11,16 @@ import juego.Tablero;
 
 public abstract class Personaje {
 
-	protected boolean modoDios;
+	protected boolean modoAtravesar;
 	protected int velocidad;
 	protected Celda miCelda;
 	protected Tablero miTablero;
-	protected volatile boolean estoyVivo;
+	protected boolean estoyVivo;
 	protected GraficoPersonaje miGrafico;
 	protected boolean lock;
 
-	public Personaje(boolean modoDios, int vel, Celda c, Tablero t) {
-		this.modoDios = modoDios;
+	public Personaje(boolean modoAtravesar, int vel, Celda c, Tablero t) {
+		this.modoAtravesar = modoAtravesar;
 		velocidad = vel;
 		miCelda = c;
 		miTablero = t;
@@ -31,8 +31,8 @@ public abstract class Personaje {
 
 	public abstract void matar();
 	
-	public boolean enModoDios() {
-		return modoDios;
+	public boolean enModoAtravesar() {
+		return modoAtravesar;
 	}
 
 	public void setCelda(Celda c) {
@@ -166,5 +166,9 @@ public abstract class Personaje {
 
 	public void lock() {
 		lock = true;
+	}
+	
+	public boolean estoyVivo() {
+		return estoyVivo;
 	}
 }

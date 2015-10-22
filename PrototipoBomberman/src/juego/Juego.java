@@ -1,5 +1,6 @@
 package juego;
 
+import java.awt.Point;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -80,5 +81,25 @@ public class Juego {
 	public void moverBomberman (int dir) {
 		
 		miBomberman.mover(dir);
+	}
+	
+	/**
+	 * Si hay un thread con un personaje en la celda recibida por parametro, entonces detiene su thread y elimina de la lista
+	 * @param c celda que se
+	 */
+	public void matarEnemigo(Celda c){
+		Point p = new Point(c.getX(), c.getY());
+		
+		List<EnemigoThread> aEliminar = new LinkedList<EnemigoThread>();
+		
+		for (EnemigoThread t : misEnemigos){
+			if (t.getPosicionCelda().equals(p)){
+				t.detener();
+				aEliminar.add(t);
+			}
+		}
+		
+		for (EnemigoThread t : aEliminar)
+			misEnemigos.remove(t);
 	}
 }

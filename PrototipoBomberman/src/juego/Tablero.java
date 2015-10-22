@@ -89,4 +89,8 @@ public class Tablero {
 	public void devolverBomba() {
 		miJuego.getBomberman().aumentarBombasDisponibles();
 	}
+
+	public Juego getJuego() {
+		return miJuego;
+	}
 }
