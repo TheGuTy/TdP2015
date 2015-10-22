@@ -97,69 +97,8 @@ public abstract class Personaje {
 		return miTablero.getCelda(xActual, yActual);
 	}
 
-	/**
-	 * Clase encargada de mover el grafico del personaje segun la direccion
-	 * recibida. Se utiliza un Thread como recurso para emular la transicion del
-	 * personaje de una celda a la otra. Sin este thread no se podria lograr
-	 * este efecto.
-	 * 
-	 * @param dir direccion donde el personaje debe dirigirse
-	 */
-	public void moverGrafica(int dir) {
-
-			lock = true;
-			
-				miGrafico.changeIcon(dir);
-				Thread t = new Thread(new Runnable() {
-
-					@Override
-					public void run() {
-						try {
-							switch (dir) {
-							case Const.MOVIMIENTO_ARRIBA:
-								for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
-									miGrafico.getLabel().setBounds(miGrafico.getPos().x,
-											miGrafico.getPos().y -= velocidad, miGrafico.getAncho(),
-											miGrafico.getAlto());
-									Thread.sleep(10);
-								}
-								break;
-							case Const.MOVIMIENTO_ABAJO:
-								for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
-									miGrafico.getLabel().setBounds(miGrafico.getPos().x,
-											miGrafico.getPos().y += velocidad, miGrafico.getAncho(),
-											miGrafico.getAlto());
-									Thread.sleep(10);
-								}
-								break;
-							case Const.MOVIMIENTO_IZQUIERDA:
-								for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
-									miGrafico.getLabel().setBounds(miGrafico.getPos().x -= velocidad,
-											miGrafico.getPos().y, miGrafico.getAncho(), miGrafico.getAlto());
-									Thread.sleep(10);
-								}
-								break;
-							case Const.MOVIMIENTO_DERECHA:
-								for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
-									miGrafico.getLabel().setBounds(miGrafico.getPos().x += velocidad,
-											miGrafico.getPos().y, miGrafico.getAncho(), miGrafico.getAlto());
-									Thread.sleep(10);
-								}
-								break;
-							}
-							
-
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						
-						lock = false;
-					}
-				});
-				
-				t.start();
-	}
-
+	public abstract void moverGrafica(int dir);
+	
 	public boolean getLock() {
 		return lock;
 	}

@@ -5,10 +5,12 @@ import gui.Const;
 import juego.Celda;
 import juego.Tablero;
 
-public class Bomberman extends Personaje {
+public class Bomberman extends Personaje implements Runnable {
 
 	protected int bombasDisponibles;
 	protected int miAlcanceBomba;
+	private int dir;
+	private Thread t;
 
 	public Bomberman(Celda c, Tablero tablero) {
 
@@ -58,5 +60,58 @@ public class Bomberman extends Personaje {
 	public void duplicarAlcance() {
 
 		miAlcanceBomba *= 2;
+	}
+
+
+	@Override
+	public void run() {
+		
+		lock = true;
+		miGrafico.changeIcon(dir);
+		
+		try {
+			switch (dir) {
+			case Const.MOVIMIENTO_ARRIBA:
+				for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+					miGrafico.getLabel().setBounds(miGrafico.getPos().x, miGrafico.getPos().y -= velocidad,
+							miGrafico.getAncho(), miGrafico.getAlto());
+					Thread.sleep(10);
+				}
+				break;
+			case Const.MOVIMIENTO_ABAJO:
+				for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+					miGrafico.getLabel().setBounds(miGrafico.getPos().x, miGrafico.getPos().y += velocidad,
+							miGrafico.getAncho(), miGrafico.getAlto());
+					Thread.sleep(10);
+				}
+				break;
+			case Const.MOVIMIENTO_IZQUIERDA:
+				for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+					miGrafico.getLabel().setBounds(miGrafico.getPos().x -= velocidad, miGrafico.getPos().y,
+							miGrafico.getAncho(), miGrafico.getAlto());
+					Thread.sleep(10);
+				}
+				break;
+			case Const.MOVIMIENTO_DERECHA:
+				for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+					miGrafico.getLabel().setBounds(miGrafico.getPos().x += velocidad, miGrafico.getPos().y,
+							miGrafico.getAncho(), miGrafico.getAlto());
+					Thread.sleep(10);
+				}
+				break;
+			}
+
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		lock = false;
+	}
+	
+	@Override
+	public void moverGrafica(int dir) {
+		this.dir = dir;
+		t = new Thread(this);
+		t.start();
 	}
 }

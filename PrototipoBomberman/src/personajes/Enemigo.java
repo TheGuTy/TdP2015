@@ -2,6 +2,7 @@ package personajes;
 
 import java.util.Random;
 
+import gui.Const;
 import juego.Celda;
 import juego.Tablero;
 
@@ -29,5 +30,50 @@ public abstract class Enemigo extends Personaje {
 		System.out.println("Murio " + this.getClass().getSimpleName());
 		estoyVivo = false;
 		//TODO Eliminar/Detener el thread que contiene a este Enemigo
+	}
+	
+	@Override
+	public void moverGrafica(int dir) {
+
+		lock = true;
+
+		miGrafico.changeIcon(dir);
+		try {
+			switch (dir) {
+			case Const.MOVIMIENTO_ARRIBA:
+				for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+					miGrafico.getLabel().setBounds(miGrafico.getPos().x, miGrafico.getPos().y -= velocidad,
+							miGrafico.getAncho(), miGrafico.getAlto());
+					Thread.sleep(10);
+				}
+				break;
+			case Const.MOVIMIENTO_ABAJO:
+				for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+					miGrafico.getLabel().setBounds(miGrafico.getPos().x, miGrafico.getPos().y += velocidad,
+							miGrafico.getAncho(), miGrafico.getAlto());
+					Thread.sleep(10);
+				}
+				break;
+			case Const.MOVIMIENTO_IZQUIERDA:
+				for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+					miGrafico.getLabel().setBounds(miGrafico.getPos().x -= velocidad, miGrafico.getPos().y,
+							miGrafico.getAncho(), miGrafico.getAlto());
+					Thread.sleep(10);
+				}
+				break;
+			case Const.MOVIMIENTO_DERECHA:
+				for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+					miGrafico.getLabel().setBounds(miGrafico.getPos().x += velocidad, miGrafico.getPos().y,
+							miGrafico.getAncho(), miGrafico.getAlto());
+					Thread.sleep(10);
+				}
+				break;
+			}
+
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		lock = false;
 	}
 }
