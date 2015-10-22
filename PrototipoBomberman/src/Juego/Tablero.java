@@ -1,5 +1,6 @@
 package Juego;
 
+import Gui.Medidas;
 import Personajes.Enemigo;
 
 public class Tablero {
@@ -15,7 +16,7 @@ public class Tablero {
 		miJuego = juego;
 		this.ancho = ancho;
 		this.alto = alto;
-		misCeldas = new Celda[31][31];
+		misCeldas = new Celda[this.ancho][this.alto];
 		
 		for (int i = 0; i < this.ancho; i++) {
 			for (int j = 0; j < this.alto; j++) {

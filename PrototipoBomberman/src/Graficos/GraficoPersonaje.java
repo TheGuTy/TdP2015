@@ -1,12 +1,9 @@
 package Graficos;
 
-import java.awt.Color;
 import java.awt.Point;
 
 import javax.swing.Icon;
 import javax.swing.JLabel;
-
-import Juego.Celda;
 
 public abstract class GraficoPersonaje {
 	protected JLabel grafico;
@@ -47,35 +44,35 @@ public abstract class GraficoPersonaje {
 				@Override
 				public void run() {
 					try {
-						System.out.println("Soy " + this.getClass().getName() + ". Mi POINT vieja es x: " + getPos().getX() + " - y: " + getPos().getY() );
+//						System.out.println("Soy " + this.getClass().getName() + ". Mi POINT vieja es x: " + getPos().getX() + " - y: " + getPos().getY() );
 						switch (dir) {
 						case 0: // Arriba
 							for (int i = 0; i < alto; i += velocidad) {
 								grafico.setBounds(pos.x, pos.y -= velocidad, ancho, alto);
 								Thread.sleep(10);
 							}
-							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
+//							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
 							break;
 						case 1: // Abajo
 							for (int i = 0; i < alto; i += velocidad) {
 								grafico.setBounds(pos.x, pos.y += velocidad, ancho, alto);
 								Thread.sleep(10);
 							}
-							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
+//							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
 							break;
 						case 3: // Derecha
 							for (int i = 0; i < ancho; i += velocidad) {
 								grafico.setBounds(pos.x += velocidad, pos.y, ancho, alto);
 								Thread.sleep(10);
 							}
-							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
+//							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
 							break;
 						case 2: // Izquierda
 							for (int i = 0; i < ancho; i += velocidad) {
 								grafico.setBounds(pos.x -= velocidad, pos.y, ancho, alto);
 								Thread.sleep(10);
 							}
-							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
+//							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
 							break;
 						}
 						

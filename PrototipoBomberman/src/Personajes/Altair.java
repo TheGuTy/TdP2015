@@ -12,7 +12,7 @@ public class Altair extends Enemigo {
 	public Altair (Celda celda, Tablero t) {
 		
 		super(false, VELOCIDAD_INICIAL, celda, t, PUNTAJE);
-		this.miGrafico = new GraficoBomberman(1, 2, 2);
+		this.miGrafico = new GraficoBomberman(1, celda.getX(), celda.getY());
 	}
 
 	@Override

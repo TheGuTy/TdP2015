@@ -31,7 +31,7 @@ public class Gui extends JFrame {
 			}
 		});
 
-		setPreferredSize(new Dimension(800, 600));
+		setPreferredSize(new Dimension(992, 992));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setLayout(null);
@@ -40,7 +40,7 @@ public class Gui extends JFrame {
 
 		setFocusable(true);
 		getContentPane().setLayout(null);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 992, 992);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

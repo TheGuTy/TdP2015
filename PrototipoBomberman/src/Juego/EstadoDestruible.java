@@ -1,6 +1,7 @@
 package Juego;
 
-import Personajes.Personaje;
+import Personajes.Bomberman;
+import Personajes.Enemigo;
 
 public class EstadoDestruible extends EstadoCelda {
 
@@ -11,11 +12,35 @@ public class EstadoDestruible extends EstadoCelda {
 	}	
 
 	@Override
-	public void avanzar(Personaje p, Celda c) {
-		if (p.enModoDios()){
-			p.getCelda().eliminarPersonaje(p);
-			p.setCelda(c);
-			c.agregarPersonaje(p);
+	public void avanzar(Bomberman bomberman, Celda celdaSiguiente) {
+
+		if (bomberman.enModoDios()){
+			if (celdaSiguiente.hayEnemigos()) {
+				bomberman.matar();
+				System.out.println("El bomberman colisiona con un enemigo");			
+			}else{
+				bomberman.getCelda().eliminarBomberman();
+				bomberman.setCelda(celdaSiguiente);
+				celdaSiguiente.agregarBomberman(bomberman);
+			}
+		}
+	}
+
+	@Override
+	public void avanzar(Enemigo enemigo, Celda celdaSiguiente) {
+
+		if (enemigo.enModoDios()){
+			if (celdaSiguiente.hayBomberman()) {			
+				System.out.println("El enemigo colisiona con bomberman");
+				celdaSiguiente.matarBomberman();	
+				enemigo.getCelda().eliminarEnemigo(enemigo);
+				enemigo.setCelda(celdaSiguiente);
+				celdaSiguiente.agregarEnemigo(enemigo); //TODO Notitificar que murio bomberman y la logica sigue
+			} else {
+			enemigo.getCelda().eliminarEnemigo(enemigo);
+			enemigo.setCelda(celdaSiguiente);
+			celdaSiguiente.agregarEnemigo(enemigo);
+			}
 		}
 	}
 }

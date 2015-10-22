@@ -3,7 +3,8 @@ package Juego;
 import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
-import Personajes.Personaje;
+import Personajes.Bomberman;
+import Personajes.Enemigo;
 import PowerUps.PowerUp;
 
 public class Celda {
@@ -13,7 +14,8 @@ public class Celda {
 	protected Tablero miTablero;
 	protected PowerUp miPowerUp;
 	protected EstadoCelda miEstado;
-	protected LinkedList<Personaje> misPersonajes;
+	protected LinkedList<Enemigo> misEnemigos;
+	protected Bomberman miBomberman;
 	
 	public static final int LEFT = KeyEvent.VK_LEFT;
 	public static final int RIGHT = KeyEvent.VK_RIGHT;
@@ -27,14 +29,19 @@ public class Celda {
 		miTablero = t;
 		miPowerUp = null;
 		miEstado = null;
-		misPersonajes = new LinkedList<Personaje>();
+		misEnemigos = new LinkedList<Enemigo>();
+		miBomberman = null;
+	}
+		
+	public void avanzar (Bomberman bomberman) {		
+		miEstado.avanzar(bomberman, this);
 	}
 	
-	public void avanzar (Personaje p) {		
-		miEstado.avanzar(p, this);
+	public void avanzar (Enemigo enemigo) {
+		miEstado.avanzar(enemigo, this);
 	}
 	
-	public void setPowerUp (PowerUp p) {
+	public void setPowerUp (PowerUp powerup) {
 		
 	}
 	
@@ -57,12 +64,20 @@ public class Celda {
 		miTablero.aumentarPuntaje(p);
 	}
 	
-	public void agregarPersonaje (Personaje p) {
-		misPersonajes.add(p);
+	public void agregarEnemigo (Enemigo enemigo) {
+		misEnemigos.add(enemigo);
 	}
 	
-	public void eliminarPersonaje (Personaje p) {
-		misPersonajes.remove(p);
+	public void eliminarEnemigo (Enemigo enemigo) {
+		misEnemigos.remove(enemigo);
+	}
+	
+	public void agregarBomberman (Bomberman b) {
+		miBomberman = b;		
+	}
+	
+	public void eliminarBomberman () {
+		miBomberman = null;
 	}
 	
 	public int getX () {
@@ -73,5 +88,21 @@ public class Celda {
 	public int getY() {
 		
 		return y;
+	}
+	
+	public boolean hayEnemigos () {
+		
+		return !misEnemigos.isEmpty();
+	}
+	
+	public boolean hayBomberman () {
+		
+		return miBomberman != null;
+	}
+	
+	public void matarBomberman () {
+		
+		if (miBomberman != null)
+			miBomberman.matar();
 	}
 }

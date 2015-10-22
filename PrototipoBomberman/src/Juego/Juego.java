@@ -1,13 +1,9 @@
 package Juego;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Point;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Gui.Gui;
@@ -15,10 +11,8 @@ import Gui.Tiempo;
 import Personajes.Altair;
 import Personajes.Bomberman;
 import Personajes.Enemigo;
-import Personajes.Rugulus;
-import Personajes.Sirius;
 
-public class Juego {
+public class Juego implements Runnable {
 
 	private int puntaje;
 	private Tablero miTablero;
@@ -39,11 +33,13 @@ public class Juego {
 		misEnemigos = new LinkedList<Enemigo>();
 		
 		Random r = new Random();
-		//Enemigo e1 = new Altair(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
+		Enemigo altair1 = new Altair(miTablero.getCelda(5, 5), miTablero);
+		
+		//Enemigo altair1 = new Altair(miTablero.getCelda(r.nextInt(miTablero.getAncho()), r.nextInt(miTablero.getAlto())), miTablero);
 		//Enemigo e2 = new Rugulus(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
 		//Enemigo e3 = new Sirius(miTablero.getCelda(r.nextInt(31), r.nextInt(31)), miTablero);
 		
-		//misEnemigos.add(e1);
+		misEnemigos.add(altair1);
 		//misEnemigos.add(e2);
 		//misEnemigos.add(e3);		
 		
@@ -55,30 +51,7 @@ public class Juego {
 
 	public void iniciarJuego(){
 		
-		Thread t = new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				miBomberman.start();
-				miTiempo.start();
-				
-				JLabel grafBomberman = miBomberman.getLabel();
-				miBomberman.getGrafico().changeIcon(3);
-				grafBomberman.setLocation(miBomberman.getPos());
-				gui.add(grafBomberman);
-				gui.repaint();
-				try {
-					while (true) {
-						grafBomberman.setLocation(miBomberman.getPos());
-						gui.add(grafBomberman);
-						gui.revalidate();
-						Thread.sleep(50);
-					}
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
+		Thread t = new Thread(this);
 		t.start();
 	}
 	
@@ -103,5 +76,39 @@ public class Juego {
 	public void moverBomberman (int dir) {
 		
 		miBomberman.mover(dir);
+	}
+
+	@Override
+	public void run() {
+		
+		miBomberman.start();
+		miTiempo.start();
+		
+		JLabel grafBomberman = miBomberman.getLabel();
+		miBomberman.getGrafico().changeIcon(3);
+		grafBomberman.setLocation(miBomberman.getPos());
+		gui.add(grafBomberman);
+		
+		// Agrego todos los enemigos a la gui
+		for (Enemigo e: misEnemigos) {
+			e.getGrafico().changeIcon(3);
+			e.getLabel().setLocation(e.getPos());
+			gui.add(e.getLabel());
+			e.start();
+		}
+		
+		
+		gui.repaint();
+		try {					
+			while (true) {
+				grafBomberman.setLocation(miBomberman.getPos());
+				for (Enemigo e: misEnemigos)
+					e.getLabel().setLocation(e.getPos());
+				gui.revalidate();
+				Thread.sleep(50);
+			}
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
 	}
 }
