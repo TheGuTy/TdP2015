@@ -104,7 +104,6 @@ public class Tablero {
 
 	public void restaurarCelda(Celda c) {
 		gui.remove(c.getEstado().getGrafico().getLabel());
-		c.getEstado().getGrafico().getLabel().setIcon(null);
 		c.getEstado().getGrafico().getLabel().repaint();
 		gui.repaint();
 		c.getEstado().getGrafico().getLabel().setIcon(null);
