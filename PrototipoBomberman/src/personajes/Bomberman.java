@@ -12,8 +12,8 @@ public class Bomberman extends Personaje {
 
 	public Bomberman(Celda c, Tablero tablero) {
 
-		super(false, 2, c, tablero);
-		this.miGrafico = new GraficoBomberman(2, 1, 1);
+		super(false, 8, c, tablero);
+		this.miGrafico = new GraficoBomberman(8, 1, 1);
 		bombasDisponibles = 1;
 		miAlcanceBomba = 1;
 	}

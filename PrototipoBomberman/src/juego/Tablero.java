@@ -4,6 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import gui.GUI;
+import juego.estadosCelda.EstadoBomba;
+import juego.estadosCelda.EstadoNoDestruible;
+import juego.estadosCelda.EstadoTransitable;
 
 public class Tablero {
 
@@ -12,7 +15,6 @@ public class Tablero {
 	protected Celda [][] misCeldas;
 	protected int ancho, alto;
 	protected GUI gui;
-	protected List<Bomba> misBombas;
 	
 	public Tablero (int porcentaje, Juego juego, int ancho, int alto, GUI gui) {
 		porcentajeDestruibles = porcentaje;
@@ -24,9 +26,9 @@ public class Tablero {
 		
 		for (int i = 0; i < this.ancho; i++) {
 			for (int j = 0; j < this.alto; j++) {
-				misCeldas [i][j] = new Celda(i, j, this);
+				misCeldas[i][j] = new Celda(i, j, this);
 				//TODO crear todas las celdas con sus graficas. Patron builder? Factory?
-				misCeldas [i][j].setEstado(new EstadoTransitable(i, j));	//Al crear todas las celdas asumo que todas son transitables				
+				misCeldas[i][j].setEstado(new EstadoTransitable(i, j));	//Al crear todas las celdas asumo que todas son transitables				
 			}
 		}
 		
@@ -36,9 +38,8 @@ public class Tablero {
 		//luego de setear todos los estados a la celda, agrego el JLabel de cada celda a la gui
 		for (int i = 0; i < this.ancho; i++)
 			for (int j = 0; j < this.alto; j++)				 
-				gui.add(misCeldas[i][j].getEstado().miGrafico.getLabel());
+				gui.add(misCeldas[i][j].getEstado().getGrafico().getLabel());
 		
-		misBombas = new LinkedList<Bomba>();
 	}
 	
 	public Celda getCelda (int x, int y) {
@@ -99,22 +100,10 @@ public class Tablero {
 	public void colocarBomba (int x, int y, int alcance) {
 		
 		Celda c = getCelda(x, y);
+		c.setEstado(new EstadoBomba(x, y));
 		Bomba b = new Bomba(c, alcance, this);
 		
-		gui.add(b.getGrafico().getLabel());
-		misBombas.add(b);
+//		gui.add(b.getGrafico().getLabel());
 		b.comenzarDetonacion();
-	}
-
-	public void eliminarDeListaBombas(Celda miCelda) {
-		misBombas.remove(miCelda);
-	}
-
-	public boolean hayBomba(Celda celdaSiguiente) {
-		for (Bomba b : misBombas)
-			if (b.getCelda() == celdaSiguiente)
-				return true;
-		
-		return false;
 	}
 }

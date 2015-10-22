@@ -1,12 +1,13 @@
-package juego;
+package juego.estadosCelda;
 
 import graficos.GraficoParedNoDestruible;
+import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
 
 public class EstadoNoDestruible extends EstadoCelda {
 
-	protected EstadoNoDestruible(int x, int y) {
+	public EstadoNoDestruible(int x, int y) {
 		super(new GraficoParedNoDestruible(x, y));
 	}
 

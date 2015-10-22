@@ -71,7 +71,6 @@ public class GUI extends JFrame {
 	private void mover(KeyEvent keyEvent) {
 
 		if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE){
-			System.out.println("Colocar bomba");
 			miJuego.getBomberman().colocarBomba();
 
 		}else {

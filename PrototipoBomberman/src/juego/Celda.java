@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import graficos.GraficoEstructuras;
+import juego.estadosCelda.EstadoCelda;
 import personajes.Bomberman;
 import personajes.Enemigo;
 import powerups.PowerUp;
@@ -122,9 +123,5 @@ public class Celda {
 
 	public void detonar() {
 		miEstado.destruir(this);
-	}
-
-	public boolean hayBomba(Celda celdaSiguiente) {
-		return miTablero.hayBomba(celdaSiguiente);
 	}
 }

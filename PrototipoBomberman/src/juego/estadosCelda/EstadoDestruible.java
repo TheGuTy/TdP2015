@@ -1,12 +1,13 @@
-package juego;
+package juego.estadosCelda;
 
 import graficos.GraficoEstructuras;
+import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
 
 public class EstadoDestruible extends EstadoCelda {
 
-	protected EstadoDestruible(GraficoEstructuras miGrafico) {
+	public EstadoDestruible(GraficoEstructuras miGrafico) {
 		super(miGrafico);
 	}
 

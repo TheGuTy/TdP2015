@@ -1,6 +1,7 @@
-package juego;
+package juego.estadosCelda;
 
 import graficos.GraficoEstructuras;
+import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
 
@@ -17,4 +18,8 @@ public abstract class EstadoCelda {
 	public abstract void avanzar (Bomberman bomberman, Celda c, int dir);
 	
 	public abstract void avanzar (Enemigo enemigo, Celda c, int dir);
+	
+	public GraficoEstructuras getGrafico(){
+		return miGrafico;
+	}
 }

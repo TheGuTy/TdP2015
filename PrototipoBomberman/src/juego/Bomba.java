@@ -7,6 +7,7 @@ import java.util.List;
 import graficos.GraficoBomba;
 import graficos.GraficoEstructuras;
 import gui.Const;
+import juego.estadosCelda.EstadoTransitable;
 
 public class Bomba {
 
@@ -40,7 +41,7 @@ public class Bomba {
 					c.detonar();
 				
 				miTablero.devolverBombaABomberman();
-				miTablero.eliminarDeListaBombas(miCelda);
+				miCelda.setEstado(new EstadoTransitable(miCelda.getX(), miCelda.getY()));
 			}
 		}, Const.TIEMPO_DETONACION);
 	}

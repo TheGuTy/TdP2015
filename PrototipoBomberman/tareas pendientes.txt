@@ -5,3 +5,7 @@ Chequear que al crear un enemigo, este no quede arriba de una celda no valida
 Chequear que no haya bomba en la celda antes de colocar una nueva
 
 Se puede colocar bomba en modo atravesar sobre un muro destruible?
+
+
+Bomberman debe ser un thread que conoce a la gui que se fija que tocaron en la gui y cuando una apreta es apretada entonces hace un bomberman.mover
+El oyente debe estar dentro de este thread bomberman 
