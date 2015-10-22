@@ -123,4 +123,8 @@ public class Celda {
 	public void detonar() {
 		miEstado.destruir(this);
 	}
+
+	public boolean hayBomba(Celda celdaSiguiente) {
+		return miTablero.hayBomba(celdaSiguiente);
+	}
 }

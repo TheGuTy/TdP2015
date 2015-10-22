@@ -39,7 +39,8 @@ public class Bomba {
 				for (Celda c : celdasAfectadas)
 					c.detonar();
 				
-				miTablero.devolverBomba();
+				miTablero.devolverBombaABomberman();
+				miTablero.eliminarDeListaBombas(miCelda);
 			}
 		}, Const.TIEMPO_DETONACION);
 	}
@@ -67,5 +68,9 @@ public class Bomba {
 
 	public GraficoEstructuras getGrafico() {
 		return miGrafico;
+	}
+
+	public Celda getCelda() {
+		return miCelda;
 	}
 }

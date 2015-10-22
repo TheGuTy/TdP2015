@@ -1,5 +1,8 @@
 package juego;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import gui.GUI;
 
 public class Tablero {
@@ -9,6 +12,7 @@ public class Tablero {
 	protected Celda [][] misCeldas;
 	protected int ancho, alto;
 	protected GUI gui;
+	protected List<Bomba> misBombas;
 	
 	public Tablero (int porcentaje, Juego juego, int ancho, int alto, GUI gui) {
 		porcentajeDestruibles = porcentaje;
@@ -33,13 +37,8 @@ public class Tablero {
 		for (int i = 0; i < this.ancho; i++)
 			for (int j = 0; j < this.alto; j++)				 
 				gui.add(misCeldas[i][j].getEstado().miGrafico.getLabel());
-	}
-	
-	public void colocarBomba (int x, int y, int alcance) {
-		Celda c = getCelda(x, y);
-		Bomba b = new Bomba(c, alcance, this);
-		gui.add(b.getGrafico().getLabel());
-		b.comenzarDetonacion();
+		
+		misBombas = new LinkedList<Bomba>();
 	}
 	
 	public Celda getCelda (int x, int y) {
@@ -86,11 +85,36 @@ public class Tablero {
 		return this.alto;
 	}
 
-	public void devolverBomba() {
+	public Juego getJuego() {
+		return miJuego;
+	}
+
+	/**
+	 * Metodo llamado al finalizar una explosion por la bomba
+	 */
+	public void devolverBombaABomberman() {
 		miJuego.getBomberman().aumentarBombasDisponibles();
 	}
 
-	public Juego getJuego() {
-		return miJuego;
+	public void colocarBomba (int x, int y, int alcance) {
+		
+		Celda c = getCelda(x, y);
+		Bomba b = new Bomba(c, alcance, this);
+		
+		gui.add(b.getGrafico().getLabel());
+		misBombas.add(b);
+		b.comenzarDetonacion();
+	}
+
+	public void eliminarDeListaBombas(Celda miCelda) {
+		misBombas.remove(miCelda);
+	}
+
+	public boolean hayBomba(Celda celdaSiguiente) {
+		for (Bomba b : misBombas)
+			if (b.getCelda() == celdaSiguiente)
+				return true;
+		
+		return false;
 	}
 }
