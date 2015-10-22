@@ -47,35 +47,6 @@ public class Tablero {
 	
 	private void crearNoDestruibles () {
 		
-		Celda celda;
-		
-		/*
-		for (int i = 0; i < this.alto; i++) {			
-			
-			//columna izquierda
-			celda = misCeldas[0][i];
-			celda.setEstado(new EstadoNoDestruible(0, i));
-			
-			//columna derecha
-			celda = misCeldas[this.ancho-1][i];
-			celda.setEstado(new EstadoNoDestruible(this.ancho-1, i));			
-		}
-		
-		
-		for (int i = 0; i < this.ancho; i++){
-			//fila superior 
-			celda = misCeldas[i][0];
-			celda.setEstado(new EstadoNoDestruible(i, 0));
-			
-			//fila inferior
-			celda = misCeldas[i][this.alto-1];
-			celda.setEstado(new EstadoNoDestruible(i, this.alto-1));			
-		}
-		
-		for (int i = 0; i < this.ancho; i++)
-			misCeldas[i][11].setEstado(new EstadoNoDestruible(i, 11));
-			*/
-		
 		//lado superior
 		for (int i = 0; i < this.ancho; i++)
 			misCeldas[i][0].setEstado(new EstadoNoDestruible(i, 0));

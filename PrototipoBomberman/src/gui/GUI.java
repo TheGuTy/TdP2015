@@ -37,21 +37,21 @@ public class GUI extends JFrame {
 		getContentPane().setLayout(null);
 		setBounds(100, 100, Const.ANCHO_GUI, Const.ALTO_GUI);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
+		contentPane.setBorder(
+				new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.setBackground(Color.GREEN);
-		
-		//Con estas tres lineas podemos hacer que el JFrame se muestre exactamente en el medio de la pantalla:
+
+		// Con estas tres lineas podemos hacer que el JFrame se muestre
+		// exactamente en el medio de la pantalla:
 		this.pack();
-	    this.setLocationRelativeTo(null);
-	    this.setVisible(true);
-		
-	    
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+
 		miJuego = new Juego(this);
 		miJuego.iniciarJuego();
 
-		
 		// Oyente encargado de recibir el input desde el teclado del usuario y
 		// reaccionar en consecuencia
 		addKeyListener(new KeyAdapter() {
@@ -70,23 +70,31 @@ public class GUI extends JFrame {
 	 */
 	private void mover(KeyEvent keyEvent) {
 
-		int direccion = Const.MOVIMIENTO_ARRIBA; //por defecto
-		
-		switch (keyEvent.getKeyCode()) {
-		case 38:
-			direccion = Const.MOVIMIENTO_ARRIBA;
-			break;
-		case 40:
-			direccion = Const.MOVIMIENTO_ABAJO;
-			break;
-		case 37:
-			direccion = Const.MOVIMIENTO_IZQUIERDA;
-			break;
-		case 39:
-			direccion = Const.MOVIMIENTO_DERECHA;
-			break;
-		}
+		if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE){
+			System.out.println("Colocar bomba");
+			miJuego.getBomberman().colocarBomba();
 
-		miJuego.moverBomberman(direccion);
+		}else {
+			int direccion;
+			switch (keyEvent.getKeyCode()) {
+			case KeyEvent.VK_UP:
+				direccion = Const.MOVIMIENTO_ARRIBA;
+				break;
+			case KeyEvent.VK_DOWN:
+				direccion = Const.MOVIMIENTO_ABAJO;
+				break;
+			case KeyEvent.VK_LEFT:
+				direccion = Const.MOVIMIENTO_IZQUIERDA;
+				break;
+			case KeyEvent.VK_RIGHT:
+				direccion = Const.MOVIMIENTO_DERECHA;
+				break;
+			default:
+				direccion = Const.MOVIMIENTO_ARRIBA;
+				break;
+			}
+
+			miJuego.moverBomberman(direccion);
+		}
 	}
 }
