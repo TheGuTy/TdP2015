@@ -15,7 +15,8 @@ public class EstadoTransitable extends EstadoCelda {
 
 	@Override
 	public void destruir(Celda c) {
-		//No hacer nada
+		c.matarBomberman();
+		c.destruirEnemigos();
 	}
 	
 

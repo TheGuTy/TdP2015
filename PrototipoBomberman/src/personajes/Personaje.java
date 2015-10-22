@@ -30,7 +30,7 @@ public abstract class Personaje {
 	}
 
 	public abstract void matar();
-
+	
 	public boolean enModoDios() {
 		return modoDios;
 	}
@@ -44,7 +44,7 @@ public abstract class Personaje {
 	}
 
 	public JLabel getLabel() {
-		return miGrafico.getGrafico();
+		return miGrafico.getLabel();
 	}
 
 	public GraficoPersonaje getGrafico() {
@@ -118,7 +118,7 @@ public abstract class Personaje {
 							switch (dir) {
 							case Const.MOVIMIENTO_ARRIBA:
 								for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
-									miGrafico.getGrafico().setBounds(miGrafico.getPos().x,
+									miGrafico.getLabel().setBounds(miGrafico.getPos().x,
 											miGrafico.getPos().y -= velocidad, miGrafico.getAncho(),
 											miGrafico.getAlto());
 									Thread.sleep(10);
@@ -126,7 +126,7 @@ public abstract class Personaje {
 								break;
 							case Const.MOVIMIENTO_ABAJO:
 								for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
-									miGrafico.getGrafico().setBounds(miGrafico.getPos().x,
+									miGrafico.getLabel().setBounds(miGrafico.getPos().x,
 											miGrafico.getPos().y += velocidad, miGrafico.getAncho(),
 											miGrafico.getAlto());
 									Thread.sleep(10);
@@ -134,14 +134,14 @@ public abstract class Personaje {
 								break;
 							case Const.MOVIMIENTO_IZQUIERDA:
 								for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
-									miGrafico.getGrafico().setBounds(miGrafico.getPos().x -= velocidad,
+									miGrafico.getLabel().setBounds(miGrafico.getPos().x -= velocidad,
 											miGrafico.getPos().y, miGrafico.getAncho(), miGrafico.getAlto());
 									Thread.sleep(10);
 								}
 								break;
 							case Const.MOVIMIENTO_DERECHA:
 								for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
-									miGrafico.getGrafico().setBounds(miGrafico.getPos().x += velocidad,
+									miGrafico.getLabel().setBounds(miGrafico.getPos().x += velocidad,
 											miGrafico.getPos().y, miGrafico.getAncho(), miGrafico.getAlto());
 									Thread.sleep(10);
 								}
@@ -158,12 +158,6 @@ public abstract class Personaje {
 				});
 				
 				t.start();
-//			}
-			
-//		}
-//		else
-//			System.out.println("estoy lock");
-
 	}
 
 	public boolean getLock() {

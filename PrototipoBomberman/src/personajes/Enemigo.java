@@ -23,4 +23,14 @@ public abstract class Enemigo extends Personaje {
 		calcularCeldaSiguiente(dir).avanzar(this, dir);
 		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY());
 	}
+	
+	@Override
+	public void matar(){
+		if (!modoDios){
+			System.out.println("Murio " + this.getClass().getSimpleName());
+			getGrafico().getLabel().setIcon(null);
+		}
+		
+		//TODO Eliminar/Detener el thread que contiene a este Enemigo
+	}
 }

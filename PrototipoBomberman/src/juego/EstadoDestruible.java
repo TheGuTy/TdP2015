@@ -13,7 +13,7 @@ public class EstadoDestruible extends EstadoCelda {
 	@Override
 	public void destruir(Celda c) {
 		c.matarBomberman();
-		c.destruirPersonajes();
+		c.destruirEnemigos();
 		c.setEstado(new EstadoTransitable(c.getX(), c.getY()));
 	}
 

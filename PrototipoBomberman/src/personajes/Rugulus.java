@@ -12,11 +12,4 @@ public class Rugulus extends Enemigo {
 		
 		super(false, VELOCIDAD_INICIAL, celda, t, PUNTAJE);
 	}
-
-	@Override
-	public void matar() {
-		
-		
-	}
-
 }

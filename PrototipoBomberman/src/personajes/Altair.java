@@ -15,9 +15,4 @@ public class Altair extends Enemigo {
 		super(false, VELOCIDAD_INICIAL, celda, t, PUNTAJE);
 		this.miGrafico = new GraficoAltair(1, celda.getX(), celda.getY());
 	}
-
-	@Override
-	public void matar() {
-		System.out.println("Matar Altair");
-	}
 }

@@ -1,6 +1,5 @@
 package juego;
 
-import graficos.GraficoEstructuras;
 import graficos.GraficoParedNoDestruible;
 import personajes.Bomberman;
 import personajes.Enemigo;

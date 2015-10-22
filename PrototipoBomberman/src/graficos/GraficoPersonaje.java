@@ -35,7 +35,7 @@ public abstract class GraficoPersonaje {
 		this.grafico.setIcon(this.imagenes[dir]);
 	}
 
-	public JLabel getGrafico() {
+	public JLabel getLabel() {
 		if (this.grafico == null) {
 			this.grafico = new JLabel(imagenes[0]);
 			this.grafico.setBounds(this.pos.x, this.pos.y, ancho, alto);

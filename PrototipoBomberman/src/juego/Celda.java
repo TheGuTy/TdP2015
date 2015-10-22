@@ -1,6 +1,8 @@
 package juego;
 
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 import graficos.GraficoEstructuras;
 import personajes.Bomberman;
@@ -50,8 +52,17 @@ public class Celda {
 		miEstado = e;
 	}
 
-	public void destruirPersonajes() {
-
+	public void destruirEnemigos() {
+		
+		List<Enemigo> aMatar = new LinkedList<Enemigo>();
+		
+		for (Enemigo e : misEnemigos){
+			aMatar.add(e);
+			e.matar();
+		}
+		
+		for (Enemigo e : aMatar)
+			misEnemigos.remove(e);
 	}
 
 	public void aumentarPuntaje(int p) {
@@ -106,6 +117,8 @@ public class Celda {
 	public EstadoCelda getEstado() {
 		return miEstado;
 	}
-	
-	
+
+	public void detonar() {
+		miEstado.destruir(this);
+	}
 }

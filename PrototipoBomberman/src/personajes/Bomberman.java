@@ -15,11 +15,12 @@ public class Bomberman extends Personaje {
 		super(false, 2, c, tablero);
 		this.miGrafico = new GraficoBomberman(2, 1, 1);
 		bombasDisponibles = 1;
+		miAlcanceBomba = 1;
 	}
 
 	@Override
 	public void matar() {
-		this.miGrafico.getGrafico().setIcon(null);
+		this.miGrafico.getLabel().setIcon(null);
 	}
 
 	public void setModoDios(boolean b) {
