@@ -41,7 +41,7 @@ public class GUI extends JFrame {
 				new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.setBackground(Color.GREEN);
+		contentPane.setBackground(new Color(50,175,50,255));
 
 		// Con estas tres lineas podemos hacer que el JFrame se muestre
 		// exactamente en el medio de la pantalla:
