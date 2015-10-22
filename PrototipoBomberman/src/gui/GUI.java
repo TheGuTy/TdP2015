@@ -24,7 +24,10 @@ public class GUI extends JFrame {
 	 */
 	public static void main(String[] args) {
 		GUI g = new GUI("Bomberman");
-		g.repaint();
+		
+		while (true){
+			g.repaint();
+		}
 	}
 
 	private GUI(String nombre) {
