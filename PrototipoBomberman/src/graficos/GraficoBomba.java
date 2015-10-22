@@ -10,7 +10,7 @@ public class GraficoBomba extends GraficoEstructuras {
 		super(x, y);
 		
 		getLabel().setBounds(x * Const.ANCHO_CELDA, y * Const.ALTO_CELDA, Const.ANCHO_CELDA, Const.ALTO_CELDA);
-		imagenes[Const.MOVIMIENTO_ARRIBA] = new ImageIcon(this.getClass().getResource("/Recursos/bomb.png"));		
-		label.setIcon(imagenes[0]);
+		imagenes[0] = new ImageIcon(this.getClass().getResource("/Recursos/bomb.png"));		
+		getLabel().setIcon(imagenes[0]);
 	}	
 }
