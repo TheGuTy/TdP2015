@@ -92,6 +92,8 @@ public class Tablero {
 	}
 
 	public void colocarBomba (int x, int y, int alcance) {
+		System.out.println("poner bomba en " + x + " " + y);
+		
 		Celda c = getCelda(x, y);
 		gui.remove(c.getEstado().getGrafico().getLabel());
 		c.setEstado(new EstadoBomba(x, y));
@@ -100,15 +102,25 @@ public class Tablero {
 		Bomba b = new Bomba(c, alcance, this);
 		
 		b.comenzarDetonacion();
+		System.out.println(c.getEstado().getClass().getSimpleName());
 	}
 
 	public void restaurarCelda(Celda c) {
-		gui.remove(c.getEstado().getGrafico().getLabel());
-		c.getEstado().getGrafico().getLabel().repaint();
+		System.out.println("restaurar celda en " + c.getX() + " " + c.getY());
+		int x = c.getX();
+		int y = c.getY();
+//		gui.remove(misCeldas[c.getX()][c.getY()]));
+//		gui.remove(misCeldas[x][y].getEstado().getGrafico().getLabel());
+//		c.getEstado().getGrafico().getLabel().repaint();
+//		gui.repaint();
 		gui.repaint();
-		c.getEstado().getGrafico().getLabel().setIcon(null);
-		c.setEstado(new EstadoTransitable(c.getX(), c.getY()));
-		gui.add(c.getEstado().getGrafico().getLabel());
+		gui.revalidate();
+//		c.getEstado().getGrafico().getLabel().setIcon(null);
+//		c.setEstado(new EstadoTransitable(c.getX(), c.getY()));
+		gui.add(misCeldas[x][y].getEstado().getGrafico().getLabel());
+//		(misCeldas[c.getX()][c.getY()]).getEstado().getGrafico().getLabel().setIcon(c.getEstado().getGrafico().getLabel().getIcon());
+//		gui.add(c.getEstado().getGrafico().getLabel());
 		gui.repaint();
+		gui.revalidate();
 	}
 }

@@ -17,6 +17,7 @@ public class EstadoBomba extends EstadoCelda {
 	public void destruir(Celda c) {
 		c.matarBomberman();
 		c.destruirEnemigos();
+		c.getEstado().getGrafico().getLabel().setIcon(null);
 		c.setEstado(new EstadoTransitable(c.getX(), c.getY()));
 	}
 

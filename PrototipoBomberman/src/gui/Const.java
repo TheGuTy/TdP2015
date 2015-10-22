@@ -21,5 +21,5 @@ public class Const {
 	public static final int ALTO_GUI = ALTO_CELDA * CANT_CELDAS_ALTO;
 	
 	public static final int PORCENTAJE_DESTRUIBLES = 50;
-	public static final int TIEMPO_DETONACION = 1000;
+	public static final int TIEMPO_DETONACION = 2500;
 }
