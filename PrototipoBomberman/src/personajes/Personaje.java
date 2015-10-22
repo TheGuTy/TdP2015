@@ -55,6 +55,11 @@ public abstract class Personaje {
 		return miGrafico.getPos();
 	}
 	
+	/**
+	 * Basandose en la celda/posicion actual se calcula la que deberia ser la siguiente segun la direccion recibida
+	 * @param dir direccion hacia donde se desea avanzar a este personaje
+	 * @return la celda que deberia ser la siguiente segun la direccion recibida
+	 */
 	protected Celda calcularCeldaSiguiente(int dir){
 		int xActual = miCelda.getX();
 		int yActual = miCelda.getY();
@@ -89,7 +94,13 @@ public abstract class Personaje {
 		return miTablero.getCelda(xActual, yActual);
 	}
 	
-public void moverGrafica(int dir) {
+	/**
+	 * Clase encargada de mover el grafico del personaje segun la direccion recibida.
+	 * Se utiliza un Thread como recurso para emular la transicion del personaje de una celda a la otra.
+	 * Sin este thread no se podria lograr este efecto.
+	 * @param dir direccion donde el personaje debe dirigirse
+	 */
+	public void moverGrafica(int dir) {
 		
 		lock = true;
 		

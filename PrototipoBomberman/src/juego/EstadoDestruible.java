@@ -1,15 +1,20 @@
 package juego;
 
+import graficos.GraficoEstructuras;
 import personajes.Bomberman;
 import personajes.Enemigo;
 
 public class EstadoDestruible extends EstadoCelda {
 
+	protected EstadoDestruible(GraficoEstructuras miGrafico) {
+		super(miGrafico);
+	}
+
 	@Override
 	public void destruir(Celda c) {
 		c.matarBomberman();
 		c.destruirPersonajes();
-		c.setEstado(new EstadoTransitable());
+		c.setEstado(new EstadoTransitable(c.getX(), c.getY()));
 	}
 
 	@Override

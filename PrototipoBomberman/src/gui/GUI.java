@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -15,7 +16,7 @@ import juego.Juego;
 public class GUI extends JFrame {
 
 	private Juego miJuego;
-	public JPanel contentPane;
+	private JPanel contentPane;
 
 	/**
 	 * Metodo que da el puntapie inicial al juego.
@@ -23,17 +24,7 @@ public class GUI extends JFrame {
 	 */
 	public static void main(String[] args) {
 		GUI g = new GUI("Bomberman");
-		g.iniciarJuego();
-
-		try {
-			while (true) {
-				Thread.sleep(17); //Da la sensacion de 60fps : 60 x 17 ~ 1000
-				g.repaint();
-				g.revalidate();
-			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		g.repaint();
 	}
 
 	private GUI(String nombre) {
@@ -50,10 +41,15 @@ public class GUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.setBackground(Color.GREEN);
-		setVisible(true);
-
 		
+		//Con estas tres lineas podemos hacer que el JFrame se muestre exactamente en el medio de la pantalla:
+		this.pack();
+	    this.setLocationRelativeTo(null);
+	    this.setVisible(true);
+		
+	    
 		miJuego = new Juego(this);
+		miJuego.iniciarJuego();
 
 		
 		// Oyente encargado de recibir el input desde el teclado del usuario y
@@ -92,10 +88,5 @@ public class GUI extends JFrame {
 		}
 
 		miJuego.moverBomberman(direccion);
-	}
-
-	private void iniciarJuego() {
-
-		miJuego.iniciarJuego();
 	}
 }

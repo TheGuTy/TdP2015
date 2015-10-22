@@ -1,9 +1,16 @@
 package juego;
 
+import graficos.GraficoEstructuras;
+import graficos.GraficoParedNoDestruible;
 import personajes.Bomberman;
 import personajes.Enemigo;
 
 public class EstadoTransitable extends EstadoCelda {
+
+	protected EstadoTransitable(int x, int y) {
+		super(new GraficoParedNoDestruible(x, y));
+	}
+
 
 	@Override
 	public void destruir(Celda c) {

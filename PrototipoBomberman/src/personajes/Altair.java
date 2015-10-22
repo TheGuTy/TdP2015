@@ -1,5 +1,6 @@
 package personajes;
 
+import graficos.GraficoAltair;
 import graficos.GraficoBomberman;
 import juego.Celda;
 import juego.Tablero;
@@ -12,7 +13,7 @@ public class Altair extends Enemigo {
 	public Altair (Celda celda, Tablero t) {
 		
 		super(false, VELOCIDAD_INICIAL, celda, t, PUNTAJE);
-		this.miGrafico = new GraficoBomberman(1, celda.getX(), celda.getY());
+		this.miGrafico = new GraficoAltair(1, celda.getX(), celda.getY());
 	}
 
 	@Override

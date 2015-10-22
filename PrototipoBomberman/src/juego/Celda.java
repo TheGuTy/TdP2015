@@ -2,6 +2,7 @@ package juego;
 
 import java.util.LinkedList;
 
+import graficos.GraficoEstructuras;
 import personajes.Bomberman;
 import personajes.Enemigo;
 import powerups.PowerUp;
@@ -96,8 +97,15 @@ public class Celda {
 
 	public void matarBomberman() {
 
-		if (miBomberman != null)
+		if (miBomberman != null){
 			miBomberman.matar();
-		// TODO Notificar al juego que murio bomberman
+		}
+		// TODO Notificar al juego que murio bomberman. Desde aca el unico camino es usar el tablero y desde ahi obtener la referencia al juego 
 	}
+
+	public EstadoCelda getEstado() {
+		return miEstado;
+	}
+	
+	
 }

@@ -31,8 +31,6 @@ public class Bomberman extends Personaje {
 
 	public void mover(int dir) {
 
-//		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion antes de moverme es x:" + getCelda().getX() + " - y: " + getCelda().getY());
-		
 		calcularCeldaSiguiente(dir).avanzar(this, dir);
 		
 		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY());

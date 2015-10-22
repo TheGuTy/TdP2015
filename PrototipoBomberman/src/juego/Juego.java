@@ -26,7 +26,7 @@ public class Juego {
 		
 		this.gui = gui;
 		puntaje = 0;
-		miTablero = new Tablero(50, this, Const.CANT_CELDAS_ANCHO, Const.CANT_CELDAS_ALTO);
+		miTablero = new Tablero(50, this, Const.CANT_CELDAS_ANCHO, Const.CANT_CELDAS_ALTO, gui);
 		miTiempo = new Tiempo();
 		
 		miBomberman = new Bomberman(miTablero.getCelda(1, 1), miTablero);

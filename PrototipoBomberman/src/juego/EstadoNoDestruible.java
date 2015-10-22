@@ -1,9 +1,15 @@
 package juego;
 
+import graficos.GraficoEstructuras;
+import graficos.GraficoParedNoDestruible;
 import personajes.Bomberman;
 import personajes.Enemigo;
 
 public class EstadoNoDestruible extends EstadoCelda {
+
+	protected EstadoNoDestruible(int x, int y) {
+		super(new GraficoParedNoDestruible(x, y));
+	}
 
 	@Override
 	public void destruir(Celda c) {
