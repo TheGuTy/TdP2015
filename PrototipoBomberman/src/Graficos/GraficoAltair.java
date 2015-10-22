@@ -1,4 +1,4 @@
-package Graficos;
+package graficos;
 
 import javax.swing.ImageIcon;
 

@@ -4,7 +4,7 @@ import java.awt.Point;
 
 import javax.swing.JLabel;
 
-import Graficos.GraficoPersonaje;
+import graficos.GraficoPersonaje;
 import gui.Const;
 import juego.Celda;
 import juego.Tablero;
