@@ -22,7 +22,7 @@ public class EnemigoThread extends Thread {
 				mLogica.mover();
 			}
 			catch(InterruptedException e){
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 	}

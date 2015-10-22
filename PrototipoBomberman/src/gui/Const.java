@@ -12,7 +12,7 @@ public class Const {
 	public static final int EMPTY_BORDER = 5;
 	
 	public static final int CANT_CELDAS_ANCHO = 31;
-	public static final int CANT_CELDAS_ALTO = 13;	
+	public static final int CANT_CELDAS_ALTO = 14;	
 	
 	public static final int ANCHO_CELDA = 32;
 	public static final int ALTO_CELDA = 32;

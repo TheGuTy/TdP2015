@@ -10,7 +10,7 @@ public class GraficoParedNoDestruible extends GraficoEstructuras {
 		super(x, y);
 		
 		getLabel().setBounds(x * Const.ANCHO_CELDA, y * Const.ALTO_CELDA, Const.ANCHO_CELDA, Const.ALTO_CELDA);
-		this.imagenes[Const.MOVIMIENTO_ARRIBA] = new ImageIcon(this.getClass().getResource("/recursos/muroindestructible.png"));		
+		this.imagenes[Const.MOVIMIENTO_ARRIBA] = new ImageIcon(this.getClass().getResource("/recursos/muroindestructible2.png"));		
 		this.label.setIcon(imagenes[Const.MOVIMIENTO_ARRIBA]);
 	}	
 }
