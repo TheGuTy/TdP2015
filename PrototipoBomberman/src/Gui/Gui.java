@@ -1,95 +1,101 @@
 package Gui;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Juego.Juego;
 
+@SuppressWarnings("serial")
 public class Gui extends JFrame {
 
 	private Juego miJuego;
 	public JPanel contentPane;
-	private boolean lock;
+
+	/**
+	 * Metodo que da el puntapie inicial al juego.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Gui g = new Gui("Bomberman");
+		g.iniciarJuego();
+
+		try {
+			while (true) {
+				Thread.sleep(17); //Da la sensacion de 60fps : 60 x 17 ~ 1000
+				g.repaint();
+				g.revalidate();
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
 	private Gui(String nombre) {
 
 		super(nombre);
-
-		addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyReleased(KeyEvent arg0) {
-				mover(arg0);
-			}
-		});
-
-		setPreferredSize(new Dimension(992, 992));
+		setPreferredSize(new Dimension(Const.ANCHO_GUI, Const.ALTO_GUI));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setLayout(null);
-		pack();
-		setLocationRelativeTo(null);
-
-		setFocusable(true);
 		getContentPane().setLayout(null);
-		setBounds(100, 100, 992, 992);
+		setBounds(100, 100, Const.ANCHO_GUI, Const.ALTO_GUI);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.setBackground(Color.GREEN);
-
 		setVisible(true);
 
+		
 		miJuego = new Juego(this);
+
+		
+		// Oyente encargado de recibir el input desde el teclado del usuario y
+		// reaccionar en consecuencia
+		addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent keyEvent) {
+				mover(keyEvent);
+			}
+		});
 	}
 
-	private void mover(KeyEvent key) {
+	/**
+	 * Recibe un evento de teclado, identifica a que direccion corresponde y le
+	 * avisa al juego que mueva a Bomberman apropiadamente
+	 * 
+	 * @param keyEvent evento de teclado recibido
+	 */
+	private void mover(KeyEvent keyEvent) {
 
-		try {
-			if (!lock) {
-				lock = true;
-
-				int direccion = 0;
-				switch (key.getKeyCode()) {
-				case 38: // Arriba
-					direccion = 0;
-					break;
-				case 40: // Abajo
-					direccion = 1;
-					break;
-				case 37: // Izquierda
-					direccion = 2;
-					break;
-				case 39: // Derecha
-					direccion = 3;
-					break;
-				}				
-
-				miJuego.moverBomberman(direccion);
-				revalidate();
-				lock = !lock;
-			}
-		} catch (Exception e) {
-		}
+		int direccion = Const.MOVIMIENTO_ARRIBA; //por defecto
 		
+		switch (keyEvent.getKeyCode()) {
+		case 38:
+			direccion = Const.MOVIMIENTO_ARRIBA;
+			break;
+		case 40:
+			direccion = Const.MOVIMIENTO_ABAJO;
+			break;
+		case 37:
+			direccion = Const.MOVIMIENTO_IZQUIERDA;
+			break;
+		case 39:
+			direccion = Const.MOVIMIENTO_DERECHA;
+			break;
+		}
+
+		miJuego.moverBomberman(direccion);
 	}
 
 	private void iniciarJuego() {
 
 		miJuego.iniciarJuego();
-	}
-
-	public static void main(String[] args) {
-		Gui g = new Gui("Bomberman");
-		g.iniciarJuego();
 	}
 }

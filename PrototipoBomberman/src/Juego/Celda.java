@@ -1,6 +1,5 @@
 package Juego;
 
-import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 import Personajes.Bomberman;
@@ -16,14 +15,9 @@ public class Celda {
 	protected EstadoCelda miEstado;
 	protected LinkedList<Enemigo> misEnemigos;
 	protected Bomberman miBomberman;
-	
-	public static final int LEFT = KeyEvent.VK_LEFT;
-	public static final int RIGHT = KeyEvent.VK_RIGHT;
-	public static final int UP = KeyEvent.VK_UP;
-	public static final int DOWN = KeyEvent.VK_DOWN;
-	
-	public Celda (int x, int y, Tablero t) {
-		
+
+	public Celda(int x, int y, Tablero t) {
+
 		this.x = x;
 		this.y = y;
 		miTablero = t;
@@ -32,77 +26,78 @@ public class Celda {
 		misEnemigos = new LinkedList<Enemigo>();
 		miBomberman = null;
 	}
-		
-	public void avanzar (Bomberman bomberman, int dir) {		 
-		miEstado.avanzar(bomberman, this,dir);
+
+	public void avanzar(Bomberman bomberman, int dir) {
+		miEstado.avanzar(bomberman, this, dir);
 	}
-	
-	public void avanzar (Enemigo enemigo) {
-		miEstado.avanzar(enemigo, this);
+
+	public void avanzar(Enemigo enemigo, int dir) {
+		miEstado.avanzar(enemigo, this, dir);
 	}
-	
-	public void setPowerUp (PowerUp powerup) {
-		
+
+	public void setPowerUp(PowerUp powerup) {
+
 	}
-	
-	public PowerUp getPowerUp () {
-		
+
+	public PowerUp getPowerUp() {
+
 		return miPowerUp;
 	}
-	
-	public void setEstado (EstadoCelda e) {
-		
+
+	public void setEstado(EstadoCelda e) {
+
 		miEstado = e;
 	}
-	
-	public void destruirPersonajes () {
-		
+
+	public void destruirPersonajes() {
+
 	}
-	
-	public void aumentarPuntaje (int p) {
-		
+
+	public void aumentarPuntaje(int p) {
+
 		miTablero.aumentarPuntaje(p);
 	}
-	
-	public void agregarEnemigo (Enemigo enemigo) {
+
+	public void agregarEnemigo(Enemigo enemigo) {
 		misEnemigos.add(enemigo);
 	}
-	
-	public void eliminarEnemigo (Enemigo enemigo) {
+
+	public void eliminarEnemigo(Enemigo enemigo) {
 		misEnemigos.remove(enemigo);
 	}
-	
-	public void agregarBomberman (Bomberman b) {
-		miBomberman = b;		
+
+	public void agregarBomberman(Bomberman b) {
+		miBomberman = b;
 	}
-	
-	public void eliminarBomberman () {
+
+	public void eliminarBomberman() {
 		miBomberman = null;
 	}
-	
-	public int getX () {
-		
+
+	public int getX() {
+
 		return x;
 	}
-	
+
 	public int getY() {
-		
+
 		return y;
 	}
-	
-	public boolean hayEnemigos () {
-		
+
+	public boolean hayEnemigos() {
+
 		return !misEnemigos.isEmpty();
 	}
-	
-	public boolean hayBomberman () {
-		
+
+	public boolean hayBomberman() {
+
 		return miBomberman != null;
 	}
-	
-	public void matarBomberman () {
-		
+
+	public void matarBomberman() {
+
 		if (miBomberman != null)
 			miBomberman.matar();
+		// TODO Notificar al juego que murio bomberman
 	}
 }

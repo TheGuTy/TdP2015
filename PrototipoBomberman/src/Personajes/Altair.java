@@ -17,7 +17,6 @@ public class Altair extends Enemigo {
 
 	@Override
 	public void matar() {
-		
-		
+		System.out.println("Matar Altair");
 	}
 }

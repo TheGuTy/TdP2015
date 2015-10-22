@@ -19,31 +19,41 @@ public class EstadoTransitable extends EstadoCelda {
 			System.out.println("El bomberman colisiona con un enemigo");			
 		} else {
 			if (bomberman.getLock() == false) {
+				bomberman.lock();
 				bomberman.getCelda().eliminarBomberman();
 				bomberman.setCelda(celdaSiguiente);
 				celdaSiguiente.agregarBomberman(bomberman);
 				
 				bomberman.moverGrafica(dir);
-			}			
+			}
+			else
+				System.out.println("Bomberman esta bloqueado");
 		}		
 	}
 
 	@Override
-	public void avanzar(Enemigo enemigo, Celda celdaSiguiente) {
+	public void avanzar(Enemigo enemigo, Celda celdaSiguiente, int dir) {
 		
-		if (celdaSiguiente.hayBomberman()) {			
-			System.out.println("El enemigo colisiona con bomberman");
-			celdaSiguiente.matarBomberman();	
-			enemigo.getCelda().eliminarEnemigo(enemigo);
-			enemigo.setCelda(celdaSiguiente);
-			celdaSiguiente.agregarEnemigo(enemigo); //TODO Notitificar que murio bomberman y la logica sigue
+		if (celdaSiguiente.hayBomberman()) {
+			if (enemigo.getLock() == false) {
+				enemigo.lock();
+				System.out.println("El enemigo colisiona con bomberman");
+				celdaSiguiente.matarBomberman();
+				enemigo.getCelda().eliminarEnemigo(enemigo);
+				enemigo.setCelda(celdaSiguiente);
+				celdaSiguiente.agregarEnemigo(enemigo);
+				
+				enemigo.moverGrafica(dir);
+			}
 		} else {
-			enemigo.getCelda().eliminarEnemigo(enemigo);
-			enemigo.setCelda(celdaSiguiente);
-			celdaSiguiente.agregarEnemigo(enemigo);
+			if (enemigo.getLock() == false) {
+				enemigo.lock();
+				enemigo.getCelda().eliminarEnemigo(enemigo);
+				enemigo.setCelda(celdaSiguiente);
+				celdaSiguiente.agregarEnemigo(enemigo);
+				
+				enemigo.moverGrafica(dir);
+			}
 		}
-		
-		
-		
 	}
 }

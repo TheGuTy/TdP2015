@@ -1,7 +1,5 @@
 package Gui;
 
-import Juego.Juego;
-
 public class Tiempo extends Thread {
 
 	private long horaInicioEnMillis;

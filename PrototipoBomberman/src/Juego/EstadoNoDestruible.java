@@ -2,7 +2,6 @@ package Juego;
 
 import Personajes.Bomberman;
 import Personajes.Enemigo;
-import Personajes.Personaje;
 
 public class EstadoNoDestruible extends EstadoCelda {
 
@@ -12,9 +11,12 @@ public class EstadoNoDestruible extends EstadoCelda {
 	}
 
 	@Override
-	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {}
+	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {
+		//No hacer nada
+	}
 
 	@Override
-	public void avanzar(Enemigo enemigo, Celda celdaSiguiente) {}
-	
+	public void avanzar(Enemigo enemigo, Celda celdaSiguiente, int dir) {
+		//No hacer nada
+	}
 }
