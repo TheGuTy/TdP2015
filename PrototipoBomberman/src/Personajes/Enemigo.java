@@ -59,8 +59,8 @@ public abstract class Enemigo extends Personaje {
 				break;
 			}
 		}
-		miGrafico.mover(dir);
-		miGrafico.changeIcon(dir);
+		//miGrafico.mover(dir);
+		//miGrafico.changeIcon(dir);
 		celdaSiguiente = miTablero.getCelda(xActual, yActual);
 
 //		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion antes de moverme es x: "

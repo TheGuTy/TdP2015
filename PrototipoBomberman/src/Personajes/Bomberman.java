@@ -8,11 +8,13 @@ public class Bomberman extends Personaje {
 
 	protected int bombasDisponibles;
 	protected int miAlcanceBomba;
+	protected boolean lock;
 
 	public Bomberman(Celda c, Tablero tablero) {
 
-		super(false, 8, c, tablero);
-		this.miGrafico = new GraficoBomberman(8, 1, 1);
+		super(false, 2, c, tablero);
+		this.miGrafico = new GraficoBomberman(2, 1, 1);
+		lock = false;
 	}
 
 	@Override
@@ -69,15 +71,63 @@ public class Bomberman extends Personaje {
 				break;
 			}
 		}
-		miGrafico.mover(dir);
-		miGrafico.changeIcon(dir);
+		
+		//miGrafico.mover(dir);
+		//miGrafico.changeIcon(dir);
 		celdaSiguiente = miTablero.getCelda(xActual, yActual);
 
 //		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion antes de moverme es x: "
 //				+ getCelda().getX() + " - y: " + getCelda().getY());
-		celdaSiguiente.avanzar(this);
+		celdaSiguiente.avanzar(this,dir);
 		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX()
 				+ " - y: " + getCelda().getY() + ". Mi movimiento fue " + ultimoMovimiento);
+	}
+	
+	public void moverGrafica(int dir) {
+		lock = true;
+		if (this.miGrafico != null) {
+			
+			miGrafico.changeIcon(dir);
+
+			try {
+				//						System.out.println("Soy " + this.getClass().getName() + ". Mi POINT vieja es x: " + getPos().getX() + " - y: " + getPos().getY() );
+				switch (dir) {
+				case 0: // Arriba
+					for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+						miGrafico.getGrafico().setBounds(miGrafico.getPos().x, miGrafico.getPos().y -= velocidad, miGrafico.getAncho(), miGrafico.getAlto());
+						Thread.sleep(10);
+					}
+					//							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
+					break;
+				case 1: // Abajo
+					for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+						miGrafico.getGrafico().setBounds(miGrafico.getPos().x, miGrafico.getPos().y += velocidad, miGrafico.getAncho(), miGrafico.getAlto());
+						Thread.sleep(10);
+					}
+					//							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
+					break;
+				case 3: // Derecha
+					for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+						miGrafico.getGrafico().setBounds(miGrafico.getPos().x += velocidad, miGrafico.getPos().y, miGrafico.getAncho(), miGrafico.getAlto());
+						Thread.sleep(10);
+					}
+					//							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
+					break;
+				case 2: // Izquierda
+					for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+						miGrafico.getGrafico().setBounds(miGrafico.getPos().x -= velocidad, miGrafico.getPos().y, miGrafico.getAncho(), miGrafico.getAlto());
+						Thread.sleep(10);
+					}
+					//							System.out.println("Soy " + this.getClass().getName() + ". Mi POINT nueva es x: " + getPos().getX() + " - y: " + getPos().getY() );
+					break;
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		lock = false;
 	}
 
 	public void duplicarVelocidad() {
@@ -94,4 +144,12 @@ public class Bomberman extends Personaje {
 
 		miAlcanceBomba *= 2;
 	}
+
+	public boolean getLock() {
+		
+		return lock;
+	}
+	
+	
+	
 }

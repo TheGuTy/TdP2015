@@ -12,16 +12,19 @@ public class EstadoDestruible extends EstadoCelda {
 	}	
 
 	@Override
-	public void avanzar(Bomberman bomberman, Celda celdaSiguiente) {
+	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {
 
 		if (bomberman.enModoDios()){
 			if (celdaSiguiente.hayEnemigos()) {
 				bomberman.matar();
 				System.out.println("El bomberman colisiona con un enemigo");			
 			}else{
-				bomberman.getCelda().eliminarBomberman();
-				bomberman.setCelda(celdaSiguiente);
-				celdaSiguiente.agregarBomberman(bomberman);
+				if (bomberman.getLock() == false) {
+					bomberman.getCelda().eliminarBomberman();
+					bomberman.setCelda(celdaSiguiente);
+					celdaSiguiente.agregarBomberman(bomberman);					
+					bomberman.moverGrafica(dir);
+				}					
 			}
 		}
 	}
@@ -37,9 +40,9 @@ public class EstadoDestruible extends EstadoCelda {
 				enemigo.setCelda(celdaSiguiente);
 				celdaSiguiente.agregarEnemigo(enemigo); //TODO Notitificar que murio bomberman y la logica sigue
 			} else {
-			enemigo.getCelda().eliminarEnemigo(enemigo);
-			enemigo.setCelda(celdaSiguiente);
-			celdaSiguiente.agregarEnemigo(enemigo);
+				enemigo.getCelda().eliminarEnemigo(enemigo);
+				enemigo.setCelda(celdaSiguiente);
+				celdaSiguiente.agregarEnemigo(enemigo);
 			}
 		}
 	}

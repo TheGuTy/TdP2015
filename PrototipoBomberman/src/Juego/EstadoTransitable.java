@@ -12,15 +12,19 @@ public class EstadoTransitable extends EstadoCelda {
 	
 
 	@Override
-	public void avanzar(Bomberman bomberman, Celda celdaSiguiente) {
+	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {
 		
 		if (celdaSiguiente.hayEnemigos()) {
 			bomberman.matar();
 			System.out.println("El bomberman colisiona con un enemigo");			
 		} else {
-			bomberman.getCelda().eliminarBomberman();
-			bomberman.setCelda(celdaSiguiente);
-			celdaSiguiente.agregarBomberman(bomberman);
+			if (bomberman.getLock() == false) {
+				bomberman.getCelda().eliminarBomberman();
+				bomberman.setCelda(celdaSiguiente);
+				celdaSiguiente.agregarBomberman(bomberman);
+				
+				bomberman.moverGrafica(dir);
+			}			
 		}		
 	}
 

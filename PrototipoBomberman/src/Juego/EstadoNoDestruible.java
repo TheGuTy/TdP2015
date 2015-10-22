@@ -12,7 +12,7 @@ public class EstadoNoDestruible extends EstadoCelda {
 	}
 
 	@Override
-	public void avanzar(Bomberman bomberman, Celda celdaSiguiente) {}
+	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {}
 
 	@Override
 	public void avanzar(Enemigo enemigo, Celda celdaSiguiente) {}

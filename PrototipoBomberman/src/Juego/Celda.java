@@ -33,8 +33,8 @@ public class Celda {
 		miBomberman = null;
 	}
 		
-	public void avanzar (Bomberman bomberman) {		
-		miEstado.avanzar(bomberman, this);
+	public void avanzar (Bomberman bomberman, int dir) {		 
+		miEstado.avanzar(bomberman, this,dir);
 	}
 	
 	public void avanzar (Enemigo enemigo) {

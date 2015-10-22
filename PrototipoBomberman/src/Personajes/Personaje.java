@@ -56,6 +56,8 @@ public abstract class Personaje extends Thread {
 	public Point getPos() {
 		return miGrafico.getPos();
 	}
+	
+	
 
 	public abstract void mover(int dir);
 }
