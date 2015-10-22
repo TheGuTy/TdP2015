@@ -1,7 +1,7 @@
-package Juego;
+package juego;
 
-import Personajes.Bomberman;
-import Personajes.Enemigo;
+import personajes.Bomberman;
+import personajes.Enemigo;
 
 public class EstadoNoDestruible extends EstadoCelda {
 

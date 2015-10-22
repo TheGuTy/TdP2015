@@ -1,10 +1,10 @@
-package Juego;
+package juego;
 
 import java.util.LinkedList;
 
-import Personajes.Bomberman;
-import Personajes.Enemigo;
-import PowerUps.PowerUp;
+import personajes.Bomberman;
+import personajes.Enemigo;
+import powerups.PowerUp;
 
 public class Celda {
 

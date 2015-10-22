@@ -5,11 +5,13 @@ import java.awt.Point;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
+import gui.Const;
+
 public abstract class GraficoPersonaje {
 	protected JLabel grafico;
 	protected Icon imagenes[];
-	protected final int ancho = 32;
-	protected final int alto = 32;
+	protected final int ancho = Const.ANCHO_PERSONAJE;
+	protected final int alto = Const.ALTO_PERSONAJE;
 
 	protected int velocidad;
 
@@ -30,7 +32,6 @@ public abstract class GraficoPersonaje {
 	}
 
 	public void changeIcon(int dir) {
-
 		this.grafico.setIcon(this.imagenes[dir]);
 	}
 

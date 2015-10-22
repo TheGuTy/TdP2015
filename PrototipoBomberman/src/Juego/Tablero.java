@@ -1,6 +1,6 @@
-package Juego;
+package juego;
 
-import Personajes.Enemigo;
+import personajes.Enemigo;
 
 public class Tablero {
 

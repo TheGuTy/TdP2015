@@ -1,9 +1,9 @@
-package Personajes;
+package personajes;
 
 import java.util.Random;
 
-import Juego.Celda;
-import Juego.Tablero;
+import juego.Celda;
+import juego.Tablero;
 
 public abstract class Enemigo extends Personaje {
 

@@ -1,17 +1,15 @@
 package Graficos;
 
-import java.awt.Color;
-
 import javax.swing.ImageIcon;
 
-import Gui.Const;
+import gui.Const;
 
 public class GraficoBomberman extends GraficoPersonaje {
 
 	public GraficoBomberman(int velocidad, int x, int y) {
 		super(velocidad, x, y);
 		
-		getGrafico().setBounds(x*32, y*32, 32, 32);
+		getGrafico().setBounds(x * Const.ANCHO_PERSONAJE, y * Const.ALTO_PERSONAJE, Const.ANCHO_PERSONAJE, Const.ALTO_PERSONAJE);
 		
 		imagenes[Const.MOVIMIENTO_ARRIBA] = new ImageIcon(this.getClass().getResource("/Recursos/arr.png"));		
 		imagenes[Const.MOVIMIENTO_ABAJO] = new ImageIcon(this.getClass().getResource("/Recursos/aba.png"));

@@ -1,4 +1,4 @@
-package Gui;
+package gui;
 
 public class Const {
 
@@ -13,4 +13,7 @@ public class Const {
 	public static final int ALTO_GUI = 992;
 	public static final int CANT_CELDAS_ANCHO = 31;
 	public static final int CANT_CELDAS_ALTO = 31;
+	
+	public static final int ANCHO_PERSONAJE = 32;
+	public static final int ALTO_PERSONAJE = 32;
 }

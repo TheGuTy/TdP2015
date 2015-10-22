@@ -1,4 +1,4 @@
-package Gui;
+package gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Juego.Juego;
+import juego.Juego;
 
 @SuppressWarnings("serial")
 public class Gui extends JFrame {

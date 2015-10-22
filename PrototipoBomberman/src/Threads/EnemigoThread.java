@@ -1,6 +1,6 @@
-package Threads;
+package threads;
 
-import Personajes.Enemigo;
+import personajes.Enemigo;
 
 public class EnemigoThread extends Thread {
 

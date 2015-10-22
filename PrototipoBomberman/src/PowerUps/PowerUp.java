@@ -1,6 +1,6 @@
-package PowerUps;
+package powerups;
 
-import Personajes.Bomberman;
+import personajes.Bomberman;
 
 public abstract class PowerUp {
 

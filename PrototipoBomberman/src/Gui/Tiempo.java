@@ -1,4 +1,4 @@
-package Gui;
+package gui;
 
 public class Tiempo extends Thread {
 

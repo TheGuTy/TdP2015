@@ -1,13 +1,13 @@
-package Personajes;
+package personajes;
 
 import java.awt.Point;
 
 import javax.swing.JLabel;
 
 import Graficos.GraficoPersonaje;
-import Gui.Const;
-import Juego.Celda;
-import Juego.Tablero;
+import gui.Const;
+import juego.Celda;
+import juego.Tablero;
 
 public abstract class Personaje {
 

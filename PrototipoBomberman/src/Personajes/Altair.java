@@ -1,8 +1,8 @@
-package Personajes;
+package personajes;
 
 import Graficos.GraficoBomberman;
-import Juego.Celda;
-import Juego.Tablero;
+import juego.Celda;
+import juego.Tablero;
 
 public class Altair extends Enemigo {
 

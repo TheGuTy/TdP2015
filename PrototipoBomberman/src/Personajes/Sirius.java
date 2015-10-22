@@ -1,7 +1,7 @@
-package Personajes;
+package personajes;
 
-import Juego.Celda;
-import Juego.Tablero;
+import juego.Celda;
+import juego.Tablero;
 
 public class Sirius extends Enemigo {
 

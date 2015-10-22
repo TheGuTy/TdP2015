@@ -1,17 +1,17 @@
-package Juego;
+package juego;
 
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.JLabel;
 
-import Gui.Const;
-import Gui.Gui;
-import Gui.Tiempo;
-import Personajes.Altair;
-import Personajes.Bomberman;
-import Personajes.Enemigo;
-import Threads.EnemigoThread;
+import gui.Const;
+import gui.Gui;
+import gui.Tiempo;
+import personajes.Altair;
+import personajes.Bomberman;
+import personajes.Enemigo;
+import threads.EnemigoThread;
 
 public class Juego {
 

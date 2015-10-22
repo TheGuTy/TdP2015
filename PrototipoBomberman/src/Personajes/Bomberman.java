@@ -1,9 +1,9 @@
-package Personajes;
+package personajes;
 
 import Graficos.GraficoBomberman;
-import Gui.Const;
-import Juego.Celda;
-import Juego.Tablero;
+import gui.Const;
+import juego.Celda;
+import juego.Tablero;
 
 public class Bomberman extends Personaje {
 

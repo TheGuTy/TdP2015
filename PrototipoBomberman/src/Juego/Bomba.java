@@ -1,4 +1,4 @@
-package Juego;
+package juego;
 
 public class Bomba{
 
