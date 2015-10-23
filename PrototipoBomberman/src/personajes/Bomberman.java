@@ -34,6 +34,8 @@ public class Bomberman extends Personaje implements Runnable {
 	public void matar() {
 		System.out.println("Murio bommberguy");
 		estoyVivo = false;
+		this.getGrafico().getLabel().setIcon(null);
+		//TODO Parar el thread que mueve a Bomberman
 	}
 
 	/**
