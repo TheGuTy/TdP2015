@@ -6,19 +6,39 @@ import gui.Const;
 import juego.Celda;
 import juego.Tablero;
 
+/**
+ * Clase abstracta que a su vez es un Personaje y refactoriza las habilidades esenciales de ellos.
+ * @author Joaquin
+ *
+ */
 public abstract class Enemigo extends Personaje {
 
 	protected int puntaje;
 
+	/**
+	 * Construye un Enemigo.
+	 * @param modoAtravesar true si este Enemigo es capaz de atravesar paredes, false en caso contrario
+	 * @param vel velocidad inicial
+	 * @param c Celda inicial
+	 * @param t Referencia al tablero principal
+	 * @param p puntaje
+	 */
 	protected Enemigo (boolean modoAtravesar, int vel, Celda c, Tablero t, int p) {
 
 		super(modoAtravesar, vel, c, t);
 	}
 
+	/**
+	 * Devuelve el puntaje de este Enemigo
+	 * @return el puntaje de este Enemigo
+	 */
 	public int getPuntaje () {
 		return puntaje;
 	}
 
+	/**
+	 * Calcula una direccion al azar e intenta moverse hacia ella
+	 */
 	public void mover () {
 		int dir = new Random().nextInt(4);
 		calcularCeldaSiguiente(dir).avanzar(this, dir);

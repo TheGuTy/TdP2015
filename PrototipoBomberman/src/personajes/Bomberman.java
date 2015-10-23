@@ -5,6 +5,11 @@ import gui.Const;
 import juego.Celda;
 import juego.Tablero;
 
+/**
+ * Clase abstracta que a su vez es un Bomberman y refactoriza las habilidades esenciales del mismo.
+ * @author Joaquin
+ *
+ */
 public class Bomberman extends Personaje implements Runnable {
 
 	protected int bombasDisponibles;
@@ -12,6 +17,11 @@ public class Bomberman extends Personaje implements Runnable {
 	private int dir;
 	private Thread t;
 
+	/**
+	 * Constructor de Bomberman
+	 * @param c celda inicial
+	 * @param tablero referencia al tablero principal
+	 */
 	public Bomberman(Celda c, Tablero tablero) {
 
 		super(false, Const.VELOCIDAD_INICIAL_BMAN, c, tablero);
@@ -26,10 +36,17 @@ public class Bomberman extends Personaje implements Runnable {
 		estoyVivo = false;
 	}
 
+	/**
+	 * Permite setear si Bomberman puede atravesar paredes o no
+	 * @param b true si Bomberman puede atravesar paredes, false en caso contrario
+	 */
 	public void setModoAtravesar(boolean b) {
 		modoAtravesar = b;
 	}
 
+	/**
+	 * Permite colocar una Bomba en la celda donde está parado actualmente Bomberman
+	 */
 	public void colocarBomba() {
 		if (bombasDisponibles > 0){
 			bombasDisponibles--;
@@ -40,6 +57,10 @@ public class Bomberman extends Personaje implements Runnable {
 		}
 	}
 
+	/**
+	 * Recibe una dirección e intenta moverse hacia ella
+	 * @param dir dirección a donde moverse
+	 */
 	public void mover(int dir) {
 
 		calcularCeldaSiguiente(dir).avanzar(this, dir);
@@ -47,22 +68,34 @@ public class Bomberman extends Personaje implements Runnable {
 		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY());
 	}
 	
+	/**
+	 * Al ser invocado duplica la velocidad actual de Bomberman
+	 */
 	public void duplicarVelocidad() {
 
 		velocidad *= 2;
 	}
 
+	/**
+	 * Al ser invocado aumenta en 1 la cantidad de bombas disponibles
+	 */
 	public void aumentarBombasDisponibles() {
 
 		bombasDisponibles++;
 	}
 
+	/**
+	 * Al ser invocado duplica el alcance de las bombas que coloca Bomberman
+	 */
 	public void duplicarAlcance() {
 
 		miAlcanceBomba *= 2;
 	}
 
 
+	/**
+	 * Runnable que se encarga de mover de manera fluida la posicion gráfica de Bomberman
+	 */
 	@Override
 	public void run() {
 		

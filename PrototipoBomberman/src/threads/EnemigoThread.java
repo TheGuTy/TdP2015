@@ -7,7 +7,7 @@ import personajes.Enemigo;
 /**
  * Clase encargada de generar los movimientos y el ciclo de vida de un Enemigo.
  * Funciona como un wrapper para un Enemigo.
- * @author Joaquin
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
  *
  */
 public class EnemigoThread extends Thread {
