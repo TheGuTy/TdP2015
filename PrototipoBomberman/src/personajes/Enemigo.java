@@ -29,7 +29,7 @@ public abstract class Enemigo extends Personaje {
 	public void matar(){
 		System.out.println("Murio " + this.getClass().getSimpleName());
 		estoyVivo = false;
-		//TODO Eliminar/Detener el thread que contiene a este Enemigo
+		
 	}
 	
 	@Override

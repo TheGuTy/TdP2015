@@ -94,8 +94,9 @@ public class Juego {
 		List<EnemigoThread> aEliminar = new LinkedList<EnemigoThread>();
 
 		for (EnemigoThread t : misEnemigos){
-			if (t.getPosicionCelda().equals(p)){
-				t.detener();
+			if (t.getPosicionCelda().equals(p)){				
+				t.sacarIcono();
+				t.interrupt();
 				aEliminar.add(t);
 			}
 		}
