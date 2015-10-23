@@ -5,18 +5,32 @@ import java.util.List;
 
 import gui.Const;
 
+/**
+ * Clase encargada de modelar el funcionamiento lógico de una bomba. 
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
+ */
 public class Bomba {
 
 	protected int alcance;
 	protected Tablero miTablero;
 	protected Celda miCelda;
 
+	/**
+	 * Constructor de clase.
+	 * Crea una bomba en una celda indicada con su alcance correspondiente.
+	 * @param c Celda en la cual esta contenida la bomba.
+	 * @param alcance Alcance explosivo de la bomba.
+	 * @param t Referencia al tablero de juego.
+	 */
 	public Bomba(Celda c, int alcance, Tablero t) {
 		miCelda = c;
 		this.alcance = alcance;
 		miTablero = t;
 	}
-
+	
+	/**
+	 * Indicador de explosión de la bomba con un timer asignado.
+	 */
 	public void comenzarDetonacion() {
 
 		new java.util.Timer().schedule(new java.util.TimerTask() {
@@ -41,6 +55,11 @@ public class Bomba {
 		}, Const.TIEMPO_DETONACION);
 	}
 	
+	/**
+	 * Metodo encargado de calcular las celdas 
+	 * que tienen que ser afectadas por la explosión de la bomba.
+	 * @return Lista de celdas afectadas por la explosión.
+	 */
 	protected List<Celda> calcularCeldasAfectadas() {
 		List<Celda> celdasAf = new ArrayList<Celda>();
 		celdasAf.add(miCelda);
@@ -60,9 +79,5 @@ public class Bomba {
 		}
 		
 		return celdasAf;
-	}
-
-	public Celda getCelda() {
-		return miCelda;
 	}
 }

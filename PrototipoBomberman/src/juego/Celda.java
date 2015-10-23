@@ -56,6 +56,8 @@ public class Celda {
 	public void destruirEnemigos() {
 		
 		List<Enemigo> aMatar = new LinkedList<Enemigo>();
+		miTablero.agregarEnGUI(miEstado.getGrafico().getLabel());
+		miTablero.agregarEnGUI(miEstado.getGrafico().getLabel());
 		
 		for (Enemigo e : misEnemigos){
 			aMatar.add(e);

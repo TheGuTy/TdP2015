@@ -13,6 +13,11 @@ import personajes.Bomberman;
 import personajes.Enemigo;
 import threads.EnemigoThread;
 
+/**
+ * Clase encargada de modelar la instancia de un juego, 
+ * el cual posee enemigos y un personaje principal.
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
+ */
 public class Juego {
 
 	private int puntaje;
@@ -22,6 +27,10 @@ public class Juego {
 	private Tiempo miTiempo;
 	private GUI gui;
 
+	/**
+	 * Crea el juego e inicializa los componentes principal de taal juego.
+	 * @param gui Referencia a la GUI del juego.
+	 */
 	public Juego (GUI gui) {
 
 		this.gui = gui;
@@ -33,13 +42,18 @@ public class Juego {
 		misEnemigos = new LinkedList<EnemigoThread>();		
 	}				
 
+	/**
+	 * Getter para obtener el tiempo trascurrido de juego.
+	 * @return Tiempo actual trascurrido.
+	 */
 	public Tiempo getMiTiempo() {
 		return miTiempo;
 	}
 
+	/**
+	 * Método encargado de inicializar los personajes incluidos en el juego.
+	 */
 	public void iniciarJuego(){
-
-		miTiempo.start();
 
 		JLabel grafBomberman = miBomberman.getLabel();
 		grafBomberman.setLocation(miBomberman.getPos());
@@ -63,21 +77,30 @@ public class Juego {
 			e.start();
 
 	}
-
+	
+	/**
+	 * Método encargado de aumentar el puntaje actual del juego 
+	 * en una cantidad indicada.
+	 * @param puntaje
+	 */
 	public void aumentarPuntaje (int puntaje) {
 
 		this.puntaje += puntaje;
 	}
 
+	/**
+	 * Getter para el personaje principal del juego.
+	 * @return Devuelo el personaje principal.
+	 */
 	public Bomberman getBomberman () {
 
 		return miBomberman;
 	}	
 
-	public void finalizarJuego () {
-		miTiempo.detener();
-	}	
-
+	/**
+	 * Método que le indica a Bomberman que se mueva en una dirección indicada 
+	 * @param dir Dirección de movimiento.
+	 */
 	public void moverBomberman (int dir) {
 
 		miBomberman.mover(dir);

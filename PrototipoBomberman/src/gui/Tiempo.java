@@ -1,32 +1,29 @@
 package gui;
 
-public class Tiempo extends Thread {
+/**
+ * Clase encargada de llevar un control sobre el tiempo de juego.
+ * Funciona como un wrapper para el tiempo.
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
+ */
+
+public class Tiempo {
 
 	private long horaInicioEnMillis;
-
+	
+	/**
+	 * Constructor de clase.
+	 * Setea la variable de clase con la hora actual del sistema.
+	 */
 	public Tiempo() {
 		this.horaInicioEnMillis = System.currentTimeMillis();
 	}
 	
-	public void run() {
-		while(true){
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	public long getHoraInicioEnMillis() {
-		return horaInicioEnMillis;
-	}
-	
+	/**
+	 * Método encargado de calcular el tiempo transcurrido de juego.
+	 * @return Tiempo transcurrido de juego.
+	 */
 	public long tiempoTranscurrido (){
 		return System.currentTimeMillis() - horaInicioEnMillis;
 	}
 	
-	public void detener(){
-		this.interrupt();
-	}
 }
