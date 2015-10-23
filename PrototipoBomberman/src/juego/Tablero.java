@@ -5,7 +5,9 @@ import javax.swing.JLabel;
 import gui.Const;
 import gui.GUI;
 import juego.estadosCelda.EstadoBomba;
+import juego.estadosCelda.EstadoBombality;
 import juego.estadosCelda.EstadoNoDestruible;
+import juego.estadosCelda.EstadoSpeedUp;
 import juego.estadosCelda.EstadoTransitable;
 
 /**
@@ -49,6 +51,10 @@ public class Tablero {
 			for (int j = 0; j < Const.CANT_CELDAS_ALTO; j++)				 
 				gui.add(misCeldas[i][j].getEstado().getGrafico().getLabel());
 		
+		
+		//Agregamos los speed up al tablero
+		misCeldas[5][9].setEstado(new EstadoSpeedUp(5,  9));
+		misCeldas[11][9].setEstado(new EstadoBombality(11,  9));
 	}
 	
 	/**
