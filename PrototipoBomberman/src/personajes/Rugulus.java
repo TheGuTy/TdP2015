@@ -1,6 +1,5 @@
 package personajes;
 
-import gui.Const;
 import juego.Celda;
 import juego.Tablero;
 

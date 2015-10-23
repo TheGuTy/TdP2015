@@ -1,14 +1,9 @@
 package juego;
 
-import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import graficos.GraficoBomba;
-import graficos.GraficoEstructuras;
 import gui.Const;
-import juego.estadosCelda.EstadoTransitable;
 
 public class Bomba {
 

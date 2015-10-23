@@ -3,9 +3,6 @@ package juego.estadosCelda;
 import javax.swing.ImageIcon;
 
 import graficos.GraficoCeldaTransitable;
-import graficos.GraficoEstructuras;
-import graficos.GraficoParedNoDestruible;
-import gui.Const;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;

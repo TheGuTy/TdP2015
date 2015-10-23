@@ -1,9 +1,5 @@
 package juego;
 
-import java.awt.Color;
-import java.util.LinkedList;
-import java.util.List;
-
 import javax.swing.JLabel;
 
 import gui.Const;

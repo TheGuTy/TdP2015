@@ -3,7 +3,6 @@ package juego.estadosCelda;
 import javax.swing.ImageIcon;
 
 import graficos.GraficoBomba;
-import graficos.GraficoEstructuras;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -12,28 +11,29 @@ public class EstadoBomba extends EstadoCelda {
 
 	public EstadoBomba(int x, int y) {
 		super(new GraficoBomba(x, y));
-		
+
 	}
 
 	@Override
-	public void destruir(Celda c) {
-		c.getEstado().getGrafico().getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
-		
-		c.matarBomberman();
-		c.destruirEnemigos();
-		
+	public void destruir(Celda celda) {
+
+		celda.getEstado().getGrafico().getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
+
+		celda.matarBomberman();
+		celda.destruirEnemigos();
+
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
 			public void run() {
-				c.getEstado().getGrafico().getLabel().setIcon(null);
-				c.setEstado(new EstadoTransitable(c.getX(), c.getY()));
+				celda.getEstado().getGrafico().getLabel().setIcon(null);
+				celda.setEstado(new EstadoTransitable(celda.getX(), celda.getY()));
 			}
 		}, 1500);
-		
+
 		//c.getEstado().getGrafico().getLabel().setIcon(null);
 	}
-		
-		
+
+
 
 	@Override
 	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {
@@ -49,7 +49,7 @@ public class EstadoBomba extends EstadoCelda {
 					bomberman.getCelda().eliminarBomberman();
 					bomberman.setCelda(celdaSiguiente);
 					celdaSiguiente.agregarBomberman(bomberman);
-					
+
 					bomberman.moverGrafica(dir);
 				} else
 					System.out.println("Bomberman esta bloqueado");
@@ -70,7 +70,7 @@ public class EstadoBomba extends EstadoCelda {
 					enemigo.getCelda().eliminarEnemigo(enemigo);
 					enemigo.setCelda(celdaSiguiente);
 					celdaSiguiente.agregarEnemigo(enemigo);
-					
+
 					enemigo.moverGrafica(dir);
 				}
 			} else {
@@ -79,7 +79,7 @@ public class EstadoBomba extends EstadoCelda {
 					enemigo.getCelda().eliminarEnemigo(enemigo);
 					enemigo.setCelda(celdaSiguiente);
 					celdaSiguiente.agregarEnemigo(enemigo);
-					
+
 					enemigo.moverGrafica(dir);
 				}
 			}

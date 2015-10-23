@@ -64,9 +64,9 @@ public class Juego {
 
 	}
 
-	public void aumentarPuntaje (int p) {
+	public void aumentarPuntaje (int puntaje) {
 
-		puntaje += p;
+		this.puntaje += puntaje;
 	}
 
 	public Bomberman getBomberman () {

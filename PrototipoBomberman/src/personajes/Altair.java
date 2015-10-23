@@ -1,7 +1,6 @@
 package personajes;
 
 import graficos.GraficoAltair;
-import graficos.GraficoBomberman;
 import juego.Celda;
 import juego.Tablero;
 

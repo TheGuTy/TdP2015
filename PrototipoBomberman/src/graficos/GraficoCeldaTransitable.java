@@ -1,7 +1,5 @@
 package graficos;
 
-import javax.swing.ImageIcon;
-
 import gui.Const;
 
 public class GraficoCeldaTransitable extends GraficoEstructuras {

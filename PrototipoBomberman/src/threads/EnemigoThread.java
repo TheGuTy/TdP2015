@@ -7,11 +7,8 @@ import personajes.Enemigo;
 public class EnemigoThread extends Thread {
 
 	private Enemigo mLogica;
-	private volatile boolean mDetener; //Volatile: Tells the compiler that this variable can be changed unexpectedly by other parts of the program
-	
 	public EnemigoThread(Enemigo logica){
 		this.mLogica = logica;
-		this.mDetener = false;
 	}
 	
 	@Override
@@ -27,15 +24,14 @@ public class EnemigoThread extends Thread {
 	
 	public void detener(){
 		mLogica.getLabel().setIcon(null);
-		this.mDetener = true;
 		this.interrupt();
 	}
 	
 	public Point getPosicionCelda(){
-		Point p = new Point();
-		p.x = mLogica.getCelda().getX();
-		p.y = mLogica.getCelda().getY();
+		Point pos = new Point();
+		pos.x = mLogica.getCelda().getX();
+		pos.y = mLogica.getCelda().getY();
 		
-		return p;
+		return pos;
 	}
 }

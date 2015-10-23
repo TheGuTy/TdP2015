@@ -1,7 +1,5 @@
 package gui;
 
-import java.util.Date;
-
 public class Const {
 
 	public static final int MOVIMIENTO_ARRIBA    = 0;

@@ -1,10 +1,8 @@
 package juego;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import graficos.GraficoEstructuras;
 import juego.estadosCelda.EstadoCelda;
 import personajes.Bomberman;
 import personajes.Enemigo;
