@@ -41,30 +41,30 @@ public abstract class Enemigo extends Personaje {
 		try {
 			switch (dir) {
 			case Const.MOVIMIENTO_ARRIBA:
-				for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+				for (int i = 0; i < Const.ALTO_CELDA; i += velocidad) {
 					miGrafico.getLabel().setBounds(miGrafico.getPos().x, miGrafico.getPos().y -= velocidad,
-							miGrafico.getAncho(), miGrafico.getAlto());
+							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
 				break;
 			case Const.MOVIMIENTO_ABAJO:
-				for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+				for (int i = 0; i < Const.ALTO_CELDA; i += velocidad) {
 					miGrafico.getLabel().setBounds(miGrafico.getPos().x, miGrafico.getPos().y += velocidad,
-							miGrafico.getAncho(), miGrafico.getAlto());
+							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
 				break;
 			case Const.MOVIMIENTO_IZQUIERDA:
-				for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+				for (int i = 0; i < Const.ANCHO_CELDA; i += velocidad) {
 					miGrafico.getLabel().setBounds(miGrafico.getPos().x -= velocidad, miGrafico.getPos().y,
-							miGrafico.getAncho(), miGrafico.getAlto());
+							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
 				break;
 			case Const.MOVIMIENTO_DERECHA:
-				for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+				for (int i = 0; i < Const.ANCHO_CELDA; i += velocidad) {
 					miGrafico.getLabel().setBounds(miGrafico.getPos().x += velocidad, miGrafico.getPos().y,
-							miGrafico.getAncho(), miGrafico.getAlto());
+							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
 				break;

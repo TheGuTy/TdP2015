@@ -1,5 +1,8 @@
 package gui;
-
+/**
+ * Clase pensada para administrar las constantes que se van a utilizar en todo el juego.  
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
+ */
 public class Const {
 
 	public static final int MOVIMIENTO_ARRIBA    = 0;
@@ -20,4 +23,6 @@ public class Const {
 	
 	public static final int PORCENTAJE_DESTRUIBLES = 50;
 	public static final int TIEMPO_DETONACION = 2500;
+	
+	public static final int VELOCIDAD_INICIAL_BMAN = 1;
 }

@@ -48,7 +48,8 @@ public class Celda {
 
 	public void setEstado(EstadoCelda e) {
 
-		miEstado = e;		
+		miEstado = e;
+		miTablero.restaurarCelda(this);
 		miTablero.agregarAgui(miEstado.getGrafico().getLabel());
 	}
 

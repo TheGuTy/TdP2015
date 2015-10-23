@@ -22,8 +22,8 @@ public class EnemigoThread extends Thread {
 		}
 	}
 	
-	public void sacarIcono(){
-		mLogica.getLabel().setIcon(null);		
+	public void detener(){
+		mLogica.getLabel().setIcon(null);	
 	}
 	
 	public Point getPosicionCelda(){

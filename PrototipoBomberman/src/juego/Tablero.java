@@ -104,7 +104,7 @@ public class Tablero {
 	}
 
 	public void restaurarCelda(Celda c) {
-		System.out.println("restaurar celda en " + c.getX() + " " + c.getY());
+		
 		int x = c.getX();
 		int y = c.getY();
 //		gui.remove(misCeldas[c.getX()][c.getY()]));

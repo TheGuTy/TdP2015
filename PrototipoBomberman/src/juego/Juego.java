@@ -95,7 +95,7 @@ public class Juego {
 
 		for (EnemigoThread t : misEnemigos){
 			if (t.getPosicionCelda().equals(p)){				
-				t.sacarIcono();
+				t.detener();
 				t.interrupt();
 				aEliminar.add(t);
 			}

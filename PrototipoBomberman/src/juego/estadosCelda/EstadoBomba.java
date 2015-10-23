@@ -30,7 +30,7 @@ public class EstadoBomba extends EstadoCelda {
 			}
 		}, 1500);
 
-		//c.getEstado().getGrafico().getLabel().setIcon(null);
+		//celda.getEstado().getGrafico().getLabel().setIcon(null);
 	}
 
 

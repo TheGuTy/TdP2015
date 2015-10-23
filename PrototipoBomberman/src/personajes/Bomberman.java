@@ -14,8 +14,8 @@ public class Bomberman extends Personaje implements Runnable {
 
 	public Bomberman(Celda c, Tablero tablero) {
 
-		super(false, 8, c, tablero);
-		this.miGrafico = new GraficoBomberman(8, 1, 1);
+		super(false, Const.VELOCIDAD_INICIAL_BMAN, c, tablero);
+		this.miGrafico = new GraficoBomberman(Const.VELOCIDAD_INICIAL_BMAN, 1, 1);
 		bombasDisponibles = 1;
 		miAlcanceBomba = 1;
 	}
@@ -72,30 +72,30 @@ public class Bomberman extends Personaje implements Runnable {
 		try {
 			switch (dir) {
 			case Const.MOVIMIENTO_ARRIBA:
-				for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+				for (int i = 0; i < Const.ALTO_CELDA; i += velocidad) {
 					miGrafico.getLabel().setBounds(miGrafico.getPos().x, miGrafico.getPos().y -= velocidad,
-							miGrafico.getAncho(), miGrafico.getAlto());
+							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
 				break;
 			case Const.MOVIMIENTO_ABAJO:
-				for (int i = 0; i < miGrafico.getAlto(); i += velocidad) {
+				for (int i = 0; i < Const.ALTO_CELDA; i += velocidad) {
 					miGrafico.getLabel().setBounds(miGrafico.getPos().x, miGrafico.getPos().y += velocidad,
-							miGrafico.getAncho(), miGrafico.getAlto());
+							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
 				break;
 			case Const.MOVIMIENTO_IZQUIERDA:
-				for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+				for (int i = 0; i < Const.ANCHO_CELDA; i += velocidad) {
 					miGrafico.getLabel().setBounds(miGrafico.getPos().x -= velocidad, miGrafico.getPos().y,
-							miGrafico.getAncho(), miGrafico.getAlto());
+							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
 				break;
 			case Const.MOVIMIENTO_DERECHA:
-				for (int i = 0; i < miGrafico.getAncho(); i += velocidad) {
+				for (int i = 0; i < Const.ANCHO_CELDA; i += velocidad) {
 					miGrafico.getLabel().setBounds(miGrafico.getPos().x += velocidad, miGrafico.getPos().y,
-							miGrafico.getAncho(), miGrafico.getAlto());
+							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
 				break;

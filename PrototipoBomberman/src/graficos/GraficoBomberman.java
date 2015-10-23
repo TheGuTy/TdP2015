@@ -4,8 +4,19 @@ import javax.swing.ImageIcon;
 
 import gui.Const;
 
+/**
+ * Clase que modela la gráfica del Bomberman.
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
+ */
 public class GraficoBomberman extends GraficoPersonaje {
 
+	/**
+	 * Constructor de clase.
+	 * Crea la entidad gráfica de Bomberman con una posición en el tablero.
+	 * @param velocidad Velocidad de Bomberman.
+	 * @param x Posicion lógica horizontal del Bomberman.
+	 * @param y Posicion lógica vertical del Bomberman.
+	 */
 	public GraficoBomberman(int velocidad, int x, int y) {
 		super(velocidad, x, y);
 		
