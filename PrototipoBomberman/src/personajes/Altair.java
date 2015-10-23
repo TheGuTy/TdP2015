@@ -6,7 +6,7 @@ import juego.Tablero;
 
 /**
  * Clase que modela a un tipo efectivo de Enemigo
- * @author Joaquin
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
  *
  */
 public class Altair extends Enemigo {

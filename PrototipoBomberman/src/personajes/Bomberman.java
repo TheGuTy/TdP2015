@@ -7,7 +7,7 @@ import juego.Tablero;
 
 /**
  * Clase abstracta que a su vez es un Bomberman y refactoriza las habilidades esenciales del mismo.
- * @author Joaquin
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
  *
  */
 public class Bomberman extends Personaje implements Runnable {

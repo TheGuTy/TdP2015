@@ -7,8 +7,19 @@ import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
 
+/**
+ * Clase que modela un tipo de EstadoCelda efectivo: No transitable
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
+ *
+ */
 public class EstadoTransitable extends EstadoCelda {
 
+	/**
+	 * Constructor de un EstadoTransitable
+	 * Se utiliza para modelar el estado de una celda que es libremente transitable
+	 * @param x posicion x dentro de la matriz de celdas 
+	 * @param y posicion y dentro de la matriz de celdas
+	 */
 	public EstadoTransitable(int x, int y) {
 		super(new GraficoCeldaTransitable(x, y));
 	}

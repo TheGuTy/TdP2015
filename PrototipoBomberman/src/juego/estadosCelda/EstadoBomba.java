@@ -7,8 +7,19 @@ import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
 
+/**
+ * Clase que modela un tipo de EstadoCelda efectivo: Celda con Bomba
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
+ *
+ */
 public class EstadoBomba extends EstadoCelda {
 
+	/**
+	 * Constructor de un EstadoBomba
+	 * Se utiliza para modelar el estado de una celda que contiene una bomba
+	 * @param x posicion x dentro de la matriz de celdas 
+	 * @param y posicion y dentro de la matriz de celdas
+	 */
 	public EstadoBomba(int x, int y) {
 		super(new GraficoBomba(x, y));
 

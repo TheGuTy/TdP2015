@@ -8,6 +8,11 @@ import juego.estadosCelda.EstadoBomba;
 import juego.estadosCelda.EstadoNoDestruible;
 import juego.estadosCelda.EstadoTransitable;
 
+/**
+ * Clase que se encarga de modelar el tablero de juego, con todos sus atributos
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
+ *
+ */
 public class Tablero {
 
 	protected int porcentajeDestruibles;
@@ -15,6 +20,12 @@ public class Tablero {
 	protected Celda [][] misCeldas;	
 	protected GUI gui;
 	
+	/**
+	 * Constructor que inicializa un tablero de juego
+	 * @param porcentaje indice que indica el porcentaje de celdas que deben ser destruibles
+	 * @param juego referencia al juego principal
+	 * @param gui referencia a la clase que maneja la interfaz grafica
+	 */
 	public Tablero (int porcentaje, Juego juego, GUI gui) {
 		porcentajeDestruibles = porcentaje;
 		miJuego = juego;
@@ -40,10 +51,19 @@ public class Tablero {
 		
 	}
 	
+	/**
+	 * Devuelve la celda que está ubicada en las coordenadas recibidas 
+	 * @param x coordenada x de la celda a devolver
+	 * @param y coordenada y de la celda a devolver
+	 * @return la celda que está ubicada en las coordenadas recibidas
+	 */
 	public Celda getCelda (int x, int y) {
 		return misCeldas[x][y];
 	}
 	
+	/**
+	 * Se encarga de recorrer la matriz de celdas y configurarles en ellas el estado no destruible segun corresponda
+	 */
 	private void crearNoDestruibles () {
 		
 		for(int i=0 ; i<Const.CANT_CELDAS_ANCHO;i++){
@@ -57,38 +77,45 @@ public class Tablero {
 		}
 	}
 	
+	/**
+	 * Se encarga de recorrer la matriz de celdas y configurarles en ellas el estado destruible segun corresponda
+	 */
 	private void distribuirDestruibles () {
 		
-		//crear paredes destruibles segun algun porcentaje. el inicial es 50%
+		//TODO crear paredes destruibles segun algun porcentaje. el inicial es 50%
 	}
 	
+	/**
+	 * Recibe un entero que determina cuánto puntaje se debe sumar
+	 * @param p puntaje que se debe sumar
+	 */
 	public void aumentarPuntaje (int p) {
 		
 		miJuego.aumentarPuntaje(p);
 	}	
-	
-	
-	public int getAncho () {
-		
-		return Const.CANT_CELDAS_ANCHO;
-	}
-	
-	public int getAlto () {
-		
-		return Const.CANT_CELDAS_ANCHO;
-	}
 
+	/**
+	 * Devuelve una referencia al juego principal
+	 * @return referencia al juego principal
+	 */
 	public Juego getJuego() {
 		return miJuego;
 	}
 
 	/**
-	 * Metodo llamado al finalizar una explosion por la bomba
+	 * Metodo llamado al finalizar una explosion por la bomba.
+	 * Le devuelve la posibilidad de colocar una bomba mas a bomberman
 	 */
 	public void devolverBombaABomberman() {
 		miJuego.getBomberman().aumentarBombasDisponibles();
 	}
 
+	/**
+	 * Método invocado por un personaje para colocar una Bomba en el tablero
+	 * @param x coordenada x de la celda donde debe ser colocada la bomba
+	 * @param y coordenada x de la celda donde debe ser colocada la bomba
+	 * @param alcance alcance de la bomba que sera colocada en esta celda
+	 */
 	public void colocarBomba (int x, int y, int alcance) {
 		System.out.println("poner bomba en " + x + " " + y);
 		
@@ -103,31 +130,21 @@ public class Tablero {
 		System.out.println(c.getEstado().getClass().getSimpleName());
 	}
 
+	/**
+	 * Metodo que recibe una celda que acaba de ser explotada y se encarga de setearle su nuevo estado
+	 * @param c celda que acaba de ser explotada y se encarga de setearle su nuevo estado
+	 */
 	public void restaurarCelda(Celda c) {
 		
 		int x = c.getX();
 		int y = c.getY();
-//		gui.remove(misCeldas[c.getX()][c.getY()]));
-//		gui.remove(misCeldas[x][y].getEstado().getGrafico().getLabel());
-//		c.getEstado().getGrafico().getLabel().repaint();
-//		gui.repaint();
 		gui.repaint();
-		gui.revalidate();
-//		c.getEstado().getGrafico().getLabel().setIcon(null);
-//		c.setEstado(new EstadoTransitable(c.getX(), c.getY()));
 		gui.add(misCeldas[x][y].getEstado().getGrafico().getLabel());
-//		(misCeldas[c.getX()][c.getY()]).getEstado().getGrafico().getLabel().setIcon(c.getEstado().getGrafico().getLabel().getIcon());
-//		gui.add(c.getEstado().getGrafico().getLabel());
-		gui.repaint();
-		gui.revalidate();
 	}
 	
-	//TODO chequear el metodo agregarAgui en Tablero #viti
-	//si no se agrega el JLabel del nuevo estado a la GUI
-	//la proxima explosion de esa bomba no afecta a la celda
-	public void agregarAgui(JLabel panel){
+	//TODO Comprobar este metodo
+	//Si no se agrega el JLabel del nuevo estado a la GUI entonces la proxima explosion de esa bomba no afecta a la celda
+	public void agregarEnGUI(JLabel panel){
 		gui.add(panel);
 	}
-	
-	
 }

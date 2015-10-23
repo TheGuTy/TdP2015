@@ -5,6 +5,7 @@ import java.awt.Point;
 import javax.swing.JLabel;
 
 import graficos.GraficoPersonaje;
+import gui.Const;
 import juego.Celda;
 import juego.Tablero;
 
@@ -114,8 +115,8 @@ public abstract class Personaje {
 		}
 		case 1: { // abajo
 			yActual++;
-			if (yActual >= miTablero.getAlto())
-				yActual = miTablero.getAlto() - 1;
+			if (yActual >= Const.CANT_CELDAS_ALTO)
+				yActual = Const.CANT_CELDAS_ALTO - 1;
 			break;
 		}
 		case 2: { // izquierda
@@ -126,8 +127,8 @@ public abstract class Personaje {
 		}
 		case 3: { // derecha
 			xActual++;
-			if (xActual >= miTablero.getAncho())
-				xActual = miTablero.getAncho() - 1;
+			if (xActual >= Const.CANT_CELDAS_ANCHO)
+				xActual = Const.CANT_CELDAS_ANCHO - 1;
 			break;
 		}
 		}

@@ -7,8 +7,19 @@ import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
 
+/**
+ * Clase que modela un tipo de EstadoCelda efectivo: Destruible
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
+ *
+ */
 public class EstadoDestruible extends EstadoCelda {
 
+	/**
+	 * Constructor de un EstadoDestruible
+	 * Se utiliza para modelar el estado de una celda que posee una pared destruible
+	 * @param x posicion x dentro de la matriz de celdas 
+	 * @param y posicion y dentro de la matriz de celdas
+	 */
 	public EstadoDestruible(GraficoEstructuras miGrafico) {
 		super(miGrafico);
 	}

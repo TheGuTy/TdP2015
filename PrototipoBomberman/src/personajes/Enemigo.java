@@ -8,7 +8,7 @@ import juego.Tablero;
 
 /**
  * Clase abstracta que a su vez es un Personaje y refactoriza las habilidades esenciales de ellos.
- * @author Joaquin
+ * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
  *
  */
 public abstract class Enemigo extends Personaje {
