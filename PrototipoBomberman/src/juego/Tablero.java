@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.JLabel;
+
 import gui.Const;
 import gui.GUI;
 import juego.estadosCelda.EstadoBomba;
@@ -123,4 +125,13 @@ public class Tablero {
 		gui.repaint();
 		gui.revalidate();
 	}
+	
+	//TODO chequear el metodo agregarAgui en Tablero #viti
+	//si no se agrega el JLabel del nuevo estado a la GUI
+	//la proxima explosion de esa bomba no afecta a la celda
+	public void agregarAgui(JLabel panel){
+		gui.add(panel);
+	}
+	
+	
 }

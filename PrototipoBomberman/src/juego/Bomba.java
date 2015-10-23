@@ -1,5 +1,6 @@
 package juego;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,10 +33,12 @@ public class Bomba {
 				// con un for. Estamos dentro de un thread, asi que podemos llamar
 				// a Thread.sleep entre cada imagen y asi lograr el efecto.
 				
+				//TODO la explosion de la bomba se saltea las paredes noDestruibles cuando el alcance es grande #viti
 				List<Celda> celdasAfectadas = calcularCeldasAfectadas();
 				
-				for (Celda c : celdasAfectadas)
+				for (Celda c : celdasAfectadas){
 					c.detonar();
+				}
 				
 				miTablero.devolverBombaABomberman();
 				miTablero.restaurarCelda(miCelda);

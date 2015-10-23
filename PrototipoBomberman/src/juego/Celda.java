@@ -50,7 +50,8 @@ public class Celda {
 
 	public void setEstado(EstadoCelda e) {
 
-		miEstado = e;
+		miEstado = e;		
+		miTablero.agregarAgui(miEstado.getGrafico().getLabel());
 	}
 
 	public void destruirEnemigos() {

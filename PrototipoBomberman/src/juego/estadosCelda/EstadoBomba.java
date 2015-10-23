@@ -1,5 +1,7 @@
 package juego.estadosCelda;
 
+import javax.swing.ImageIcon;
+
 import graficos.GraficoBomba;
 import graficos.GraficoEstructuras;
 import juego.Celda;
@@ -15,11 +17,23 @@ public class EstadoBomba extends EstadoCelda {
 
 	@Override
 	public void destruir(Celda c) {
+		c.getEstado().getGrafico().getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
+		
 		c.matarBomberman();
 		c.destruirEnemigos();
-		c.getEstado().getGrafico().getLabel().setIcon(null);
-		c.setEstado(new EstadoTransitable(c.getX(), c.getY()));
+		
+		new java.util.Timer().schedule(new java.util.TimerTask() {
+			@Override
+			public void run() {
+				c.getEstado().getGrafico().getLabel().setIcon(null);
+				c.setEstado(new EstadoTransitable(c.getX(), c.getY()));
+			}
+		}, 1500);
+		
+		//c.getEstado().getGrafico().getLabel().setIcon(null);
 	}
+		
+		
 
 	@Override
 	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {

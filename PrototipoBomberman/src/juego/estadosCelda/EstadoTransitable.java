@@ -1,8 +1,11 @@
 package juego.estadosCelda;
 
+import javax.swing.ImageIcon;
+
 import graficos.GraficoCeldaTransitable;
 import graficos.GraficoEstructuras;
 import graficos.GraficoParedNoDestruible;
+import gui.Const;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -15,6 +18,14 @@ public class EstadoTransitable extends EstadoCelda {
 
 	@Override
 	public void destruir(Celda c) {
+		c.getEstado().getGrafico().getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
+		new java.util.Timer().schedule(new java.util.TimerTask() {
+			@Override
+			public void run() {
+				c.getEstado().getGrafico().getLabel().setIcon(null);
+			}
+		}, 1500);
+		
 		c.matarBomberman();
 		c.destruirEnemigos();
 	}
