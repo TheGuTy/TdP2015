@@ -40,7 +40,8 @@ public class EstadoTransitable extends EstadoCelda {
 
 	@Override
 	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {
-
+		
+		
 		if (celdaSiguiente.hayEnemigos()) {
 			bomberman.matar();
 			System.out.println("El bomberman colisiona con un enemigo");
