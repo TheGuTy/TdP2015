@@ -16,6 +16,8 @@ import personajes.Enemigo;
  */
 public class EstadoBombality extends EstadoCelda {
 
+	private final static int PUNTAJE=35;
+	
 	/**
 	 * Constructor de un EstadoBombality
 	 * Se utiliza para modelar el estado de una celda que contiene un PowerUp Bomba
@@ -24,7 +26,7 @@ public class EstadoBombality extends EstadoCelda {
 	 */
 	public EstadoBombality(int x, int y) {
 		super(new GraficoBombality(x, y));
-
+		
 	}
 
 	@Override

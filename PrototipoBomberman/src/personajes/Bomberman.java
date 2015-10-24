@@ -28,6 +28,7 @@ public class Bomberman extends Personaje implements Runnable {
 		this.miGrafico = new GraficoBomberman(Const.VELOCIDAD_INICIAL_BMAN, 1, 1);
 		bombasDisponibles = 1;
 		miAlcanceBomba = 1;
+		this.dir=0;
 	}
 
 	@Override

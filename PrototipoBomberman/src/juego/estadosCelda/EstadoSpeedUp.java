@@ -15,6 +15,8 @@ import personajes.Enemigo;
  */
 public class EstadoSpeedUp extends EstadoCelda {
 
+	private final static int PUNTAJE=30;
+	
 	/**
 	 * Constructor de un EstadoSpeedUp
 	 * Se utiliza para modelar el estado de una celda que contiene una celda con Power Up Speed Up
@@ -23,7 +25,7 @@ public class EstadoSpeedUp extends EstadoCelda {
 	 */
 	public EstadoSpeedUp(int x, int y) {
 		super(new GraficoSpeedUp(x, y));
-
+		
 	}
 
 	@Override

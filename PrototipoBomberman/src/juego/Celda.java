@@ -6,7 +6,6 @@ import java.util.List;
 import juego.estadosCelda.EstadoCelda;
 import personajes.Bomberman;
 import personajes.Enemigo;
-import powerups.PowerUp;
 
 /**
  * Clase encargada de modelar la celda correspondiente a cada posicion lógica.
@@ -17,7 +16,6 @@ public class Celda {
 	protected int x;
 	protected int y;
 	protected Tablero miTablero;
-	protected PowerUp miPowerUp;
 	protected EstadoCelda miEstado;
 	protected List<Enemigo> misEnemigos;
 	protected Bomberman miBomberman;
@@ -34,7 +32,6 @@ public class Celda {
 		this.x = x;
 		this.y = y;
 		miTablero = t;
-		miPowerUp = null;
 		miEstado = null;
 		misEnemigos = new LinkedList<Enemigo>();
 		miBomberman = null;
@@ -60,21 +57,7 @@ public class Celda {
 		miEstado.avanzar(enemigo, this, dir);
 	}
 	
-	/**
-	 * Agrega un power un a esta celda.
-	 * @param powerup PowerUp a colocar.
-	 */
-	public void setPowerUp(PowerUp powerup) {
-
-	}
 	
-	/**
-	 * Retorna el PowerUp ubicado en esta celda, si no hay power up retorna null.
-	 * @return PowerUp almacenado en la celda.
-	 */
-	public PowerUp getPowerUp() {
-		return miPowerUp;
-	}
 	
 	/**
 	 * Setter para cambiar el estado actual de la celda.

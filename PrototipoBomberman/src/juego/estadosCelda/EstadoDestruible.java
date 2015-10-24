@@ -14,6 +14,8 @@ import personajes.Enemigo;
  */
 public class EstadoDestruible extends EstadoCelda {
 
+	private final static int PUNTAJE=10;
+	
 	/**
 	 * Constructor de un EstadoDestruible
 	 * Se utiliza para modelar el estado de una celda que posee una pared destruible
@@ -22,6 +24,7 @@ public class EstadoDestruible extends EstadoCelda {
 	 */
 	public EstadoDestruible(GraficoEstructuras miGrafico) {
 		super(miGrafico);
+		
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public abstract class Personaje {
 	 * @param c celda inicial
 	 * @param t referencia al tablero principal
 	 */
-	public Personaje(boolean modoAtravesar, int vel, Celda c, Tablero t) {
+	protected Personaje(boolean modoAtravesar, int vel, Celda c, Tablero t) {
 		this.modoAtravesar = modoAtravesar;
 		velocidad = vel;
 		miCelda = c;

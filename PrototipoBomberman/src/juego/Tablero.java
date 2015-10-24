@@ -17,7 +17,6 @@ import juego.estadosCelda.EstadoTransitable;
  */
 public class Tablero {
 
-	protected int porcentajeDestruibles;
 	protected Juego miJuego;
 	protected Celda [][] misCeldas;	
 	protected GUI gui;
@@ -28,8 +27,7 @@ public class Tablero {
 	 * @param juego referencia al juego principal
 	 * @param gui referencia a la clase que maneja la interfaz grafica
 	 */
-	public Tablero (int porcentaje, Juego juego, GUI gui) {
-		porcentajeDestruibles = porcentaje;
+	public Tablero (Juego juego, GUI gui) {
 		miJuego = juego;
 		
 		misCeldas = new Celda[Const.CANT_CELDAS_ANCHO][Const.CANT_CELDAS_ALTO];
