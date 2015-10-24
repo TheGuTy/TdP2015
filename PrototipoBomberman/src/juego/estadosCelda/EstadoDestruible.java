@@ -19,8 +19,7 @@ public class EstadoDestruible extends EstadoCelda {
 	/**
 	 * Constructor de un EstadoDestruible
 	 * Se utiliza para modelar el estado de una celda que posee una pared destruible
-	 * @param x posicion x dentro de la matriz de celdas 
-	 * @param y posicion y dentro de la matriz de celdas
+	 * @param miGrafico Control de la grafica del estado.
 	 */
 	public EstadoDestruible(GraficoEstructuras miGrafico) {
 		super(miGrafico);

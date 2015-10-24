@@ -67,9 +67,6 @@ public class Bomberman extends Personaje implements Runnable {
 	 */
 	public void mover(int dir) {
 		
-//		Celda c = calcularCeldaSiguiente(dir);
-//		c.avanzar(this, dir);
-		
 		calcularCeldaSiguiente(dir).avanzar(this, dir);
 		
 		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY());

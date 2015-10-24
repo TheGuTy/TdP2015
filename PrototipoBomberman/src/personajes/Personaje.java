@@ -72,7 +72,7 @@ public abstract class Personaje {
 
 	/**
 	 * Devuelve el label asociado a este personaje
-	 * @return
+	 * @return JLabel asociado al personaje.
 	 */
 	public JLabel getLabel() {
 		return miGrafico.getLabel();
@@ -80,7 +80,7 @@ public abstract class Personaje {
 
 	/**
 	 * Devuelve el Grafico asociado a este personaje
-	 * @return
+	 * @return Grafica asociada al personaje.
 	 */
 	public GraficoPersonaje getGrafico() {
 		return miGrafico;

@@ -25,6 +25,7 @@ public class GUI extends JFrame {
 
 	/**
 	 * Metodo que da el puntapie inicial al juego.
+	 * @param args String del metodo main.
 	 */
 	public static void main(String[] args) {
 		GUI g = new GUI("Bomberman");

@@ -23,7 +23,6 @@ public class Tablero {
 	
 	/**
 	 * Constructor que inicializa un tablero de juego
-	 * @param porcentaje indice que indica el porcentaje de celdas que deben ser destruibles
 	 * @param juego referencia al juego principal
 	 * @param gui referencia a la clase que maneja la interfaz grafica
 	 */

@@ -80,7 +80,7 @@ public class Juego {
 	/**
 	 * Método encargado de aumentar el puntaje actual del juego 
 	 * en una cantidad indicada.
-	 * @param puntaje
+	 * @param puntaje Cantidad a aumentar.
 	 */
 	public void aumentarPuntaje (int puntaje) {
 
