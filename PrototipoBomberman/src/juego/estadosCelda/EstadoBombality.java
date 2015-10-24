@@ -1,10 +1,6 @@
 package juego.estadosCelda;
 
-import javax.swing.ImageIcon;
-
-import graficos.GraficoBomba;
 import graficos.GraficoBombality;
-import graficos.GraficoSpeedUp;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;

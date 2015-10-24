@@ -16,6 +16,7 @@ public class Bomberman extends Personaje implements Runnable {
 	protected int miAlcanceBomba;
 	private int dir;
 	private Thread t;
+	
 
 	/**
 	 * Constructor de Bomberman
@@ -65,7 +66,10 @@ public class Bomberman extends Personaje implements Runnable {
 	 * @param dir dirección a donde moverse
 	 */
 	public void mover(int dir) {
-
+		
+//		Celda c = calcularCeldaSiguiente(dir);
+//		c.avanzar(this, dir);
+		
 		calcularCeldaSiguiente(dir).avanzar(this, dir);
 		
 		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY());
@@ -150,4 +154,6 @@ public class Bomberman extends Personaje implements Runnable {
 		t = new Thread(this);
 		t.start();
 	}
+	
+	
 }

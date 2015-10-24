@@ -34,6 +34,7 @@ public class EstadoDestruible extends EstadoCelda {
 		c.destruirEnemigos();
 		
 		
+		
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
 			public void run() {
