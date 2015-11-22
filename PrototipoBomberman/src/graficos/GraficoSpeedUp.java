@@ -16,8 +16,8 @@ public class GraficoSpeedUp extends GraficoEstructuras {
 	 * @param x Posicion lógica horizontal de la bomba.
 	 * @param y Posicion lógica vertical de la bomba.
 	 */
-	public GraficoSpeedUp(int x, int y) {
-		super(x, y);
+	public GraficoSpeedUp() {
+		super();
 		
 		imagen = new ImageIcon(this.getClass().getResource("/Recursos/speedup.png"));	
 	

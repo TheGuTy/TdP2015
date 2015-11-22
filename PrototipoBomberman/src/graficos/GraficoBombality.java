@@ -16,8 +16,8 @@ public class GraficoBombality extends GraficoEstructuras {
 	 * @param x Posicion lógica horizontal de la bomba.
 	 * @param y Posicion lógica vertical de la bomba.
 	 */
-	public GraficoBombality(int x, int y) {
-		super(x, y);
+	public GraficoBombality() {
+		super();
 		
 		imagen = new ImageIcon(this.getClass().getResource("/Recursos/bombality.png"));	
 		

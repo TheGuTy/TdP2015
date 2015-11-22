@@ -21,7 +21,7 @@ public class EstadoSpeedUp extends EstadoCelda {
 	 * @param y posicion y dentro de la matriz de celdas
 	 */
 	public EstadoSpeedUp(int x, int y) {
-		super(new GraficoSpeedUp(x, y));
+		super(new GraficoSpeedUp());
 		
 	}
 
@@ -46,7 +46,7 @@ public class EstadoSpeedUp extends EstadoCelda {
 			bomberman.moverGrafica(dir);
 			
 			celdaSiguiente.getLabel().setIcon(null);
-			celdaSiguiente.setEstado(new EstadoTransitable(celdaSiguiente.getX(), celdaSiguiente.getY()));
+			celdaSiguiente.setEstado(new EstadoTransitable());
 			
 			System.out.println("BOMBERMAN SE FUMO EL SPEED UP");
 			

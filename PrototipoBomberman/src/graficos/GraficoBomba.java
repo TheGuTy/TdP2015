@@ -16,8 +16,8 @@ public class GraficoBomba extends GraficoEstructuras {
 	 * @param x Posicion lógica horizontal de la bomba.
 	 * @param y Posicion lógica vertical de la bomba.
 	 */
-	public GraficoBomba(int x, int y) {
-		super(x, y);		
+	public GraficoBomba() {
+		super();		
 		
 		imagen = new ImageIcon(this.getClass().getResource("/Recursos/bomb.png"));	
 		

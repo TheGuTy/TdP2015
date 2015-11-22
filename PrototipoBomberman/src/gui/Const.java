@@ -21,7 +21,7 @@ public class Const {
 	public static final int ANCHO_GUI = ANCHO_CELDA * CANT_CELDAS_ANCHO;
 	public static final int ALTO_GUI = ALTO_CELDA * CANT_CELDAS_ALTO;
 	
-	public static final int PORCENTAJE_DESTRUIBLES = 50;
+	public static final double PORCENTAJE_DESTRUIBLES = 0.2;
 	public static final int TIEMPO_DETONACION = 2500;
 	
 	public static final int VELOCIDAD_INICIAL_BMAN = 1;

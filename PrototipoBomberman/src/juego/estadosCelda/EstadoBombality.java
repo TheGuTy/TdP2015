@@ -21,7 +21,7 @@ public class EstadoBombality extends EstadoCelda {
 	 * @param y posicion y dentro de la matriz de celdas
 	 */
 	public EstadoBombality(int x, int y) {
-		super(new GraficoBombality(x, y));
+		super(new GraficoBombality());
 		
 	}
 
@@ -46,7 +46,7 @@ public class EstadoBombality extends EstadoCelda {
 			bomberman.moverGrafica(dir);
 			
 			celdaSiguiente.getLabel().setIcon(null);
-			celdaSiguiente.setEstado(new EstadoTransitable(celdaSiguiente.getX(), celdaSiguiente.getY()));
+			celdaSiguiente.setEstado(new EstadoTransitable());
 			
 			System.out.println("BOMBERMAN SE TOMO EL BOMBALITY");
 			

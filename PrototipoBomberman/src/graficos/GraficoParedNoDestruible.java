@@ -17,8 +17,8 @@ public class GraficoParedNoDestruible extends GraficoEstructuras {
 	 * @param x Posicion lógica horizontal de la pared.
 	 * @param y Posicion lógica vertical de la pared.
 	 */
-	public GraficoParedNoDestruible(int x, int y) {
-		super(x, y);
+	public GraficoParedNoDestruible() {
+		super();
 		
 		imagen = new ImageIcon(this.getClass().getResource("/Recursos/muroindestructible2.png"));			
 	}	

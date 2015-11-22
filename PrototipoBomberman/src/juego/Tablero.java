@@ -1,8 +1,11 @@
 package juego;
 
+import java.util.Random;
+
 import gui.Const;
 import gui.GUI;
 import juego.estadosCelda.EstadoBomba;
+import juego.estadosCelda.EstadoDestruible;
 import juego.estadosCelda.EstadoNoDestruible;
 import juego.estadosCelda.EstadoTransitable;
 
@@ -31,20 +34,23 @@ public class Tablero {
 		for (int i = 0; i < Const.CANT_CELDAS_ANCHO; i++) {
 			for (int j = 0; j < Const.CANT_CELDAS_ALTO	; j++) {
 				misCeldas[i][j] = new Celda(i, j, this);				
-				misCeldas[i][j].setEstado(new EstadoTransitable(i, j));	//Al crear todas las celdas asumo que todas son transitables				
+				misCeldas[i][j].setEstado(new EstadoTransitable());	//Al crear todas las celdas asumo que todas son transitables				
 			}
 		}
+				
+		distribuirDestruibles();
 		
 		crearNoDestruibles();
-		distribuirDestruibles();
 		
 		//luego de setear todos los estados a la celda, agrego el JLabel de cada celda a la gui
 		for (int i = 0; i < Const.CANT_CELDAS_ANCHO; i++)
 			for (int j = 0; j < Const.CANT_CELDAS_ALTO; j++){			 
 				gui.add(misCeldas[i][j].getLabel());		
 			}
-		gui.repaint();
-		gui.revalidate();
+		
+		misCeldas[1][1].setEstado(new EstadoTransitable());
+		misCeldas[1][2].setEstado(new EstadoTransitable());
+		misCeldas[2][1].setEstado(new EstadoTransitable());
 	}
 	
 	/**
@@ -78,7 +84,10 @@ public class Tablero {
 	 */
 	private void distribuirDestruibles () {
 		
-		//TODO crear paredes destruibles segun algun porcentaje. el inicial es 50%
+		Random rnd = new Random();
+		for(int i=0; i<(Const.CANT_CELDAS_ANCHO * Const.CANT_CELDAS_ALTO) * Const.PORCENTAJE_DESTRUIBLES ; i++){
+			misCeldas[rnd.nextInt(Const.CANT_CELDAS_ANCHO)][rnd.nextInt(Const.CANT_CELDAS_ALTO)].setEstado(new EstadoDestruible());
+		}
 	}
 	
 	/**
@@ -116,15 +125,10 @@ public class Tablero {
 		System.out.println("poner bomba en " + x + " " + y);
 		
 		Celda celda = getCelda(x, y);
-		Bomba b = new Bomba(celda, alcance, this);
-		celda.setEstado(new EstadoBomba(x, y));		
-//		gui.add(celda.getEstado().getGrafico().getLabel());
-		System.out.println("cambio a estado bomba la celda " + x + " " + y);
+		Bomba bomba = new Bomba(celda, alcance, this);
+		celda.setEstado(new EstadoBomba());		
 		
-		gui.repaint();
-		gui.revalidate();
-		b.comenzarDetonacion();
-		System.out.println(celda.getEstado().getClass().getSimpleName());
+		bomba.comenzarDetonacion();
 	
 	}
 

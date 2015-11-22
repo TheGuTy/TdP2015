@@ -16,8 +16,8 @@ public class GraficoCeldaTransitable extends GraficoEstructuras {
 	 * @param x Posicion lógica horizontal de la celda.
 	 * @param y Posicion lógica vertical de la celda.
 	 */
-	public GraficoCeldaTransitable(int x, int y) {
-		super(x, y);
+	public GraficoCeldaTransitable() {
+		super();
 
 		imagen = new ImageIcon();		
 	}

@@ -20,8 +20,8 @@ public class EstadoBomba extends EstadoCelda {
 	 * @param x posicion x dentro de la matriz de celdas 
 	 * @param y posicion y dentro de la matriz de celdas
 	 */
-	public EstadoBomba(int x, int y) {
-		super(new GraficoBomba(x, y));
+	public EstadoBomba() {
+		super(new GraficoBomba());
 
 	}
 
@@ -36,12 +36,9 @@ public class EstadoBomba extends EstadoCelda {
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
 			public void run() {
-				celda.getLabel().setIcon(null);
-				celda.setEstado(new EstadoTransitable(celda.getX(), celda.getY()));
+				celda.setEstado(new EstadoTransitable());
 			}
 		}, 1500);
-
-		//celda.getEstado().getGrafico().getLabel().setIcon(null);
 	}
 
 

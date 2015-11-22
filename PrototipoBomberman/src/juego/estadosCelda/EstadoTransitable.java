@@ -20,8 +20,8 @@ public class EstadoTransitable extends EstadoCelda {
 	 * @param x posicion x dentro de la matriz de celdas 
 	 * @param y posicion y dentro de la matriz de celdas
 	 */
-	public EstadoTransitable(int x, int y) {
-		super(new GraficoCeldaTransitable(x, y));
+	public EstadoTransitable() {
+		super(new GraficoCeldaTransitable());
 	}
 
 	@Override

@@ -3,10 +3,8 @@ package juego;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import graficos.GraficoCeldaTransitable;
 import graficos.GraficoEstructuras;
 import gui.Const;
 import juego.estadosCelda.EstadoCelda;

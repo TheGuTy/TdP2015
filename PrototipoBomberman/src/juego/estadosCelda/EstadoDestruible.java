@@ -3,6 +3,7 @@ package juego.estadosCelda;
 import javax.swing.ImageIcon;
 
 import graficos.GraficoEstructuras;
+import graficos.GraficoParedDestruible;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -21,8 +22,8 @@ public class EstadoDestruible extends EstadoCelda {
 	 * Se utiliza para modelar el estado de una celda que posee una pared destruible
 	 * @param miGrafico Control de la grafica del estado.
 	 */
-	public EstadoDestruible(GraficoEstructuras miGrafico) {
-		super(miGrafico);
+	public EstadoDestruible() {
+		super(new GraficoParedDestruible());
 		
 	}
 
@@ -30,18 +31,16 @@ public class EstadoDestruible extends EstadoCelda {
 	public void destruir(Celda celda) {
 		
 		celda.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
+
 		celda.matarBomberman();
-		celda.destruirEnemigos();		
-		
+		celda.destruirEnemigos();
+
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
 			public void run() {
-				celda.getLabel().setIcon(null);
-				celda.setEstado(new EstadoTransitable(celda.getX(), celda.getY()));
+				celda.setEstado(new EstadoTransitable());
 			}
 		}, 1500);
-		
-//		c.getEstado().getGrafico().getLabel().setIcon(null);
 	}
 
 	@Override
@@ -50,7 +49,6 @@ public class EstadoDestruible extends EstadoCelda {
 		if (bomberman.enModoAtravesar()) {
 			if (celdaSiguiente.hayEnemigos()) {
 				bomberman.matar();
-				System.out.println("El bomberman colisiona con un enemigo");
 			} else {
 				if (bomberman.getLock() == false) {
 					bomberman.lock();
@@ -59,8 +57,7 @@ public class EstadoDestruible extends EstadoCelda {
 					celdaSiguiente.agregarBomberman(bomberman);
 					
 					bomberman.moverGrafica(dir);
-				} else
-					System.out.println("Bomberman esta bloqueado");
+				}
 			}
 		}
 	}

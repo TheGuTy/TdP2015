@@ -17,8 +17,8 @@ public class GraficoCeldaBomba extends GraficoEstructuras {
 	 * @param x Posicion lógica horizontal de la celda.
 	 * @param y Posicion lógica vertical de la celda.
 	 */
-	public GraficoCeldaBomba(int x, int y) {
-		super(x, y);
+	public GraficoCeldaBomba() {
+		super();
 
 		imagen = new ImageIcon(this.getClass().getResource("/Recursos/bomb.png"));	
 	

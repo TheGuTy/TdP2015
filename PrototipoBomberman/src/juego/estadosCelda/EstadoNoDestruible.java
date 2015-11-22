@@ -19,7 +19,7 @@ public class EstadoNoDestruible extends EstadoCelda {
 	 * @param y posicion y dentro de la matriz de celdas
 	 */
 	public EstadoNoDestruible(int x, int y) {
-		super(new GraficoParedNoDestruible(x, y));
+		super(new GraficoParedNoDestruible());
 	}
 
 	@Override

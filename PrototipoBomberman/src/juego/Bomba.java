@@ -45,16 +45,11 @@ public class Bomba {
 				
 				//TODO la explosion de la bomba se saltea las paredes noDestruibles cuando el alcance es grande #viti
 				List<Celda> celdasAfectadas = calcularCeldasAfectadas();
-				
+				celdasAfectadas.add(miCelda);
 				for (Celda c : celdasAfectadas){
 					c.detonar();
-				}
-				
-				miTablero.devolverBombaABomberman();
-				
-				miCelda.setEstado(new EstadoTransitable(miCelda.getX(), miCelda.getY()));
-				
-//				miTablero.restaurarCelda(miCelda);
+				}				
+				miTablero.devolverBombaABomberman();				
 			}
 		}, Const.TIEMPO_DETONACION);
 	}

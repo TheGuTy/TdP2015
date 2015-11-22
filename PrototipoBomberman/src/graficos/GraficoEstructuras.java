@@ -15,31 +15,9 @@ import gui.Const;
  */
 
 public abstract class GraficoEstructuras {
+	
 	protected Icon imagen;
-	protected final int ancho = Const.ANCHO_CELDA;
-	protected final int alto = Const.ALTO_CELDA;
-	protected Point pos;
 
-	/**
-	 * Constructor de clase abstracta.
-	 * Inicializa los atributos en común de todas las entidades gráficas 
-	 * pertenecientes a las estructuras.
-	 * @param x Posición lógica horizontal de la celda.
-	 * @param y Posición lógica vertical de la celda.
-	 */
-	protected GraficoEstructuras(int x, int y) {
-		this.pos = new Point(x * this.ancho, y * this.alto);
-		this.imagen = new ImageIcon();
-		
-	}
-
-	/**
-	 * Getter para la posición de la estructura en el panel.
-	 * @return Posición en el panel.
-	 */
-	public Point getPos() {
-		return pos;
-	}	
 	
 	/**
 	 * Getter para el label de la estructura.
