@@ -3,6 +3,7 @@ package graficos;
 import java.awt.Point;
 
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import gui.Const;
@@ -14,8 +15,7 @@ import gui.Const;
  */
 
 public abstract class GraficoEstructuras {
-	protected JLabel label;
-	protected Icon imagenes[];
+	protected Icon imagen;
 	protected final int ancho = Const.ANCHO_CELDA;
 	protected final int alto = Const.ALTO_CELDA;
 	protected Point pos;
@@ -29,8 +29,8 @@ public abstract class GraficoEstructuras {
 	 */
 	protected GraficoEstructuras(int x, int y) {
 		this.pos = new Point(x * this.ancho, y * this.alto);
-		this.imagenes = new Icon[1];
-		label = null;
+		this.imagen = new ImageIcon();
+		
 	}
 
 	/**
@@ -39,26 +39,14 @@ public abstract class GraficoEstructuras {
 	 */
 	public Point getPos() {
 		return pos;
-	}
-
-	/**
-	 * Cambia la imagen del JLabel asociado a la estructura según la dirección indicada.
-	 * @param dir Indicador de direccón para la imagen.
-	 */
-	public void changeIcon(int dir) {
-		this.label.setIcon(this.imagenes[dir]);
-	}
+	}	
 	
 	/**
 	 * Getter para el label de la estructura.
 	 * @return JLabel asociado a la estructura.
 	 */
-	public JLabel getLabel() {
-		if (this.label == null) {
-			this.label = new JLabel(imagenes[0]);
-			this.label.setBounds(this.pos.x, this.pos.y, ancho, alto);
-		}
-		return this.label;
-	}
-	
+	public Icon getIcon() {
+		
+		return this.imagen;
+	}	
 }

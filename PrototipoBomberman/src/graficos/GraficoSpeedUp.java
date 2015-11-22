@@ -19,8 +19,7 @@ public class GraficoSpeedUp extends GraficoEstructuras {
 	public GraficoSpeedUp(int x, int y) {
 		super(x, y);
 		
-		getLabel().setBounds(x * Const.ANCHO_CELDA, y * Const.ALTO_CELDA, Const.ANCHO_CELDA, Const.ALTO_CELDA);
-		imagenes[0] = new ImageIcon(this.getClass().getResource("/Recursos/speedup.png"));		
-		getLabel().setIcon(imagenes[0]);
+		imagen = new ImageIcon(this.getClass().getResource("/Recursos/speedup.png"));	
+	
 	}	
 }

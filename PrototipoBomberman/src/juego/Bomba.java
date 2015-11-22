@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.Const;
+import juego.estadosCelda.EstadoTransitable;
 
 /**
  * Clase encargada de modelar el funcionamiento lógico de una bomba. 
@@ -50,7 +51,10 @@ public class Bomba {
 				}
 				
 				miTablero.devolverBombaABomberman();
-				miTablero.restaurarCelda(miCelda);
+				
+				miCelda.setEstado(new EstadoTransitable(miCelda.getX(), miCelda.getY()));
+				
+//				miTablero.restaurarCelda(miCelda);
 			}
 		}, Const.TIEMPO_DETONACION);
 	}

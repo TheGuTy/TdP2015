@@ -42,7 +42,7 @@ public abstract class Enemigo extends Personaje {
 	public void mover () {
 		int dir = new Random().nextInt(4);
 		calcularCeldaSiguiente(dir).avanzar(this, dir);
-		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY());
+//		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY());
 	}
 	
 	@Override

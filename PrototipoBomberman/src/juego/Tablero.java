@@ -1,13 +1,9 @@
 package juego;
 
-import javax.swing.JLabel;
-
 import gui.Const;
 import gui.GUI;
 import juego.estadosCelda.EstadoBomba;
-import juego.estadosCelda.EstadoBombality;
 import juego.estadosCelda.EstadoNoDestruible;
-import juego.estadosCelda.EstadoSpeedUp;
 import juego.estadosCelda.EstadoTransitable;
 
 /**
@@ -34,8 +30,7 @@ public class Tablero {
 		
 		for (int i = 0; i < Const.CANT_CELDAS_ANCHO; i++) {
 			for (int j = 0; j < Const.CANT_CELDAS_ALTO	; j++) {
-				misCeldas[i][j] = new Celda(i, j, this);
-				//TODO crear todas las celdas con sus graficas. Patron builder? Factory?
+				misCeldas[i][j] = new Celda(i, j, this);				
 				misCeldas[i][j].setEstado(new EstadoTransitable(i, j));	//Al crear todas las celdas asumo que todas son transitables				
 			}
 		}
@@ -45,13 +40,11 @@ public class Tablero {
 		
 		//luego de setear todos los estados a la celda, agrego el JLabel de cada celda a la gui
 		for (int i = 0; i < Const.CANT_CELDAS_ANCHO; i++)
-			for (int j = 0; j < Const.CANT_CELDAS_ALTO; j++)				 
-				gui.add(misCeldas[i][j].getEstado().getGrafico().getLabel());
-		
-		
-		//Agregamos los speed up al tablero
-		misCeldas[5][9].setEstado(new EstadoSpeedUp(5,  9));
-		misCeldas[11][9].setEstado(new EstadoBombality(11,  9));
+			for (int j = 0; j < Const.CANT_CELDAS_ALTO; j++){			 
+				gui.add(misCeldas[i][j].getLabel());		
+			}
+		gui.repaint();
+		gui.revalidate();
 	}
 	
 	/**
@@ -122,28 +115,30 @@ public class Tablero {
 	public void colocarBomba (int x, int y, int alcance) {
 		System.out.println("poner bomba en " + x + " " + y);
 		
-		Celda c = getCelda(x, y);
-		gui.remove(c.getEstado().getGrafico().getLabel());
-		c.setEstado(new EstadoBomba(x, y));
-		gui.add(c.getEstado().getGrafico().getLabel());
+		Celda celda = getCelda(x, y);
+		Bomba b = new Bomba(celda, alcance, this);
+		celda.setEstado(new EstadoBomba(x, y));		
+//		gui.add(celda.getEstado().getGrafico().getLabel());
 		System.out.println("cambio a estado bomba la celda " + x + " " + y);
-		Bomba b = new Bomba(c, alcance, this);
 		
+		gui.repaint();
+		gui.revalidate();
 		b.comenzarDetonacion();
-		System.out.println(c.getEstado().getClass().getSimpleName());
+		System.out.println(celda.getEstado().getClass().getSimpleName());
+	
 	}
 
-	/**
-	 * Metodo que recibe una celda que acaba de ser explotada y se encarga de setearle su nuevo estado
-	 * @param celda celda que acaba de ser explotada y se encarga de setearle su nuevo estado
-	 */
-	public void restaurarCelda(Celda celda) {
-		
-		int x = celda.getX();
-		int y = celda.getY();
-		gui.repaint();
-		gui.add(misCeldas[x][y].getEstado().getGrafico().getLabel());
-	}
+//	/**
+//	 * Metodo que recibe una celda que acaba de ser explotada y se encarga de setearle su nuevo estado
+//	 * @param celda celda que acaba de ser explotada y se encarga de setearle su nuevo estado
+//	 */
+//	public void restaurarCelda(Celda celda) {
+//		
+//		int x = celda.getX();
+//		int y = celda.getY();
+//		gui.repaint();
+//		gui.add(misCeldas[x][y].getEstado().getGrafico().getLabel());
+//	}
 	
 	//TODO Comprobar este metodo
 	//Si no se agrega el JLabel del nuevo estado a la GUI entonces la proxima explosion de esa bomba no afecta a la celda

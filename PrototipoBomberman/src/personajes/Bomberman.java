@@ -69,7 +69,7 @@ public class Bomberman extends Personaje implements Runnable {
 		
 		calcularCeldaSiguiente(dir).avanzar(this, dir);
 		
-		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY());
+//		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY());
 	}
 	
 	/**

@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 
 import gui.GUI;
 import gui.Tiempo;
+import juego.estadosCelda.EstadoBombality;
+import juego.estadosCelda.EstadoSpeedUp;
 import personajes.Altair;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -54,10 +56,12 @@ public class Juego {
 	 */
 	public void iniciarJuego(){
 
+		// Creacion del bomberman
 		JLabel grafBomberman = miBomberman.getLabel();
 		grafBomberman.setLocation(miBomberman.getPos());
 		gui.add(grafBomberman);
 		
+		// Creando Enemigos
 		Enemigo alt1 = new Altair(miTablero.getCelda(5, 5), miTablero);
 		alt1.getLabel().setLocation(alt1.getPos());
 		gui.add(alt1.getLabel());
@@ -74,13 +78,23 @@ public class Juego {
 		alt3.getLabel().setLocation(alt3.getPos());
 		gui.add(alt3.getLabel());
 		EnemigoThread altair3 = new EnemigoThread(alt3);
-		misEnemigos.add(altair3);
-
+		misEnemigos.add(altair3);		
 
 		// Inicio el hilo de todos los enemigos
 		for (EnemigoThread e: misEnemigos) 
 			e.start();
-
+		
+		
+		// Creando los powerups
+		//Agregamos los speed up al tablero
+		miTablero.getCelda(3, 7).setEstado(new EstadoSpeedUp(3, 7));
+		gui.add(miTablero.getCelda(3, 7).getLabel());
+		
+		miTablero.getCelda(7, 3).setEstado(new EstadoBombality(7, 3));
+		gui.add(miTablero.getCelda(7, 3).getLabel());
+		
+		miTablero.getCelda(5, 11).setEstado(new EstadoSpeedUp(5, 11));
+		gui.add(miTablero.getCelda(5, 11).getLabel());
 	}
 	
 	/**

@@ -45,7 +45,7 @@ public class EstadoBombality extends EstadoCelda {
 			
 			bomberman.moverGrafica(dir);
 			
-			celdaSiguiente.getEstado().getGrafico().getLabel().setIcon(null);
+			celdaSiguiente.getLabel().setIcon(null);
 			celdaSiguiente.setEstado(new EstadoTransitable(celdaSiguiente.getX(), celdaSiguiente.getY()));
 			
 			System.out.println("BOMBERMAN SE TOMO EL BOMBALITY");

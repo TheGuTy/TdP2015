@@ -3,10 +3,12 @@ package juego;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import graficos.GraficoCeldaTransitable;
 import graficos.GraficoEstructuras;
+import gui.Const;
 import juego.estadosCelda.EstadoCelda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -24,6 +26,7 @@ public class Celda {
 	protected List<Enemigo> misEnemigos;
 	protected Bomberman miBomberman;
 	protected GraficoEstructuras miGrafico;
+	protected JLabel miLabel;
 	
 
 	/**
@@ -41,7 +44,10 @@ public class Celda {
 		miEstado = null;
 		misEnemigos = new LinkedList<Enemigo>();
 		miBomberman = null;
-		miGrafico = new GraficoCeldaTransitable(x, y);
+//		miGrafico = new GraficoCeldaTransitable(x, y);
+		miLabel = new JLabel();
+		miLabel.setBounds(x * Const.ANCHO_CELDA, y * Const.ALTO_CELDA, Const.ANCHO_CELDA, Const.ALTO_CELDA);
+
 	}
 	
 	/**
@@ -72,14 +78,9 @@ public class Celda {
 	 */
 	public void setEstado(EstadoCelda e) {
 		
-		miEstado = e;
-		miGrafico = e.getGrafico();
-		System.out.println("ashdahsdiahsdkjasd");
+		miEstado = e;		
+		miLabel.setIcon(e.getGrafico().getIcon());		
 		
-		
-		
-//		miTablero.restaurarCelda(this);
-//		miTablero.agregarEnGUI(miEstado.getGrafico().getLabel());
 	}
 	
 	/**
@@ -200,5 +201,10 @@ public class Celda {
 	 */
 	public void detonar() {
 		miEstado.destruir(this);
+	}
+	
+	public JLabel getLabel() {
+		
+		return miLabel;
 	}
 }

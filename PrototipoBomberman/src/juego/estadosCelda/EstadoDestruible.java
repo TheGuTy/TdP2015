@@ -29,14 +29,14 @@ public class EstadoDestruible extends EstadoCelda {
 	@Override
 	public void destruir(Celda celda) {
 		
-		celda.getEstado().getGrafico().getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
+		celda.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
 		celda.matarBomberman();
 		celda.destruirEnemigos();		
 		
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
 			public void run() {
-				celda.getEstado().getGrafico().getLabel().setIcon(null);
+				celda.getLabel().setIcon(null);
 				celda.setEstado(new EstadoTransitable(celda.getX(), celda.getY()));
 			}
 		}, 1500);

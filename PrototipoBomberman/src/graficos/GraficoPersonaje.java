@@ -61,5 +61,6 @@ public abstract class GraficoPersonaje {
 		}
 		return this.grafico;
 	}
+
 	
 }
