@@ -69,6 +69,12 @@ public class Juego {
 		gui.add(alt2.getLabel());
 		EnemigoThread altair2 = new EnemigoThread(alt2);
 		misEnemigos.add(altair2);
+		
+		Enemigo alt3 = new Altair(miTablero.getCelda(5, 7), miTablero);
+		alt3.getLabel().setLocation(alt3.getPos());
+		gui.add(alt3.getLabel());
+		EnemigoThread altair3 = new EnemigoThread(alt3);
+		misEnemigos.add(altair3);
 
 
 		// Inicio el hilo de todos los enemigos

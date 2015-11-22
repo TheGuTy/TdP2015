@@ -3,6 +3,10 @@ package juego;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.JLabel;
+
+import graficos.GraficoCeldaTransitable;
+import graficos.GraficoEstructuras;
 import juego.estadosCelda.EstadoCelda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -19,6 +23,8 @@ public class Celda {
 	protected EstadoCelda miEstado;
 	protected List<Enemigo> misEnemigos;
 	protected Bomberman miBomberman;
+	protected GraficoEstructuras miGrafico;
+	
 
 	/**
 	 * Constructor de clase.
@@ -35,6 +41,7 @@ public class Celda {
 		miEstado = null;
 		misEnemigos = new LinkedList<Enemigo>();
 		miBomberman = null;
+		miGrafico = new GraficoCeldaTransitable(x, y);
 	}
 	
 	/**
@@ -64,9 +71,15 @@ public class Celda {
 	 * @param e Estado al cual pasará la celda.
 	 */
 	public void setEstado(EstadoCelda e) {
+		
 		miEstado = e;
-		miTablero.restaurarCelda(this);
-		miTablero.agregarEnGUI(miEstado.getGrafico().getLabel());
+		miGrafico = e.getGrafico();
+		System.out.println("ashdahsdiahsdkjasd");
+		
+		
+		
+//		miTablero.restaurarCelda(this);
+//		miTablero.agregarEnGUI(miEstado.getGrafico().getLabel());
 	}
 	
 	/**
