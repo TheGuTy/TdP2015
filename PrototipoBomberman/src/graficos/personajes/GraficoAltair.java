@@ -1,4 +1,4 @@
-package graficos;
+package graficos.personajes;
 
 import javax.swing.ImageIcon;
 

@@ -2,8 +2,8 @@ package juego.estadosCelda;
 
 import javax.swing.ImageIcon;
 
-import graficos.GraficoEstructuras;
-import graficos.GraficoParedDestruible;
+import graficos.estructuras.GraficoEstructuras;
+import graficos.estructuras.GraficoParedDestruible;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -16,15 +16,25 @@ import personajes.Enemigo;
 public class EstadoDestruible extends EstadoCelda {
 
 	private final static int PUNTAJE=10;
+	protected EstadoCelda miProximoEstado;
 	
 	/**
 	 * Constructor de un EstadoDestruible
 	 * Se utiliza para modelar el estado de una celda que posee una pared destruible
-	 * @param miGrafico Control de la grafica del estado.
 	 */
 	public EstadoDestruible() {
 		super(new GraficoParedDestruible());
-		
+		miProximoEstado = new EstadoTransitable();
+	}
+	
+	/**
+	 * Constructor de un EstadoDestruible
+	 * Se utiliza para modelar el estado de una celda que posee una pared destruible pero que al destruirse se volvera un PowerUp
+	 * @param miProximoEstado Estado proximo al que se cambiara una vez que esta celda destruible sea destruida
+	 */
+	public EstadoDestruible(EstadoCelda miProximoEstado) {
+		super(new GraficoParedDestruible());
+		this.miProximoEstado = miProximoEstado;
 	}
 
 	@Override
@@ -38,7 +48,7 @@ public class EstadoDestruible extends EstadoCelda {
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
 			public void run() {
-				celda.setEstado(new EstadoTransitable());
+				celda.setEstado(miProximoEstado);
 			}
 		}, 1500);
 	}

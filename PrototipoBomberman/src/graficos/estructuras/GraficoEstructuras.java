@@ -1,4 +1,4 @@
-package graficos;
+package graficos.estructuras;
 
 import java.awt.Point;
 

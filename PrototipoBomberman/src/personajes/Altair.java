@@ -1,6 +1,6 @@
 package personajes;
 
-import graficos.GraficoAltair;
+import graficos.personajes.GraficoAltair;
 import juego.Celda;
 import juego.Tablero;
 

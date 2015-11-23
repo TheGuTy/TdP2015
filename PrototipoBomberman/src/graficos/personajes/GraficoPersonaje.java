@@ -1,4 +1,4 @@
-package graficos;
+package graficos.personajes;
 
 import java.awt.Point;
 

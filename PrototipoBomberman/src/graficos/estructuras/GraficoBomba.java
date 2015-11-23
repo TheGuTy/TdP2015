@@ -1,4 +1,4 @@
-package graficos;
+package graficos.estructuras;
 
 import javax.swing.ImageIcon;
 
@@ -8,7 +8,7 @@ import gui.Const;
  * Clase que modela la gráfica de la bomba.
  * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
  */
-public class GraficoBombality extends GraficoEstructuras {
+public class GraficoBomba extends GraficoEstructuras {
 	
 	/**
 	 * Constructor de clase.
@@ -16,10 +16,10 @@ public class GraficoBombality extends GraficoEstructuras {
 	 * @param x Posicion lógica horizontal de la bomba.
 	 * @param y Posicion lógica vertical de la bomba.
 	 */
-	public GraficoBombality() {
-		super();
+	public GraficoBomba() {
+		super();		
 		
-		imagen = new ImageIcon(this.getClass().getResource("/Recursos/bombality.png"));	
+		imagen = new ImageIcon(this.getClass().getResource("/Recursos/bomb.png"));	
 		
 	}	
 }

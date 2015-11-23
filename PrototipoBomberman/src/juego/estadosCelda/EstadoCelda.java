@@ -1,6 +1,6 @@
 package juego.estadosCelda;
 
-import graficos.GraficoEstructuras;
+import graficos.estructuras.GraficoEstructuras;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;

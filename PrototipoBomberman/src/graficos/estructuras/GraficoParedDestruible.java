@@ -1,4 +1,4 @@
-package graficos;
+package graficos.estructuras;
 
 import javax.swing.ImageIcon;
 
@@ -9,7 +9,7 @@ import gui.Const;
 * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
 */
 
-public class GraficoParedNoDestruible extends GraficoEstructuras {
+public class GraficoParedDestruible extends GraficoEstructuras {
 
 	/**
 	 * Constructor de clase.
@@ -17,9 +17,9 @@ public class GraficoParedNoDestruible extends GraficoEstructuras {
 	 * @param x Posicion lógica horizontal de la pared.
 	 * @param y Posicion lógica vertical de la pared.
 	 */
-	public GraficoParedNoDestruible() {
+	public GraficoParedDestruible() {
 		super();
 		
-		imagen = new ImageIcon(this.getClass().getResource("/Recursos/muroindestructible2.png"));			
+		imagen = new ImageIcon(this.getClass().getResource("/Recursos/murodestruible.png"));			
 	}	
 }

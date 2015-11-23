@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.swing.JLabel;
 
-import graficos.GraficoEstructuras;
+import graficos.estructuras.GraficoEstructuras;
 import gui.Const;
 import juego.estadosCelda.EstadoCelda;
 import personajes.Bomberman;
@@ -75,10 +75,8 @@ public class Celda {
 	 * @param e Estado al cual pasará la celda.
 	 */
 	public void setEstado(EstadoCelda e) {
-		
-		miEstado = e;		
-		miLabel.setIcon(e.getGrafico().getIcon());		
-		
+		miEstado = e;
+		miLabel.setIcon(e.getGrafico().getIcon());
 	}
 	
 	/**

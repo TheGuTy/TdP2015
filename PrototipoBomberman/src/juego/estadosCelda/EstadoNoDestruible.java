@@ -1,6 +1,6 @@
 package juego.estadosCelda;
 
-import graficos.GraficoParedNoDestruible;
+import graficos.estructuras.GraficoParedNoDestruible;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;

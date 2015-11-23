@@ -10,7 +10,7 @@ import personajes.Enemigo;
  * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
  *
  */
-public class EstadoSpeedUp extends EstadoCelda {
+public class EstadoMasacrality extends EstadoCelda {
 
 	private final static int PUNTAJE=30;
 	
@@ -20,7 +20,7 @@ public class EstadoSpeedUp extends EstadoCelda {
 	 * @param x posicion x dentro de la matriz de celdas 
 	 * @param y posicion y dentro de la matriz de celdas
 	 */
-	public EstadoSpeedUp() {
+	public EstadoMasacrality() {
 		super(new GraficoSpeedUp());
 		
 	}

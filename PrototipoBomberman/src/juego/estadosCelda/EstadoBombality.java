@@ -1,6 +1,6 @@
 package juego.estadosCelda;
 
-import graficos.GraficoBombality;
+import graficos.powerups.GraficoBombality;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -20,7 +20,7 @@ public class EstadoBombality extends EstadoCelda {
 	 * @param x posicion x dentro de la matriz de celdas 
 	 * @param y posicion y dentro de la matriz de celdas
 	 */
-	public EstadoBombality(int x, int y) {
+	public EstadoBombality() {
 		super(new GraficoBombality());
 		
 	}

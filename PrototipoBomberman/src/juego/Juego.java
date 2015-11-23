@@ -3,8 +3,11 @@ package juego;
 import java.awt.Point;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
+
 import javax.swing.JLabel;
 
+import gui.Const;
 import gui.GUI;
 import gui.Tiempo;
 import juego.estadosCelda.EstadoBombality;
@@ -36,11 +39,11 @@ public class Juego {
 
 		this.gui = gui;
 		puntaje = 0;
+		misEnemigos = new LinkedList<EnemigoThread>();		
 		miTablero = new Tablero(this, gui);
 		miTiempo = new Tiempo();
 
 		miBomberman = new Bomberman(miTablero.getCelda(1, 1), miTablero);
-		misEnemigos = new LinkedList<EnemigoThread>();		
 	}				
 
 	/**
@@ -60,43 +63,44 @@ public class Juego {
 		JLabel grafBomberman = miBomberman.getLabel();
 		grafBomberman.setLocation(miBomberman.getPos());
 		gui.add(grafBomberman);
-		
-		// Creando Enemigos
-		Enemigo alt1 = new Altair(miTablero.getCelda(5, 5), miTablero);
-		alt1.getLabel().setLocation(alt1.getPos());
-		gui.add(alt1.getLabel());
-		EnemigoThread altair1 = new EnemigoThread(alt1);
-		misEnemigos.add(altair1);
+		miTablero.getCelda(miBomberman.getCelda().getX(), miBomberman.getCelda().getY()).agregarBomberman(miBomberman);
 
-		Enemigo alt2 = new Altair(miTablero.getCelda(3, 3), miTablero);
-		alt2.getLabel().setLocation(alt2.getPos());
-		gui.add(alt2.getLabel());
-		EnemigoThread altair2 = new EnemigoThread(alt2);
-		misEnemigos.add(altair2);
-		
-		Enemigo alt3 = new Altair(miTablero.getCelda(5, 7), miTablero);
-		alt3.getLabel().setLocation(alt3.getPos());
-		gui.add(alt3.getLabel());
-		EnemigoThread altair3 = new EnemigoThread(alt3);
-		misEnemigos.add(altair3);		
+		// Creando Enemigos
+
+		int cantAltair = Const.CANT_ALTAIR;
+		int cantRugulus = Const.CANT_RUGULUS;
+		int cantSirius = Const.CANT_SIRIUS;
+
+		boolean termine = false;
+
+		Random rnd = new Random();
+
+		while(!termine){
+			Celda nueva = miTablero.getCelda(rnd.nextInt(Const.CANT_CELDAS_ANCHO),rnd.nextInt(Const.CANT_CELDAS_ALTO));
+
+			if(miTablero.getMapeoControl().get(nueva)==null){
+
+				if(cantAltair>=0){
+					Enemigo alt1 = new Altair(nueva, miTablero);
+					alt1.getLabel().setLocation(alt1.getPos());
+					gui.add(alt1.getLabel());
+					EnemigoThread altair1 = new EnemigoThread(alt1);
+					misEnemigos.add(altair1);
+					cantAltair--;
+				}else
+					termine = true;
+				miTablero.getMapeoControl().put(nueva, true);
+			}
+		}
+
 
 		// Inicio el hilo de todos los enemigos
 		for (EnemigoThread e: misEnemigos) 
 			e.start();
-		
-		
-		// Creando los powerups
-		//Agregamos los speed up al tablero
-		miTablero.getCelda(3, 7).setEstado(new EstadoSpeedUp(3, 7));
-		gui.add(miTablero.getCelda(3, 7).getLabel());
-		
-		miTablero.getCelda(7, 3).setEstado(new EstadoBombality(7, 3));
-		gui.add(miTablero.getCelda(7, 3).getLabel());
-		
-		miTablero.getCelda(5, 11).setEstado(new EstadoSpeedUp(5, 11));
-		gui.add(miTablero.getCelda(5, 11).getLabel());
+
+
 	}
-	
+
 	/**
 	 * Método encargado de aumentar el puntaje actual del juego 
 	 * en una cantidad indicada.
@@ -130,7 +134,7 @@ public class Juego {
 	 * @param celda celda que se
 	 */
 	public void matarEnemigo(Celda celda){
-		
+
 		Point p = new Point(celda.getX(), celda.getY());
 
 		List<EnemigoThread> aEliminar = new LinkedList<EnemigoThread>();
@@ -146,4 +150,9 @@ public class Juego {
 		for (EnemigoThread t : aEliminar)
 			misEnemigos.remove(t);
 	}
+
+	public List<EnemigoThread> getMisEnemigos() {
+		return misEnemigos;
+	}
+
 }
