@@ -3,6 +3,7 @@ package juego.estadosCelda;
 import javax.swing.ImageIcon;
 
 import graficos.estructuras.GraficoBomba;
+import gui.Const;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -38,7 +39,7 @@ public class EstadoBomba extends EstadoCelda {
 			public void run() {
 				celda.setEstado(new EstadoTransitable());
 			}
-		}, 1500);
+		}, Const.COUNTDOWN_EXPLOSION);
 	}
 
 

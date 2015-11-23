@@ -1,6 +1,8 @@
 package juego.estadosCelda;
 
+import graficos.powerups.GraficoMasacrality;
 import graficos.powerups.GraficoSpeedUp;
+import gui.Const;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -21,7 +23,7 @@ public class EstadoMasacrality extends EstadoCelda {
 	 * @param y posicion y dentro de la matriz de celdas
 	 */
 	public EstadoMasacrality() {
-		super(new GraficoSpeedUp());
+		super(new GraficoMasacrality());
 		
 	}
 
@@ -40,15 +42,15 @@ public class EstadoMasacrality extends EstadoCelda {
 			bomberman.getCelda().eliminarBomberman();
 			bomberman.setCelda(celdaSiguiente);
 			celdaSiguiente.agregarBomberman(bomberman);
-			
-			bomberman.duplicarVelocidad();
+
+			bomberman.activarModoMasacrality();
 			
 			bomberman.moverGrafica(dir);
 			
 			celdaSiguiente.getLabel().setIcon(null);
 			celdaSiguiente.setEstado(new EstadoTransitable());
 			
-			System.out.println("BOMBERMAN SE FUMO EL SPEED UP");
+			System.out.println("BOMBERMAN SE FUMO EL MASCARLAITY, BUENO ESO");
 			
 		} else
 			System.out.println("Bomberman esta bloqueado");

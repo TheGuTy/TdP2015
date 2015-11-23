@@ -1,5 +1,6 @@
 package juego.estadosCelda;
 
+import graficos.powerups.GraficoFatality;
 import graficos.powerups.GraficoSpeedUp;
 import juego.Celda;
 import personajes.Bomberman;
@@ -21,8 +22,8 @@ public class EstadoFatality extends EstadoCelda {
 	 * @param y posicion y dentro de la matriz de celdas
 	 */
 	public EstadoFatality() {
-		super(new GraficoSpeedUp());
-		
+		super(new GraficoFatality());
+		//TODO buscar imagenes
 	}
 
 	@Override
@@ -33,7 +34,6 @@ public class EstadoFatality extends EstadoCelda {
 
 	@Override
 	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {
-		System.out.println("AVANZAR BOMBERMAN DESDE ESTADO spped up");
 
 		if (bomberman.getLock() == false) {
 			bomberman.lock();
@@ -41,7 +41,7 @@ public class EstadoFatality extends EstadoCelda {
 			bomberman.setCelda(celdaSiguiente);
 			celdaSiguiente.agregarBomberman(bomberman);
 			
-			bomberman.duplicarVelocidad();
+			bomberman.duplicarAlcance();
 			
 			bomberman.moverGrafica(dir);
 			

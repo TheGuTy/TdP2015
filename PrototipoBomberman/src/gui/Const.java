@@ -1,4 +1,7 @@
 package gui;
+
+import java.util.Date;
+
 /**
  * Clase pensada para administrar las constantes que se van a utilizar en todo el juego.  
  * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
@@ -34,4 +37,7 @@ public class Const {
 	public static final int CANT_RUGULUS = 3;
 	public static final int CANT_ALTAIR = 2;
 	public static final int CANT_SIRIUS = 1;
+	
+	public static final int DURACION_MASACRALITY = 5000;
+	public static final int COUNTDOWN_EXPLOSION = 1500;
 }

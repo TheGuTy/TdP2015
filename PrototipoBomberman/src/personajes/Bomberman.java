@@ -16,6 +16,8 @@ public class Bomberman extends Personaje implements Runnable {
 	protected int miAlcanceBomba;
 	private int dir;
 	private Thread t;
+	private boolean modoDios;
+	private boolean bombasInfinitas;
 	
 
 	/**
@@ -30,14 +32,21 @@ public class Bomberman extends Personaje implements Runnable {
 		bombasDisponibles = 1;
 		miAlcanceBomba = 1;
 		this.dir=0;
+		
+		bombasInfinitas = false;
+		modoAtravesar = false;
+		modoDios = false;
 	}
 
 	@Override
 	public void matar() {
-		System.out.println("Murio bommberguy");
-		estoyVivo = false;
-		this.getGrafico().getLabel().setIcon(null);
-		//TODO Parar el thread que mueve a Bomberman
+		
+		if (!modoDios){
+			System.out.println("Murio bomberguy");
+			estoyVivo = false;
+			this.getGrafico().getLabel().setIcon(null);
+			//TODO Parar el thread que mueve a Bomberman
+		}
 	}
 
 	/**
@@ -52,7 +61,11 @@ public class Bomberman extends Personaje implements Runnable {
 	 * Permite colocar una Bomba en la celda donde está parado actualmente Bomberman
 	 */
 	public void colocarBomba() {
-		if (bombasDisponibles > 0){
+		
+		if (bombasInfinitas){
+			miTablero.colocarBomba(miCelda.getX(), miCelda.getY(), miAlcanceBomba);
+		}
+		else if (bombasDisponibles > 0){
 			bombasDisponibles--;
 			miTablero.colocarBomba(miCelda.getX(), miCelda.getY(), miAlcanceBomba);
 		}
@@ -151,6 +164,22 @@ public class Bomberman extends Personaje implements Runnable {
 		t = new Thread(this);
 		t.start();
 	}
-	
-	
+
+	public void activarModoMasacrality() {
+		
+		bombasInfinitas = true;
+		modoAtravesar = true;
+		modoDios = true;
+		
+		new java.util.Timer().schedule(new java.util.TimerTask() {
+			@Override
+			public void run() {
+				bombasInfinitas = false;
+				modoAtravesar = false;
+				modoDios = false;
+			}
+		}, Const.DURACION_MASACRALITY);
+		
+		
+	}
 }
