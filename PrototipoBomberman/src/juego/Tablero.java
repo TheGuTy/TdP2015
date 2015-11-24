@@ -219,6 +219,7 @@ public class Tablero {
 		celda.setEstado(new EstadoBomba());		
 
 		bomba.comenzarDetonacion();
+		
 
 	}
 

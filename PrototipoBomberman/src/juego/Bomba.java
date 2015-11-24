@@ -52,7 +52,8 @@ public class Bomba {
 					miTablero.getJuego().aumentarPuntaje(puntaje);
 					
 				}				
-				miTablero.devolverBombaABomberman();				
+				miTablero.devolverBombaABomberman();
+				miTablero.gui.repaint();
 			}
 		}, Const.TIEMPO_DETONACION);
 	}

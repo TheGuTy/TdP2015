@@ -48,7 +48,7 @@ public class EstadoDestruible extends EstadoCelda {
 
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
-			public void run() {
+			public void run() {				
 				celda.setEstado(miProximoEstado);
 			}
 		}, 1500);
