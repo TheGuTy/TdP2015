@@ -53,7 +53,6 @@ public class Bomba {
 					
 				}				
 				miTablero.devolverBombaABomberman();
-				miTablero.gui.repaint();
 			}
 		}, Const.TIEMPO_DETONACION);
 	}

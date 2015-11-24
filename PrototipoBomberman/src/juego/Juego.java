@@ -41,7 +41,8 @@ public class Juego {
 		puntaje = 0;
 		misEnemigos = new LinkedList<EnemigoThread>();		
 		miTablero = new Tablero(this, gui);
-		miTiempo = new Tiempo();
+		miTiempo = new Tiempo(gui);
+		miTiempo.iniciar();
 
 		miBomberman = new Bomberman(miTablero.getCelda(1, 1), miTablero);
 	}				

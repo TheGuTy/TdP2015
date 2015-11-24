@@ -51,28 +51,32 @@ public class GUI extends JFrame {
 		
 		JLabel titulo = new JLabel("BOMBERMAN");
 		labelPuntaje = new JLabel("SCORE: 0");
-		JLabel tiempo = new JLabel("MI TIEMPO");
+		labelTiempo = new JLabel("TIME: "+"00:00");
+		
+		titulo.setForeground(Color.WHITE);
+		labelPuntaje.setForeground(Color.WHITE);
+		labelTiempo.setForeground(Color.WHITE);
 		
 		
 		titulo.setLocation(0, 0);
 		labelPuntaje.setLocation((Const.ANCHO_GUI/2), 0);
-		tiempo.setLocation((Const.ANCHO_GUI/4)*3, 0);
+		labelTiempo.setLocation((Const.ANCHO_GUI/4)*3, 0);
 		
 		titulo.setSize(Const.ANCHO_GUI/2, Const.ALTO_ENCABEZADO);
 		labelPuntaje.setSize(Const.ANCHO_GUI/4, Const.ALTO_ENCABEZADO);
-		tiempo.setSize(Const.ANCHO_GUI/4, Const.ALTO_ENCABEZADO);
+		labelTiempo.setSize(Const.ANCHO_GUI/4, Const.ALTO_ENCABEZADO);
 		
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
 		labelPuntaje.setHorizontalAlignment(SwingConstants.CENTER);
-		tiempo.setHorizontalAlignment(SwingConstants.CENTER);
+		labelTiempo.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		titulo.setBackground(new Color(100,100,100,100)); titulo.setOpaque(true);
-		labelPuntaje.setBackground(new Color(0,0,0,0)); labelPuntaje.setOpaque(true);
-		tiempo.setBackground(new Color(200,200,200,200)); tiempo.setOpaque(true);
+		titulo.setBackground(new Color(180,180,180)); titulo.setOpaque(true);
+		labelPuntaje.setBackground(new Color(180,180,180)); labelPuntaje.setOpaque(true);
+		labelTiempo.setBackground(new Color(180,180,180)); labelTiempo.setOpaque(true);
 		
 		panelControl.add(titulo);
 		panelControl.add(labelPuntaje); 
-		panelControl.add(tiempo);
+		panelControl.add(labelTiempo);
 		
 		setPreferredSize(new Dimension(Const.ANCHO_GUI, Const.ALTO_GUI+Const.ALTO_ENCABEZADO));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -116,9 +120,20 @@ public class GUI extends JFrame {
 	
 	public void actualizarPuntaje(int puntaje){
 		labelPuntaje.setText("SCORE: "+puntaje);
-		
-		
+		repaint();
 	}
+	
+	public void actualizarTiempo(int seg){
+		int minutos = 0;
+		int segundos = 0;
+		
+		minutos=seg/60;
+		segundos=seg-60*(seg/60);
+		labelTiempo.setText("TIME: "+String.format("%02d", minutos)+":"+String.format("%02d", segundos));
+		repaint();		
+	}
+	
+	
 
 	/**
 	 * Recibe un evento de teclado, identifica a que dirección corresponde y le

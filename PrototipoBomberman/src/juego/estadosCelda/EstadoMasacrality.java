@@ -48,8 +48,12 @@ public class EstadoMasacrality extends EstadoCelda {
 			
 			bomberman.moverGrafica(dir);
 			
+			
+			
 			celdaSiguiente.getLabel().setIcon(null);
 			celdaSiguiente.setEstado(new EstadoTransitable());
+			
+			celdaSiguiente.getMiTablero().getJuego().aumentarPuntaje(PUNTAJE);
 			
 			System.out.println("BOMBERMAN SE FUMO EL MASCARLAITY, BUENO ESO");
 			

@@ -207,4 +207,9 @@ public class Celda {
 		
 		return miLabel;
 	}
+	
+	public Tablero getMiTablero() {
+		return miTablero;
+	}
+	
 }

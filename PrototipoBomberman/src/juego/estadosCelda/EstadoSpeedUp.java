@@ -49,6 +49,8 @@ public class EstadoSpeedUp extends EstadoCelda {
 			celdaSiguiente.getLabel().setIcon(null);
 			celdaSiguiente.setEstado(new EstadoTransitable());
 			
+			celdaSiguiente.getMiTablero().getJuego().aumentarPuntaje(PUNTAJE);
+			
 			System.out.println("BOMBERMAN SE FUMO EL SPEED UP");
 			
 		} else
