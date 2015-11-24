@@ -82,29 +82,33 @@ public class Celda {
 	/**
 	 * Elimina todos los enemigos ubicados en ésta celda.
 	 */
-	public void destruirEnemigos() {
+	public int destruirEnemigos() {
 		
+		int puntaje = 0;
 		List<Enemigo> aMatar = new LinkedList<Enemigo>();
 		
 		for (Enemigo e : misEnemigos){
 			aMatar.add(e);
 			e.matar();
+			puntaje+=e.getPuntaje();
 		}
 		
 		for (Enemigo e : aMatar)
 			misEnemigos.remove(e);
 		
 		miTablero.getJuego().matarEnemigo(this);
+		
+		return puntaje;
 	}
 	
-	/**
-	 * Incrementa el puntaje del juego en una cantidad indicada.
-	 * @param p Cantidad de puntaje a incrementar.
-	 */
-	public void aumentarPuntaje(int p) {
-
-		miTablero.aumentarPuntaje(p);
-	}
+//	/**
+//	 * Incrementa el puntaje del juego en una cantidad indicada.
+//	 * @param p Cantidad de puntaje a incrementar.
+//	 */
+//	public void aumentarPuntaje(int p) {
+//
+//		miTablero.aumentarPuntaje(p);
+//	}
 
 	/**
 	 * Agrega un enemigo a la lista de enemigos perteneciente a la celda.
@@ -195,8 +199,8 @@ public class Celda {
 	 * Metodo que le indica al estado actual de la celda que 
 	 * una bomba afectó a ésta celda y hay que modificar su contenido.
 	 */
-	public void detonar() {
-		miEstado.destruir(this);
+	public int detonar() {
+		return miEstado.destruir(this);
 	}
 	
 	public JLabel getLabel() {

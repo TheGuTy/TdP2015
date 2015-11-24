@@ -23,8 +23,9 @@ public class EstadoNoDestruible extends EstadoCelda {
 	}
 
 	@Override
-	public void destruir(Celda c) {
+	public int destruir(Celda c) {
 		//No hacer nada
+		return 0;
 	}
 
 	@Override

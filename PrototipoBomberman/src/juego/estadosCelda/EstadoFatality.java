@@ -27,7 +27,8 @@ public class EstadoFatality extends EstadoCelda {
 	}
 
 	@Override
-	public void destruir(Celda celda) {
+	public int destruir(Celda celda) {
+		return 0;
 	}
 
 

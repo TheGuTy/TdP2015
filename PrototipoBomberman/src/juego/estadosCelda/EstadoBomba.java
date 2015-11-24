@@ -27,12 +27,12 @@ public class EstadoBomba extends EstadoCelda {
 	}
 
 	@Override
-	public void destruir(Celda celda) {
+	public int destruir(Celda celda) {
 
 		celda.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
 
 		celda.matarBomberman();
-		celda.destruirEnemigos();
+		int puntaje = celda.destruirEnemigos();
 
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
@@ -40,6 +40,8 @@ public class EstadoBomba extends EstadoCelda {
 				celda.setEstado(new EstadoTransitable());
 			}
 		}, Const.COUNTDOWN_EXPLOSION);
+		
+		return puntaje;
 	}
 
 

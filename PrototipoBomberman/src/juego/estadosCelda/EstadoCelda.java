@@ -26,7 +26,7 @@ public abstract class EstadoCelda {
 	 * Método invocado cuando se quiere destruir a la celda asociada a este estado. La misma se encarga de su propia destruccion 
 	 * @param c celda a destruir
 	 */
-	public abstract void destruir (Celda c);
+	public abstract int destruir (Celda c);
 	
 	/**
 	 * Método que se invoca cuando Bomberman quiere posicionarse sobre la celda que posee este estado.

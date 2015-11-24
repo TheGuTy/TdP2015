@@ -180,14 +180,14 @@ public class Tablero {
 //	}
 
 
-	/**
-	 * Recibe un entero que determina cuánto puntaje se debe sumar
-	 * @param p puntaje que se debe sumar
-	 */
-	public void aumentarPuntaje (int p) {
-
-		miJuego.aumentarPuntaje(p);
-	}	
+//	/**
+//	 * Recibe un entero que determina cuánto puntaje se debe sumar
+//	 * @param p puntaje que se debe sumar
+//	 */
+//	public void aumentarPuntaje (int p) {
+//
+//		miJuego.aumentarPuntaje(p);
+//	}	
 
 	/**
 	 * Devuelve una referencia al juego principal

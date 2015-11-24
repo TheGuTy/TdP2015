@@ -45,6 +45,10 @@ public class Juego {
 
 		miBomberman = new Bomberman(miTablero.getCelda(1, 1), miTablero);
 	}				
+	
+	public int getPuntaje() {
+		return puntaje;
+	}
 
 	/**
 	 * Getter para obtener el tiempo trascurrido de juego.
@@ -109,7 +113,10 @@ public class Juego {
 	public void aumentarPuntaje (int puntaje) {
 
 		this.puntaje += puntaje;
+		gui.actualizarPuntaje(this.puntaje);
 	}
+	
+	
 
 	/**
 	 * Getter para el personaje principal del juego.

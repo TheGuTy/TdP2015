@@ -24,6 +24,8 @@ public class GUI extends JFrame {
 
 	private Juego miJuego;
 	private JPanel contentPane;
+	private JLabel labelPuntaje;
+	private JLabel labelTiempo;
 
 	/**
 	 * Metodo que da el puntapie inicial al juego.
@@ -48,28 +50,28 @@ public class GUI extends JFrame {
 		panelControl.setBackground(new Color(200,200,200,200));
 		
 		JLabel titulo = new JLabel("BOMBERMAN");
-		JLabel puntaje = new JLabel("MI PUNTAJE: ");
+		labelPuntaje = new JLabel("SCORE: 0");
 		JLabel tiempo = new JLabel("MI TIEMPO");
 		
 		
 		titulo.setLocation(0, 0);
-		puntaje.setLocation((Const.ANCHO_GUI/2), 0);
+		labelPuntaje.setLocation((Const.ANCHO_GUI/2), 0);
 		tiempo.setLocation((Const.ANCHO_GUI/4)*3, 0);
 		
 		titulo.setSize(Const.ANCHO_GUI/2, Const.ALTO_ENCABEZADO);
-		puntaje.setSize(Const.ANCHO_GUI/4, Const.ALTO_ENCABEZADO);
+		labelPuntaje.setSize(Const.ANCHO_GUI/4, Const.ALTO_ENCABEZADO);
 		tiempo.setSize(Const.ANCHO_GUI/4, Const.ALTO_ENCABEZADO);
 		
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
-		puntaje.setHorizontalAlignment(SwingConstants.CENTER);
+		labelPuntaje.setHorizontalAlignment(SwingConstants.CENTER);
 		tiempo.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		titulo.setBackground(new Color(100,100,100,100)); titulo.setOpaque(true);
-		puntaje.setBackground(new Color(0,0,0,0)); puntaje.setOpaque(true);
+		labelPuntaje.setBackground(new Color(0,0,0,0)); labelPuntaje.setOpaque(true);
 		tiempo.setBackground(new Color(200,200,200,200)); tiempo.setOpaque(true);
 		
 		panelControl.add(titulo);
-		panelControl.add(puntaje); 
+		panelControl.add(labelPuntaje); 
 		panelControl.add(tiempo);
 		
 		setPreferredSize(new Dimension(Const.ANCHO_GUI, Const.ALTO_GUI+Const.ALTO_ENCABEZADO));
@@ -110,6 +112,12 @@ public class GUI extends JFrame {
 		});
 		
 		this.setVisible(true);
+	}
+	
+	public void actualizarPuntaje(int puntaje){
+		labelPuntaje.setText("SCORE: "+puntaje);
+		
+		
 	}
 
 	/**

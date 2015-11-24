@@ -24,8 +24,8 @@ public abstract class Enemigo extends Personaje {
 	 * @param p puntaje
 	 */
 	protected Enemigo (boolean modoAtravesar, int vel, Celda c, Tablero t, int p) {
-
 		super(modoAtravesar, vel, c, t);
+		this.puntaje = p;
 	}
 
 	/**

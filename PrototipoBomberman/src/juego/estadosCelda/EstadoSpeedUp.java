@@ -26,7 +26,8 @@ public class EstadoSpeedUp extends EstadoCelda {
 	}
 
 	@Override
-	public void destruir(Celda celda) {
+	public int destruir(Celda celda) {
+		return 0;
 	}
 
 

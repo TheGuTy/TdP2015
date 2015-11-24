@@ -38,12 +38,13 @@ public class EstadoDestruible extends EstadoCelda {
 	}
 
 	@Override
-	public void destruir(Celda celda) {
+	public int destruir(Celda celda) {
 		
 		celda.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
 
 		celda.matarBomberman();
-		celda.destruirEnemigos();
+		int aux = 0;
+		aux = celda.destruirEnemigos();
 
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
@@ -51,6 +52,8 @@ public class EstadoDestruible extends EstadoCelda {
 				celda.setEstado(miProximoEstado);
 			}
 		}, 1500);
+		 
+		return PUNTAJE+aux;
 	}
 
 	@Override

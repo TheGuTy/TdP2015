@@ -33,7 +33,7 @@ public class Bomba {
 	 * Indicador de explosión de la bomba con un timer asignado.
 	 */
 	public void comenzarDetonacion() {
-
+		
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
 			public void run() {
@@ -47,7 +47,10 @@ public class Bomba {
 				List<Celda> celdasAfectadas = calcularCeldasAfectadas();
 				celdasAfectadas.add(miCelda);
 				for (Celda c : celdasAfectadas){
-					c.detonar();
+					int puntaje = c.detonar();
+					System.out.println("puntaje: "+puntaje);
+					miTablero.getJuego().aumentarPuntaje(puntaje);
+					
 				}				
 				miTablero.devolverBombaABomberman();				
 			}
