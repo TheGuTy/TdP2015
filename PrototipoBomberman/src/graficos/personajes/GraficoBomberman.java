@@ -20,7 +20,7 @@ public class GraficoBomberman extends GraficoPersonaje {
 	public GraficoBomberman(int velocidad, int x, int y) {
 		super(velocidad, x, y);
 		
-		getLabel().setBounds(x * Const.ANCHO_CELDA, y * Const.ALTO_CELDA, Const.ANCHO_CELDA, Const.ALTO_CELDA);
+		getLabel().setBounds(x * Const.ANCHO_CELDA, (y * Const.ALTO_CELDA)+Const.ALTO_ENCABEZADO, Const.ANCHO_CELDA, Const.ALTO_CELDA);
 		
 		imagenes[Const.MOVIMIENTO_ARRIBA] = new ImageIcon(this.getClass().getResource("/Recursos/arr2.png"));		
 		imagenes[Const.MOVIMIENTO_ABAJO] = new ImageIcon(this.getClass().getResource("/Recursos/aba2.png"));

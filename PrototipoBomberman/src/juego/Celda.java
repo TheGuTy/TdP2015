@@ -44,7 +44,7 @@ public class Celda {
 		miBomberman = null;
 //		miGrafico = new GraficoCeldaTransitable(x, y);
 		miLabel = new JLabel();
-		miLabel.setBounds(x * Const.ANCHO_CELDA, y * Const.ALTO_CELDA, Const.ANCHO_CELDA, Const.ALTO_CELDA);
+		miLabel.setBounds(x * Const.ANCHO_CELDA, y * Const.ALTO_CELDA+Const.ALTO_ENCABEZADO, Const.ANCHO_CELDA, Const.ALTO_CELDA);
 
 	}
 	

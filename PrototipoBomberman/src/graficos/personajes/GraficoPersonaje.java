@@ -28,7 +28,7 @@ public abstract class GraficoPersonaje {
 	 * @param y Posición lógica vertical del personaje.
 	 */
 	protected GraficoPersonaje(int velocidad, int x, int y) {
-		this.pos = new Point(x * this.ancho, y * this.alto);
+		this.pos = new Point(x * this.ancho, y * this.alto+Const.ALTO_ENCABEZADO);
 		this.velocidad = velocidad;
 		this.imagenes = new Icon[4];
 	}
