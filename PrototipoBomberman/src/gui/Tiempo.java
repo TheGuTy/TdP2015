@@ -36,11 +36,8 @@ public class Tiempo implements Runnable {
 				segundos++;
 				
 				int minutos = segundos/60;
-				int seg = 0;
-				
-				minutos=seg/60;
-				seg=segundos-60*(segundos/60);
-				gui.actualizarTiempo(minutos, segundos);
+				int seg = segundos - 60 * (segundos/60);
+				gui.actualizarTiempo(minutos, seg);
 			}
 			
 		} catch (InterruptedException e){
