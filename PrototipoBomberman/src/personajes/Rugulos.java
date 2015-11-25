@@ -1,5 +1,6 @@
 package personajes;
 
+import graficos.personajes.GraficoRugulos;
 import juego.Celda;
 import juego.Tablero;
 
@@ -8,7 +9,7 @@ import juego.Tablero;
  * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
  *
  */
-public class Rugulus extends Enemigo {
+public class Rugulos extends Enemigo {
 
 	private final static int VELOCIDAD_INICIAL = 1;
 	private final static int PUNTAJE = 15;
@@ -18,8 +19,9 @@ public class Rugulus extends Enemigo {
 	 * @param celda Celda inicial
 	 * @param t referencia al tablero principal
 	 */
-	public Rugulus(Celda celda, Tablero t) {
+	public Rugulos(Celda celda, Tablero t) {
 
 		super(false, VELOCIDAD_INICIAL, celda, t, PUNTAJE);
+		this.miGrafico = new GraficoRugulos(1, celda.getX(), celda.getY());
 	}
 }
