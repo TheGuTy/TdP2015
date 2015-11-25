@@ -1,6 +1,6 @@
 package juego;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import gui.Const;
@@ -65,7 +65,7 @@ public class Bomba {
 	 * @return Lista de celdas afectadas por la explosión.
 	 */
 	protected List<Celda> calcularCeldasAfectadas() {
-		List<Celda> celdasAf = new ArrayList<Celda>();
+		List<Celda> celdasAf = new LinkedList<Celda>();
 		celdasAf.add(miCelda);
 		for (int i = 1; i <= this.alcance; i++) {
 			if(miCelda.getY()-i>=0){

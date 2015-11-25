@@ -171,6 +171,7 @@ public class Juego {
 
 	public void notificarMuerteBomberman() {
 		miTiempo.detenerTiempo();
+		
 	}
 
 }
