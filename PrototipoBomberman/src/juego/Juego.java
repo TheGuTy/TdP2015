@@ -71,7 +71,7 @@ public class Juego {
 		// Creando Enemigos
 
 		int cantAltair = Const.CANT_ALTAIR;
-		int cantRugulus = Const.CANT_RUGULUS;
+		int cantRugulos = Const.CANT_RUGULOS;
 		int cantSirius = Const.CANT_SIRIUS;
 
 		boolean termine = false;
@@ -83,7 +83,7 @@ public class Juego {
 
 			if(miTablero.getMapeoControl().get(nueva)==null){
 
-				if(cantAltair>=0){
+				if(cantAltair>0){
 					Enemigo alt1 = new Altair(nueva, miTablero);
 					alt1.getLabel().setLocation(alt1.getPos());
 					gui.add(alt1.getLabel());

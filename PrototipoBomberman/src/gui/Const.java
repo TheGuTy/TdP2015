@@ -34,7 +34,7 @@ public class Const {
 	public static final int CANT_POWERUPS_SPEEDUP = 4;
 	public static final int CANT_POWERUPS_MASACRALITY = 1;
 	
-	public static final int CANT_RUGULUS = 3;
+	public static final int CANT_RUGULOS = 3;
 	public static final int CANT_ALTAIR = 2;
 	public static final int CANT_SIRIUS = 1;
 	
