@@ -119,13 +119,8 @@ public class GUI extends JFrame {
 		repaint();
 	}
 	
-	public void actualizarTiempo(int seg){
-		int minutos = 0;
-		int segundos = 0;
-		
-		minutos=seg/60;
-		segundos=seg-60*(seg/60);
-		labelTiempo.setText("TIME: "+String.format("%02d", minutos)+":"+String.format("%02d", segundos));
+	public void actualizarTiempo(int minutos, int seg){
+		labelTiempo.setText("TIME: "+ String.format("%02d", minutos) + ":" + String.format("%02d", seg));
 		repaint();		
 	}
 	

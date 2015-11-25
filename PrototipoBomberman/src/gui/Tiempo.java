@@ -34,7 +34,13 @@ public class Tiempo implements Runnable {
 			while(!detenerReloj){
 				Thread.sleep(1000);
 				segundos++;
-				gui.actualizarTiempo(segundos);
+				
+				int minutos = segundos/60;
+				int seg = 0;
+				
+				minutos=seg/60;
+				seg=segundos-60*(segundos/60);
+				gui.actualizarTiempo(minutos, segundos);
 			}
 			
 		} catch (InterruptedException e){
