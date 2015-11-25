@@ -13,6 +13,7 @@ import gui.Tiempo;
 import personajes.Altair;
 import personajes.Bomberman;
 import personajes.Enemigo;
+import personajes.Rugulos;
 import threads.EnemigoThread;
 
 /**
@@ -44,7 +45,7 @@ public class Juego {
 
 		miBomberman = new Bomberman(miTablero.getCelda(1, 1), miTablero);
 	}				
-	
+
 	public int getPuntaje() {
 		return puntaje;
 	}
@@ -69,6 +70,7 @@ public class Juego {
 		miTablero.getCelda(miBomberman.getCelda().getX(), miBomberman.getCelda().getY()).agregarBomberman(miBomberman);
 
 		// Creando Enemigos
+
 		int cantAltair = Const.CANT_ALTAIR;
 		int cantRugulos = Const.CANT_RUGULOS;
 		int cantSirius = Const.CANT_SIRIUS;
@@ -81,23 +83,33 @@ public class Juego {
 			Celda nueva = miTablero.getCelda(rnd.nextInt(Const.CANT_CELDAS_ANCHO),rnd.nextInt(Const.CANT_CELDAS_ALTO));
 
 			if(miTablero.getMapeoControl().get(nueva)==null){
-
-				if(cantAltair>0){
-					Enemigo alt1 = new Altair(nueva, miTablero);
-					alt1.getLabel().setLocation(alt1.getPos());
-					gui.add(alt1.getLabel());
-					EnemigoThread altair1 = new EnemigoThread(alt1);
-					misEnemigos.add(altair1);
-					cantAltair--;
+				if(cantRugulos>0){
+					Enemigo rug = new Rugulos(nueva, miTablero);
+					rug.getLabel().setLocation(rug.getPos());
+					gui.add(rug.getLabel());
+					EnemigoThread rugulos = new EnemigoThread(rug);
+					misEnemigos.add(rugulos);
+					cantRugulos--;
 				}else
-					termine = true;
+					if(cantAltair>0){
+						Enemigo alt1 = new Altair(nueva, miTablero);
+						alt1.getLabel().setLocation(alt1.getPos());
+						gui.add(alt1.getLabel());
+						EnemigoThread altair1 = new EnemigoThread(alt1);
+						misEnemigos.add(altair1);
+						cantAltair--;
+					}else
+						termine = true;
 				miTablero.getMapeoControl().put(nueva, true);
 			}
 		}
 
+
 		// Inicio el hilo de todos los enemigos
 		for (EnemigoThread e: misEnemigos) 
 			e.start();
+
+
 	}
 
 	/**
@@ -110,6 +122,8 @@ public class Juego {
 		this.puntaje += puntaje;
 		gui.actualizarPuntaje(this.puntaje);
 	}
+
+
 
 	/**
 	 * Getter para el personaje principal del juego.
@@ -155,7 +169,4 @@ public class Juego {
 		return misEnemigos;
 	}
 
-	public void notificarMuerteBomberman() {
-		miTiempo.detenerTiempo();
-	}
 }
