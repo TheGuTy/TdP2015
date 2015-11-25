@@ -104,12 +104,9 @@ public class Juego {
 			}
 		}
 
-
 		// Inicio el hilo de todos los enemigos
 		for (EnemigoThread e: misEnemigos) 
 			e.start();
-
-
 	}
 
 	/**
@@ -171,7 +168,15 @@ public class Juego {
 
 	public void notificarMuerteBomberman() {
 		miTiempo.detenerTiempo();
-		
+		detenerJuego();
+	}
+	
+	private void detenerJuego(){
+		matarEnemigos();
 	}
 
+	private void matarEnemigos() {
+		for (EnemigoThread e : misEnemigos )
+			e.detener();
+	}
 }

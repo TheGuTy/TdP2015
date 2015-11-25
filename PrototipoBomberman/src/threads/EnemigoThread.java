@@ -41,7 +41,8 @@ public class EnemigoThread extends Thread {
 	 * Cuando es invocado detiene por completo la ejecucion de este thread.
 	 */
 	public void detener(){
-		mLogica.getLabel().setIcon(null);	
+		mLogica.matar();
+		interrupt();
 	}
 	
 	/**
