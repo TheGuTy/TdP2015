@@ -3,6 +3,7 @@ package personajes;
 import java.util.Random;
 
 import gui.Const;
+import gui.SoundPlayer;
 import juego.Celda;
 import juego.Tablero;
 
@@ -48,6 +49,9 @@ public abstract class Enemigo extends Personaje {
 	@Override
 	public void matar(){
 		System.out.println("Murio " + this.getClass().getSimpleName());
+		
+		SoundPlayer.muerteEnemigo();
+		
 		estoyVivo = false;
 		
 	}

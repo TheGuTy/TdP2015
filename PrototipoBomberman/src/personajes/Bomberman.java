@@ -2,6 +2,7 @@ package personajes;
 
 import graficos.personajes.GraficoBomberman;
 import gui.Const;
+import gui.SoundPlayer;
 import juego.Celda;
 import juego.Tablero;
 
@@ -43,6 +44,9 @@ public class Bomberman extends Personaje implements Runnable {
 		
 		if (!modoDios){
 			System.out.println("Murio bomberguy");
+			
+			SoundPlayer.muerteBomberman();
+			
 			estoyVivo = false;
 			this.getGrafico().getLabel().setIcon(null);
 			//TODO Parar el thread que mueve a Bomberman

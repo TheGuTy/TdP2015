@@ -1,6 +1,7 @@
 package juego.estadosCelda;
 
 import graficos.powerups.GraficoMasacrality;
+import gui.SoundPlayer;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -37,6 +38,9 @@ public class EstadoMasacrality extends EstadoCelda {
 		System.out.println("AVANZAR BOMBERMAN DESDE ESTADO spped up");
 
 		if (bomberman.getLock() == false) {
+			
+			SoundPlayer.powerUp();
+			
 			bomberman.lock();
 			bomberman.getCelda().eliminarBomberman();
 			bomberman.setCelda(celdaSiguiente);

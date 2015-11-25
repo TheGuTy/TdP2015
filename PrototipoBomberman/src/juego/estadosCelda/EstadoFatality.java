@@ -1,6 +1,7 @@
 package juego.estadosCelda;
 
 import graficos.powerups.GraficoFatality;
+import gui.SoundPlayer;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -36,6 +37,9 @@ public class EstadoFatality extends EstadoCelda {
 	public void avanzar(Bomberman bomberman, Celda celdaSiguiente, int dir) {
 
 		if (bomberman.getLock() == false) {
+			
+			SoundPlayer.powerUp();
+			
 			bomberman.lock();
 			bomberman.getCelda().eliminarBomberman();
 			bomberman.setCelda(celdaSiguiente);
