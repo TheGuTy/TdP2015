@@ -46,6 +46,8 @@ public class Bomberman extends Personaje implements Runnable {
 			estoyVivo = false;
 			this.getGrafico().getLabel().setIcon(null);
 			//TODO Parar el thread que mueve a Bomberman
+			//TODO Notificar al juego que murio Bomberman! Traigan ambulancias
+			miTablero.notificarMuerteBomberman();
 		}
 	}
 

@@ -69,7 +69,6 @@ public class Juego {
 		miTablero.getCelda(miBomberman.getCelda().getX(), miBomberman.getCelda().getY()).agregarBomberman(miBomberman);
 
 		// Creando Enemigos
-
 		int cantAltair = Const.CANT_ALTAIR;
 		int cantRugulos = Const.CANT_RUGULOS;
 		int cantSirius = Const.CANT_SIRIUS;
@@ -96,12 +95,9 @@ public class Juego {
 			}
 		}
 
-
 		// Inicio el hilo de todos los enemigos
 		for (EnemigoThread e: misEnemigos) 
 			e.start();
-
-
 	}
 
 	/**
@@ -114,8 +110,6 @@ public class Juego {
 		this.puntaje += puntaje;
 		gui.actualizarPuntaje(this.puntaje);
 	}
-	
-	
 
 	/**
 	 * Getter para el personaje principal del juego.
@@ -161,4 +155,7 @@ public class Juego {
 		return misEnemigos;
 	}
 
+	public void notificarMuerteBomberman() {
+		miTiempo.detenerTiempo();
+	}
 }

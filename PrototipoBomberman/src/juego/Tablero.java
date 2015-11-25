@@ -215,25 +215,9 @@ public class Tablero {
 		celda.setEstado(new EstadoBomba());		
 
 		bomba.comenzarDetonacion();
-		
-
 	}
 
-	//	/**
-	//	 * Metodo que recibe una celda que acaba de ser explotada y se encarga de setearle su nuevo estado
-	//	 * @param celda celda que acaba de ser explotada y se encarga de setearle su nuevo estado
-	//	 */
-	//	public void restaurarCelda(Celda celda) {
-	//		
-	//		int x = celda.getX();
-	//		int y = celda.getY();
-	//		gui.repaint();
-	//		gui.add(misCeldas[x][y].getEstado().getGrafico().getLabel());
-	//	}
-
-	//TODO Comprobar este metodo
-	//Si no se agrega el JLabel del nuevo estado a la GUI entonces la proxima explosion de esa bomba no afecta a la celda
-	//	public void agregarEnGUI(JLabel panel){
-	//		gui.add(panel);
-	//	}
+	public void notificarMuerteBomberman() {
+		miJuego.notificarMuerteBomberman();
+	}
 }
