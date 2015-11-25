@@ -2,8 +2,6 @@ package graficos.estructuras;
 
 import javax.swing.ImageIcon;
 
-import gui.Const;
-
 /**
  * Clase que modela la gráfica del estado de la celda en el cual se colocó una bomba.
  * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín

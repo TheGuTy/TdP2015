@@ -3,7 +3,6 @@ package graficos.powerups;
 import javax.swing.ImageIcon;
 
 import graficos.estructuras.GraficoEstructuras;
-import gui.Const;
 
 /**
  * Clase que modela la gráfica de la bomba.

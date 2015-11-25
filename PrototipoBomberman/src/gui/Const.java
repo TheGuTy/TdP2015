@@ -1,7 +1,5 @@
 package gui;
 
-import java.util.Date;
-
 /**
  * Clase pensada para administrar las constantes que se van a utilizar en todo el juego.  
  * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín

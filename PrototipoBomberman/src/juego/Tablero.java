@@ -7,16 +7,12 @@ import gui.Const;
 import gui.GUI;
 import juego.estadosCelda.EstadoBomba;
 import juego.estadosCelda.EstadoBombality;
-import juego.estadosCelda.EstadoCelda;
 import juego.estadosCelda.EstadoDestruible;
 import juego.estadosCelda.EstadoFatality;
 import juego.estadosCelda.EstadoMasacrality;
 import juego.estadosCelda.EstadoNoDestruible;
 import juego.estadosCelda.EstadoSpeedUp;
 import juego.estadosCelda.EstadoTransitable;
-import personajes.Altair;
-import personajes.Enemigo;
-import threads.EnemigoThread;
 
 /**
  * Clase que se encarga de modelar el tablero de juego, con todos sus atributos

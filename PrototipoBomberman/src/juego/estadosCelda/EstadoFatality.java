@@ -1,7 +1,6 @@
 package juego.estadosCelda;
 
 import graficos.powerups.GraficoFatality;
-import graficos.powerups.GraficoSpeedUp;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;

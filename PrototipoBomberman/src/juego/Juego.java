@@ -10,8 +10,6 @@ import javax.swing.JLabel;
 import gui.Const;
 import gui.GUI;
 import gui.Tiempo;
-import juego.estadosCelda.EstadoBombality;
-import juego.estadosCelda.EstadoSpeedUp;
 import personajes.Altair;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -42,7 +40,7 @@ public class Juego {
 		misEnemigos = new LinkedList<EnemigoThread>();		
 		miTablero = new Tablero(this, gui);
 		miTiempo = new Tiempo(gui);
-		miTiempo.iniciar();
+		miTiempo.iniciarReloj();
 
 		miBomberman = new Bomberman(miTablero.getCelda(1, 1), miTablero);
 	}				

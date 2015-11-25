@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.Const;
-import juego.estadosCelda.EstadoTransitable;
 
 /**
  * Clase encargada de modelar el funcionamiento lógico de una bomba. 

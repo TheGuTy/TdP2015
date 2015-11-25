@@ -80,7 +80,7 @@ public class GUI extends JFrame {
 		
 		setPreferredSize(new Dimension(Const.ANCHO_GUI, Const.ALTO_GUI+Const.ALTO_ENCABEZADO));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(true);
+		setResizable(false);
 		setLayout(null);
 		getContentPane().setLayout(null);
 		setBounds(0, 0, Const.ANCHO_GUI, Const.ALTO_GUI);
@@ -96,10 +96,6 @@ public class GUI extends JFrame {
 		contentPane.setLayout(null);
 		contentPane.setBackground(new Color(50,175,50,255));
 		
-		
-		
-		// Con estas tres lineas podemos hacer que el JFrame se muestre
-		// exactamente en el medio de la pantalla:
 		this.pack();
 		this.setLocationRelativeTo(null);		
 

@@ -2,8 +2,6 @@ package graficos.estructuras;
 
 import javax.swing.ImageIcon;
 
-import gui.Const;
-
 /**
  * Clase que modela la gráfica del estado de una celda transitable.
  * @author Asencio Victor, Gutierrez Gabriel, Iurchuk Joaquín
