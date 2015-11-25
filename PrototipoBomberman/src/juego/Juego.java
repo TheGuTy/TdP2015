@@ -169,4 +169,8 @@ public class Juego {
 		return misEnemigos;
 	}
 
+	public void notificarMuerteBomberman() {
+		miTiempo.detenerTiempo();
+	}
+
 }

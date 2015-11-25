@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.Const;
+import gui.SoundPlayer;
 
 /**
  * Clase encargada de modelar el funcionamiento lógico de una bomba. 
@@ -36,6 +37,8 @@ public class Bomba {
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
 			public void run() {
+				SoundPlayer.explosionBomba();
+				
 				System.out.println("Explotó la bomba");
 				// TODO Cambiar la imagen por un humito o algo asi. Quizas
 				// convenga que tenga varias imagenes la bomba y las recorremos
