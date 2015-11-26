@@ -182,7 +182,6 @@ public class Juego {
 	private void mostrarDialogRelanzar(String titulo) {
 		if (JOptionPane.showConfirmDialog(null, titulo + "\n¿Jugamos de nuevo?", "Bomberman",
 		        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-		    System.out.println("Relanzar juego");
 		    gui.relanzarJuego();
 		} else {
 			System.exit(0);

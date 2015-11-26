@@ -159,7 +159,6 @@ public class Bomberman extends Personaje implements Runnable {
 			}
 
 		} catch (InterruptedException e) {
-			e.printStackTrace();
 		}
 
 		lock = false;

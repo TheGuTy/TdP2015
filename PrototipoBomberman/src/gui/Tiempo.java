@@ -41,7 +41,6 @@ public class Tiempo implements Runnable {
 			}
 			
 		} catch (InterruptedException e){
-			e.printStackTrace();
 		}
 	}
 	

@@ -97,7 +97,6 @@ public abstract class Enemigo extends Personaje {
 			}
 
 		} catch (InterruptedException e) {
-			e.printStackTrace();
 		}
 
 		lock = false;

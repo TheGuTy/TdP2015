@@ -34,6 +34,7 @@ public class GUI extends JFrame {
 //	private JPanel contentPane;
 	private JLabel labelPuntaje;
 	private JLabel labelTiempo;
+	private JPanel panelControl;
 //	private JPanel panelControl;
 
 	/**
@@ -55,7 +56,7 @@ public class GUI extends JFrame {
 
 		super(nombre);
 
-		JPanel panelControl = new JPanel();
+		panelControl = new JPanel();
 		panelControl.setLayout(null);
 		panelControl.setSize(Const.ANCHO_GUI, Const.ALTO_ENCABEZADO);
 		panelControl.setBackground(new Color(200, 200, 200, 200));
@@ -201,7 +202,8 @@ public class GUI extends JFrame {
 	
 	public void relanzarJuego(){
 
-		JPanel panelControl = new JPanel();
+		System.out.println("Relanzar juego");
+		panelControl = new JPanel();
 		panelControl.setLayout(null);
 		panelControl.setSize(Const.ANCHO_GUI, Const.ALTO_ENCABEZADO);
 		panelControl.setBackground(new Color(200, 200, 200, 200));
@@ -212,5 +214,6 @@ public class GUI extends JFrame {
 
 		miJuego = new Juego(this);
 		miJuego.iniciarJuego();
+		repaint();
 	}
 }
