@@ -22,6 +22,10 @@ public class Tiempo implements Runnable {
 		detenerReloj = true;
 	}
 	
+	public int getSegundos() {
+		return segundos;
+	}
+	
 	public void iniciarReloj(){
 		t = new Thread(this);
 		detenerReloj = false;

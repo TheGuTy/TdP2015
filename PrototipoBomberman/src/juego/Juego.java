@@ -171,7 +171,7 @@ public class Juego {
 
 	public void notificarMuerteBomberman() {
 		detenerJuego();
-		mostrarDialogRelanzar("Perdiste!");
+		mostrarDialogRelanzar("Perdiste!\n");
 	}
 	
 	private void detenerJuego(){
@@ -180,7 +180,12 @@ public class Juego {
 	}
 
 	private void mostrarDialogRelanzar(String titulo) {
-		if (JOptionPane.showConfirmDialog(null, titulo + "\n¿Jugamos de nuevo?", "Bomberman",
+		int tiempo = miTiempo.getSegundos();
+		
+		int minutos = tiempo/60;
+		int segundos = tiempo-(minutos*60);
+		
+		if (JOptionPane.showConfirmDialog(null, titulo + "\nPUNTAJE: "+puntaje+"\nTIEMPO: "+String.format("%02d", minutos)+":"+String.format("%02d", segundos) +"\n\n¿Jugamos de nuevo?", "Bomberman",
 		        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 		    gui.relanzarJuego();
 		} else {

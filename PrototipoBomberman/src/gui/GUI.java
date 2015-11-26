@@ -210,7 +210,9 @@ public class GUI extends JFrame {
 		configurarLabels(panelControl);
 
 		configurarJPanel(panelControl);
-
+		
+		actualizarTiempo(0, 0);
+		
 		miJuego = new Juego(this);
 		miJuego.iniciarJuego();
 		repaint();
