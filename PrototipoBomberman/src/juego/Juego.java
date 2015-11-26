@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import gui.Const;
 import gui.GUI;
+import gui.SoundPlayer;
 import gui.Tiempo;
 import personajes.Altair;
 import personajes.Bomberman;
@@ -192,7 +193,12 @@ public class Juego {
 			e.detener();
 	}
 
+	/**
+	 * Determina qué se debe hacer cuando ya no quedan más paredes por destruir
+	 * AKA Bomberman triunfó y conquistó el mundo
+	 */
 	public void paredesDestruiblesAgotadas() {
+		SoundPlayer.playerWins();
 		mostrarDialogRelanzar("Ganaste!");
 	}
 }
