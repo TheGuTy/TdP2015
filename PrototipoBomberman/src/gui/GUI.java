@@ -31,11 +31,10 @@ public class GUI extends JFrame {
 
 	private static GUI g;
 	private Juego miJuego;
-//	private JPanel contentPane;
 	private JLabel labelPuntaje;
 	private JLabel labelTiempo;
 	private JPanel panelControl;
-//	private JPanel panelControl;
+	private JLabel titulo;
 
 	/**
 	 * Metodo que da el puntapie inicial al juego.
@@ -61,9 +60,12 @@ public class GUI extends JFrame {
 		panelControl.setSize(Const.ANCHO_GUI, Const.ALTO_ENCABEZADO);
 		panelControl.setBackground(new Color(200, 200, 200, 200));
 
-		configurarLabels(panelControl);
-
+		titulo = new JLabel("BOMBERMAN");
+		labelPuntaje = new JLabel("SCORE: 0");
+		labelTiempo = new JLabel("TIME: " + "00:00");
+		
 		configurarJPanel(panelControl);
+		configurarLabels(panelControl);
 
 		miJuego = new Juego(this);
 		miJuego.iniciarJuego();
@@ -87,25 +89,22 @@ public class GUI extends JFrame {
 		setLayout(null);
 		getContentPane().setLayout(null);
 		setBounds(0, 0, Const.ANCHO_GUI, Const.ALTO_GUI);
-		JPanel contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
+		panelControl.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
 
-		contentPane.add(panelControl);
+		setContentPane(panelControl);
 
-		setContentPane(contentPane);
-
-		contentPane.setLocation(0, 50);
-		contentPane.setLayout(null);
-		contentPane.setBackground(new Color(50, 175, 50, 255));
+		panelControl.setLocation(0, 50);
+		panelControl.setLayout(null);
+		panelControl.setBackground(new Color(50, 175, 50, 255));
 
 		this.pack();
 		this.setLocationRelativeTo(null);
+		
+		
 	}
 
 	private void configurarLabels(JPanel panelControl) {
-		JLabel titulo = new JLabel("BOMBERMAN");
-		labelPuntaje = new JLabel("SCORE: 0");
-		labelTiempo = new JLabel("TIME: " + "00:00");
+		
 
 		titulo.setForeground(Color.WHITE);
 		labelPuntaje.setForeground(Color.WHITE);
