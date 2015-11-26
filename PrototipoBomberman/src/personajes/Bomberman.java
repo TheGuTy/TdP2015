@@ -45,9 +45,10 @@ public class Bomberman extends Personaje implements Runnable {
 		if (!modoDios){
 			System.out.println("Murio bomberguy");
 			
+			estoyVivo = false;
+			
 			SoundPlayer.muerteBomberman();
 			
-			estoyVivo = false;
 			this.getGrafico().getLabel().setIcon(null);
 			//TODO Parar el thread que mueve a Bomberman
 			//TODO Notificar al juego que murio Bomberman! Traigan ambulancias

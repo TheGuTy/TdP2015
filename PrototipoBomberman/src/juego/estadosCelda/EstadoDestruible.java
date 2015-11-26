@@ -41,6 +41,8 @@ public class EstadoDestruible extends EstadoCelda {
 		
 		celda.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
 
+		celda.getMiTablero().getMisParedesDestruibles().remove(celda);
+		
 		celda.matarBomberman();
 		int aux = 0;
 		aux = celda.destruirEnemigos();
@@ -51,7 +53,7 @@ public class EstadoDestruible extends EstadoCelda {
 				celda.setEstado(miProximoEstado);
 			}
 		}, 1500);
-		 
+		
 		return PUNTAJE+aux;
 	}
 

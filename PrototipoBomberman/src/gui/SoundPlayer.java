@@ -46,4 +46,9 @@ public class SoundPlayer {
 		URL url = SoundPlayer.class.getResource(pathToFile + "enemydeath.wav");
 		playSound(url);
 	}
+	
+	public static void playerWins() {
+		URL url = SoundPlayer.class.getResource(pathToFile + "win.wav");
+		playSound(url);
+	}
 }

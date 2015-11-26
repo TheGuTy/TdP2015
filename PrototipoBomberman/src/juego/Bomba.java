@@ -50,9 +50,8 @@ public class Bomba {
 				celdasAfectadas.add(miCelda);
 				for (Celda c : celdasAfectadas){
 					int puntaje = c.detonar();
-					System.out.println("puntaje: "+puntaje);
+//					System.out.println("puntaje: "+puntaje);
 					miTablero.getJuego().aumentarPuntaje(puntaje);
-					
 				}				
 				miTablero.devolverBombaABomberman();
 			}

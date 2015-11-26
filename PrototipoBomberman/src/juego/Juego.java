@@ -1,11 +1,13 @@
 package juego;
 
 import java.awt.Point;
+import java.lang.management.PlatformLoggingMXBean;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import gui.Const;
 import gui.GUI;
@@ -167,16 +169,30 @@ public class Juego {
 	}
 
 	public void notificarMuerteBomberman() {
-		miTiempo.detenerTiempo();
 		detenerJuego();
+		mostrarDialogRelanzar("Perdiste!");
 	}
 	
 	private void detenerJuego(){
+		miTiempo.detenerTiempo();
 		matarEnemigos();
+	}
+
+	private void mostrarDialogRelanzar(String titulo) {
+		if (JOptionPane.showConfirmDialog(null, titulo + "\n¿Deseas jugar de nuevo?", "Bomberman",
+		        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+		    System.out.println("Relanzar juego");
+		} else {
+			System.exit(0);
+		}
 	}
 
 	private void matarEnemigos() {
 		for (EnemigoThread e : misEnemigos )
 			e.detener();
+	}
+
+	public void paredesDestruiblesAgotadas() {
+		mostrarDialogRelanzar("Ganaste!");
 	}
 }

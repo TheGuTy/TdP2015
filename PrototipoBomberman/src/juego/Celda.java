@@ -177,14 +177,14 @@ public class Celda {
 	}
 
 	/**
-	 * Método que le indica a la lógica del juego que el Bomberman ha muerto.
+	 * Método que indica que Bomberman estuvo poniendo su vida en riesgo para salvar al mundo
+	 * pero sin éxito, por lo tanto debemos de informar su muerte a través de este comunicado.
 	 */
 	public void matarBomberman() {
 
-		if (miBomberman != null){
+		if (miBomberman != null && miBomberman.estoyVivo()){
 			miBomberman.matar();
 		}
-		// TODO Notificar al juego que murio bomberman. Desde aca el unico camino es usar el tablero y desde ahi obtener la referencia al juego 
 	}
 	
 	/**

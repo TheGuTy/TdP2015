@@ -1,6 +1,8 @@
 package juego;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 import gui.Const;
@@ -25,6 +27,7 @@ public class Tablero {
 	protected Celda [][] misCeldas;	
 	protected GUI gui;
 	private HashMap<Celda, Boolean> mapeoControl;
+	private List<Celda> misParedesDestruibles;
 
 	/**
 	 * Constructor que inicializa un tablero de juego
@@ -33,7 +36,8 @@ public class Tablero {
 	 */
 	public Tablero (Juego juego, GUI gui) {
 		miJuego = juego;
-		mapeoControl = new HashMap<>();
+		mapeoControl = new HashMap<Celda, Boolean>();
+		misParedesDestruibles = new LinkedList<Celda>();
 
 		misCeldas = new Celda[Const.CANT_CELDAS_ANCHO][Const.CANT_CELDAS_ALTO];
 		this.gui = gui;
@@ -104,6 +108,7 @@ public class Tablero {
 		int cantFatality = Const.CANT_POWERUPS_FATALITY;
 		int cantBombality = Const.CANT_POWERUPS_BOMBALITY;
 		int cantMasacrality = Const.CANT_POWERUPS_MASACRALITY;
+		
 		Double d =  (Double) (Const.CANT_CELDAS_ALTO * Const.CANT_CELDAS_ANCHO*Const.PORCENTAJE_DESTRUIBLES);
 		int cantCeldas = d.intValue();
 
@@ -113,7 +118,7 @@ public class Tablero {
 			Celda nueva = misCeldas[rnd.nextInt(Const.CANT_CELDAS_ANCHO)][rnd.nextInt(Const.CANT_CELDAS_ALTO)];
 
 			if(mapeoControl.get(nueva)==null){
-
+				
 				if(cantSpeedUp>0){
 					nueva.setEstado(new EstadoDestruible(new EstadoSpeedUp()));
 					cantSpeedUp--;
@@ -135,8 +140,10 @@ public class Tablero {
 							}
 				cantCeldas--;
 				mapeoControl.put(nueva, true);
+				misParedesDestruibles.add(nueva);
 				System.out.println("agregue celda en "+nueva.getX()+" "+nueva.getY());
 
+				
 			}
 		}
 
@@ -184,6 +191,24 @@ public class Tablero {
 //
 //		miJuego.aumentarPuntaje(p);
 //	}	
+	
+	/**
+	 * Devuelve una lista con las paredes destruibles actualmente en pie
+	 * @return una lista con las paredes destruibles actualmente en pie
+	 */
+	public List<Celda> getMisParedesDestruibles(){
+		controlarCantidadDeParedesDestruibles();
+		return misParedesDestruibles;
+	}
+
+	/**
+	 * Se encarga de fijarse si la cantidad de paredes destruibles es cero.
+	 * En tal caso, declara fin de juego y el usuario ganó. 
+	 */
+	private void controlarCantidadDeParedesDestruibles() {
+		if (misParedesDestruibles.size() == 0)
+			miJuego.paredesDestruiblesAgotadas();
+	}
 
 	/**
 	 * Devuelve una referencia al juego principal
