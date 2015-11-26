@@ -3,6 +3,7 @@ package juego.estadosCelda;
 import javax.swing.ImageIcon;
 
 import graficos.estructuras.GraficoParedDestruible;
+import gui.SoundPlayer;
 import juego.Celda;
 import personajes.Bomberman;
 import personajes.Enemigo;
@@ -38,6 +39,8 @@ public class EstadoDestruible extends EstadoCelda {
 
 	@Override
 	public int destruir(Celda celda) {
+		
+		SoundPlayer.destroyedWall();
 		
 		celda.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
 

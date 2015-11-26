@@ -13,7 +13,7 @@ public class SoundPlayer {
 
 	private static String pathToFile = "/Recursos/audio/";
 
-	public static synchronized void playSound(final URL url) {
+	private static synchronized void playSound(final URL url) {
 		
 		if (Preferencias.audioActivado){
 			try {
@@ -49,6 +49,11 @@ public class SoundPlayer {
 	
 	public static void playerWins() {
 		URL url = SoundPlayer.class.getResource(pathToFile + "win.wav");
+		playSound(url);
+	}
+	
+	public static void destroyedWall() {
+		URL url = SoundPlayer.class.getResource(pathToFile + "wall.wav");
 		playSound(url);
 	}
 }

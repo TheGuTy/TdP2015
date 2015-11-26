@@ -39,7 +39,7 @@ public class Bomba {
 			public void run() {
 				SoundPlayer.explosionBomba();
 				
-				System.out.println("Explotó la bomba");
+//				System.out.println("Explotó la bomba");
 				// TODO Cambiar la imagen por un humito o algo asi. Quizas
 				// convenga que tenga varias imagenes la bomba y las recorremos
 				// con un for. Estamos dentro de un thread, asi que podemos llamar

@@ -141,14 +141,10 @@ public class Tablero {
 				cantCeldas--;
 				mapeoControl.put(nueva, true);
 				misParedesDestruibles.add(nueva);
-				System.out.println("agregue celda en "+nueva.getX()+" "+nueva.getY());
-
-				
+//				System.out.println("agregue celda en "+nueva.getX()+" "+nueva.getY());
 			}
 		}
-
-		System.out.println("Cantidad destruibles colocadas"+mapeoControl.size());
-
+//		System.out.println("Cantidad destruibles colocadas"+mapeoControl.size());
 	}
 	
 //	public void distribuirEnemigos(){
@@ -233,7 +229,7 @@ public class Tablero {
 	 * @param alcance alcance de la bomba que sera colocada en esta celda
 	 */
 	public void colocarBomba (int x, int y, int alcance) {
-		System.out.println("poner bomba en " + x + " " + y);
+//		System.out.println("poner bomba en " + x + " " + y);
 
 		Celda celda = getCelda(x, y);
 		Bomba bomba = new Bomba(celda, alcance, this);

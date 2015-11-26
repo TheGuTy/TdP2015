@@ -29,10 +29,12 @@ import juego.Juego;
 @SuppressWarnings("serial")
 public class GUI extends JFrame {
 
+	private static GUI g;
 	private Juego miJuego;
-	private JPanel contentPane;
+//	private JPanel contentPane;
 	private JLabel labelPuntaje;
 	private JLabel labelTiempo;
+//	private JPanel panelControl;
 
 	/**
 	 * Metodo que da el puntapie inicial al juego.
@@ -41,15 +43,13 @@ public class GUI extends JFrame {
 	 *            String del metodo main.
 	 */
 	public static void main(String[] args) {
-		GUI g = new GUI("Bomberman");
+		g = new GUI("Bomberman");
 		g.repaint();
 	}
 
 	/**
-	 * Constructor implícito para inicializar el panel principal del juego.
-	 * 
-	 * @param nombre
-	 *            Nombre correspondiente a la ventana principal.
+	 * Constructor que inicializa la GUI del juego.
+	 * @param nombre Titulo que llevará el frame que contenga a la GUI
 	 */
 	private GUI(String nombre) {
 
@@ -86,7 +86,7 @@ public class GUI extends JFrame {
 		setLayout(null);
 		getContentPane().setLayout(null);
 		setBounds(0, 0, Const.ANCHO_GUI, Const.ALTO_GUI);
-		contentPane = new JPanel();
+		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
 
 		contentPane.add(panelControl);
@@ -197,5 +197,20 @@ public class GUI extends JFrame {
 
 			miJuego.moverBomberman(direccion);
 		}
+	}
+	
+	public void relanzarJuego(){
+
+		JPanel panelControl = new JPanel();
+		panelControl.setLayout(null);
+		panelControl.setSize(Const.ANCHO_GUI, Const.ALTO_ENCABEZADO);
+		panelControl.setBackground(new Color(200, 200, 200, 200));
+
+		configurarLabels(panelControl);
+
+		configurarJPanel(panelControl);
+
+		miJuego = new Juego(this);
+		miJuego.iniciarJuego();
 	}
 }
