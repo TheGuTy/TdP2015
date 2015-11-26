@@ -134,6 +134,7 @@ public class Bomberman extends Personaje implements Runnable {
 							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
+//				miGrafico.changeIcon(5);
 				break;
 			case Const.MOVIMIENTO_ABAJO:
 				for (int i = 0; i < Const.ALTO_CELDA; i += velocidad) {
@@ -141,6 +142,7 @@ public class Bomberman extends Personaje implements Runnable {
 							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
+//				miGrafico.changeIcon(6);
 				break;
 			case Const.MOVIMIENTO_IZQUIERDA:
 				for (int i = 0; i < Const.ANCHO_CELDA; i += velocidad) {
@@ -148,6 +150,7 @@ public class Bomberman extends Personaje implements Runnable {
 							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
+//				miGrafico.changeIcon(7);
 				break;
 			case Const.MOVIMIENTO_DERECHA:
 				for (int i = 0; i < Const.ANCHO_CELDA; i += velocidad) {
@@ -155,6 +158,7 @@ public class Bomberman extends Personaje implements Runnable {
 							Const.ANCHO_CELDA, Const.ALTO_CELDA);
 					Thread.sleep(10);
 				}
+//				miGrafico.changeIcon(8);
 				break;
 			}
 

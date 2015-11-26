@@ -17,6 +17,7 @@ import personajes.Altair;
 import personajes.Bomberman;
 import personajes.Enemigo;
 import personajes.Rugulos;
+import personajes.Sirius;
 import threads.EnemigoThread;
 
 /**
@@ -102,6 +103,14 @@ public class Juego {
 						misEnemigos.add(altair1);
 						cantAltair--;
 					}else
+						if(cantSirius>0){
+							Enemigo sir = new Sirius(/*miTablero.getCelda(Const.CANT_CELDAS_ANCHO-2, Const.CANT_CELDAS_ALTO-2)*/ nueva , miTablero);
+							sir.getLabel().setLocation(sir.getPos());
+							gui.add(sir.getLabel());
+							EnemigoThread sirius = new EnemigoThread(sir);
+							misEnemigos.add(sirius);
+							cantSirius--;
+						}else
 						termine = true;
 				miTablero.getMapeoControl().put(nueva, true);
 			}
