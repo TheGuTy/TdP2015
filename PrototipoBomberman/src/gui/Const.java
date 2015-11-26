@@ -19,8 +19,8 @@ public class Const {
 	public static final int ANCHO_CELDA = 32;
 	public static final int ALTO_CELDA = 32;
 	
-	public static final int ANCHO_GUI = ANCHO_CELDA * CANT_CELDAS_ANCHO;
-	public static final int ALTO_GUI = ALTO_CELDA * (CANT_CELDAS_ALTO+1);
+	public static final int ANCHO_GUI = ANCHO_CELDA * CANT_CELDAS_ANCHO+6;
+	public static final int ALTO_GUI = ALTO_CELDA * (CANT_CELDAS_ALTO+1)-5;
 	
 	public static final int ALTO_ENCABEZADO = 50;
 	

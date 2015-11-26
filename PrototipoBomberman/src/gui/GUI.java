@@ -2,15 +2,20 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -35,6 +40,10 @@ public class GUI extends JFrame {
 	private JLabel labelTiempo;
 	private JPanel panelControl;
 	private JLabel titulo;
+	private JButton botonIniciar;
+	private JButton botonControles;
+	private JButton botonSalir;
+
 
 	/**
 	 * Metodo que da el puntapie inicial al juego.
@@ -44,7 +53,10 @@ public class GUI extends JFrame {
 	 */
 	public static void main(String[] args) {
 		g = new GUI("Bomberman");
+		g.pantallaBienvenida();
+		//		g.iniciarJuego();
 		g.repaint();
+
 	}
 
 	/**
@@ -63,33 +75,29 @@ public class GUI extends JFrame {
 		titulo = new JLabel("BOMBERMAN");
 		labelPuntaje = new JLabel("SCORE: 0");
 		labelTiempo = new JLabel("TIME: " + "00:00");
-		
-		configurarJPanel(panelControl);
-		configurarLabels(panelControl);
 
-		miJuego = new Juego(this);
-		miJuego.iniciarJuego();
 
 		// Oyente encargado de recibir el input desde el teclado del usuario y
 		// reaccionar en consecuencia
-		addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyReleased(KeyEvent keyEvent) {
-				mover(keyEvent);
-			}
-		});
+//				addKeyListener(new KeyAdapter() {
+//					@Override
+//					public void keyReleased(KeyEvent keyEvent) {
+//						mover(keyEvent);
+//						System.out.println("movimiento");
+//					}
+//				});
 
 		this.setVisible(true);
 	}
 
 	private void configurarJPanel(JPanel panelControl) {
-		setPreferredSize(new Dimension(Const.ANCHO_GUI, Const.ALTO_GUI + Const.ALTO_ENCABEZADO));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(false);
-		setLayout(null);
-		getContentPane().setLayout(null);
-		setBounds(0, 0, Const.ANCHO_GUI, Const.ALTO_GUI);
-		panelControl.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
+		//		setPreferredSize(new Dimension(Const.ANCHO_GUI, Const.ALTO_GUI + Const.ALTO_ENCABEZADO));
+		//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//		setResizable(false);
+		//		setLayout(null);
+		//		getContentPane().setLayout(null);
+		//		setBounds(0, 0, Const.ANCHO_GUI, Const.ALTO_GUI);
+		//		panelControl.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
 
 		setContentPane(panelControl);
 
@@ -99,12 +107,12 @@ public class GUI extends JFrame {
 
 		this.pack();
 		this.setLocationRelativeTo(null);
-		
-		
+
+
 	}
 
 	private void configurarLabels(JPanel panelControl) {
-		
+
 
 		titulo.setForeground(Color.WHITE);
 		labelPuntaje.setForeground(Color.WHITE);
@@ -126,14 +134,14 @@ public class GUI extends JFrame {
 		labelTiempo.setFont(customFont);
 		titulo.setFont(customFont);
 		labelPuntaje.setFont(customFont);
-		
+
 		titulo.setBackground(new Color(180, 180, 180));
 		titulo.setOpaque(true);
 		labelPuntaje.setBackground(new Color(180, 180, 180));
 		labelPuntaje.setOpaque(true);
 		labelTiempo.setBackground(new Color(180, 180, 180));
 		labelTiempo.setOpaque(true);
-		
+
 
 		panelControl.add(titulo);
 		panelControl.add(labelPuntaje);
@@ -150,7 +158,7 @@ public class GUI extends JFrame {
 		} catch (IOException | FontFormatException e) {
 			e.printStackTrace();
 		}
-		
+
 		return customFont;
 	}
 
@@ -198,10 +206,53 @@ public class GUI extends JFrame {
 			miJuego.moverBomberman(direccion);
 		}
 	}
-	
-	public void relanzarJuego(){
 
+	public void pantallaBienvenida(){
+
+		setPreferredSize(new Dimension(Const.ANCHO_GUI, Const.ALTO_GUI + Const.ALTO_ENCABEZADO));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
+		setLayout(null);
+		getContentPane().setLayout(new FlowLayout());
+		setBounds(0, 0, Const.ANCHO_GUI, Const.ALTO_GUI);
+		panelControl.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
+		
+		botonIniciar = new JButton("Iniciar");
+		botonControles = new JButton("Controles");
+		botonSalir = new JButton("Salir");
+
+		botonIniciar.setSize(150, 30);
+		botonControles.setSize(150, 30);
+		botonSalir.setSize(150, 30);
+
+		getContentPane().add(botonIniciar);
+		getContentPane().add(botonControles);
+		getContentPane().add(botonSalir);
+
+		this.setLocationRelativeTo(null);
+
+
+		botonIniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				g.iniciarJuego();
+
+			}
+		});
+
+		botonSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+
+			}
+		});
+	}
+
+
+
+
+	public void iniciarJuego(){
 		System.out.println("Relanzar juego");
+
 		panelControl = new JPanel();
 		panelControl.setLayout(null);
 		panelControl.setSize(Const.ANCHO_GUI, Const.ALTO_ENCABEZADO);
@@ -210,11 +261,23 @@ public class GUI extends JFrame {
 		configurarLabels(panelControl);
 
 		configurarJPanel(panelControl);
-		
+
 		actualizarTiempo(0, 0);
+
+		addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent keyEvent) {
+				mover(keyEvent);
+				System.out.println("movimiento");
+			}
+		});
 		
+		this.requestFocusInWindow();
 		miJuego = new Juego(this);
 		miJuego.iniciarJuego();
 		repaint();
+
+
+
 	}
 }

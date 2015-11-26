@@ -187,7 +187,7 @@ public class Juego {
 		
 		if (JOptionPane.showConfirmDialog(null, titulo + "\nPUNTAJE: "+puntaje+"\nTIEMPO: "+String.format("%02d", minutos)+":"+String.format("%02d", segundos) +"\n\n¿Jugamos de nuevo?", "Bomberman",
 		        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-		    gui.relanzarJuego();
+		    gui.iniciarJuego();
 		} else {
 			System.exit(0);
 		}
