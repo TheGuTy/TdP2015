@@ -48,6 +48,7 @@ public abstract class Enemigo extends Personaje {
 	
 	@Override
 	public void matar(){
+		getLabel().setIcon(null);
 		System.out.println("Murio " + this.getClass().getSimpleName());
 		
 		SoundPlayer.muerteEnemigo();
