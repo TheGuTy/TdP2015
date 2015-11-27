@@ -203,10 +203,13 @@ public class GUI extends JFrame {
 		loadArcadeFont();
 		botonIniciar = new JButton();
 		botonIniciar.setText("<html><font face='Press Start 2P'>Iniciar</font></html>");
+		makeButtonFlat(botonIniciar);
 		botonControles = new JButton();
 		botonControles.setText("<html><font face='Press Start 2P'>Controles</font></html>");
+		makeButtonFlat(botonControles);
 		botonSalir = new JButton();
 		botonSalir.setText("<html><font face='Press Start 2P'>Salir</font></html>");
+		makeButtonFlat(botonSalir);
 		
 		
 		botonIniciar.setSize(150, 30);
@@ -267,6 +270,7 @@ public class GUI extends JFrame {
 		botonAtras.setText("<html><font face='Press Start 2P'>Atrás</font></html>");
 		botonAtras.setSize(150, 30); 
 		botonAtras.setLocation(50,300);
+		makeButtonFlat(botonAtras);
 		
 		JLabel indicacionesUp = new JLabel("FLECHA ARRIBA: MOVIMIENTO HACIA ARRIBA");
 		JLabel indicacionesDown = new JLabel("FLECHA ABAJO: MOVIMIENTO HACIA ABAJO");
@@ -312,6 +316,12 @@ public class GUI extends JFrame {
 	}
 
 
+
+	private void makeButtonFlat(JButton boton) {
+		boton.setBorderPainted(false);
+		boton.setFocusPainted(false);
+		boton.setContentAreaFilled(false);
+	}
 
 	public void iniciarJuego(){
 		panelControl = new JPanel();
