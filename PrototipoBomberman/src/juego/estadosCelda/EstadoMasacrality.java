@@ -57,7 +57,6 @@ public class EstadoMasacrality extends EstadoCelda {
 			
 			celdaSiguiente.getMiTablero().getJuego().aumentarPuntaje(PUNTAJE);
 			
-			System.out.println("BOMBERMAN SE FUMO EL MASCARLAITY, BUENO ESO");
 			
 		} else
 			System.out.println("Bomberman esta bloqueado");
@@ -66,7 +65,6 @@ public class EstadoMasacrality extends EstadoCelda {
 	@Override
 	public void avanzar(Enemigo enemigo, Celda celdaSiguiente, int dir) {
 
-		System.out.println("AVANZAR ENEMIGO DESDE ESTADO speed up");
 			if (celdaSiguiente.hayBomberman()) {
 				if (enemigo.getLock() == false) {
 					enemigo.lock();

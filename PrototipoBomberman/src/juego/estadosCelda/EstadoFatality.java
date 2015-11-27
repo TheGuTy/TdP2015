@@ -54,10 +54,8 @@ public class EstadoFatality extends EstadoCelda {
 			
 			celdaSiguiente.getMiTablero().getJuego().aumentarPuntaje(PUNTAJE);
 			
-			System.out.println("BOMBERMAN SE FUMO EL FATALITY");
 			
-		} else
-			System.out.println("Bomberman esta bloqueado");
+		}
 	}
 		
 	@Override
