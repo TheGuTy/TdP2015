@@ -54,8 +54,7 @@ public class EstadoTransitable extends EstadoCelda {
 				celdaSiguiente.agregarBomberman(bomberman);
 
 				bomberman.moverGrafica(dir);
-			} else
-				System.out.println("Bomberman esta bloqueado");
+			} 
 		}
 	}
 

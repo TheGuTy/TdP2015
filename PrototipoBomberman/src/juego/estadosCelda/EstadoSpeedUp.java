@@ -56,8 +56,7 @@ public class EstadoSpeedUp extends EstadoCelda {
 			celdaSiguiente.setEstado(new EstadoTransitable());
 
 			celdaSiguiente.getMiTablero().getJuego().aumentarPuntaje(PUNTAJE);
-		} else
-			System.out.println("Bomberman esta bloqueado");
+		} 
 	}
 
 	@Override
