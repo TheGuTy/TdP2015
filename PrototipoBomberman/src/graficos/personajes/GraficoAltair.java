@@ -23,10 +23,7 @@ public class GraficoAltair extends GraficoPersonaje {
 		
 		getLabel().setBounds(x * Const.ANCHO_CELDA, y * Const.ALTO_CELDA+Const.ALTO_ENCABEZADO, Const.ANCHO_CELDA, Const.ALTO_CELDA);
 		
-		imagenes[Const.MOVIMIENTO_ARRIBA] = new ImageIcon(this.getClass().getResource("/Recursos/meme1.png"));		
-		imagenes[Const.MOVIMIENTO_ABAJO] = new ImageIcon(this.getClass().getResource("/Recursos/meme2.png"));
-		imagenes[Const.MOVIMIENTO_IZQUIERDA] = new ImageIcon(this.getClass().getResource("/Recursos/meme1.png"));
-		imagenes[Const.MOVIMIENTO_DERECHA] = new ImageIcon(this.getClass().getResource("/Recursos/meme2.png"));
-		grafico.setIcon(imagenes[3]);
+		imagenes[Const.MOVIMIENTO_ARRIBA] = imagenes[4] = imagenes[5] = imagenes[6] = imagenes[7] = imagenes[Const.MOVIMIENTO_DERECHA] = imagenes[Const.MOVIMIENTO_IZQUIERDA] = imagenes[Const.MOVIMIENTO_ABAJO] = new ImageIcon(this.getClass().getResource("/Recursos/AGif.gif"));		
+		grafico.setIcon(imagenes[0]);
 	}	
 }

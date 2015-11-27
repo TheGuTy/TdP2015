@@ -104,7 +104,7 @@ public class Juego {
 						cantAltair--;
 					}else
 						if(cantSirius>0){
-							Enemigo sir = new Sirius(/*miTablero.getCelda(Const.CANT_CELDAS_ANCHO-2, Const.CANT_CELDAS_ALTO-2)*/ nueva , miTablero);
+							Enemigo sir = new Sirius(miTablero.getCelda(Const.CANT_CELDAS_ANCHO-2, Const.CANT_CELDAS_ALTO-2) , miTablero);
 							sir.getLabel().setLocation(sir.getPos());
 							gui.add(sir.getLabel());
 							EnemigoThread sirius = new EnemigoThread(sir);

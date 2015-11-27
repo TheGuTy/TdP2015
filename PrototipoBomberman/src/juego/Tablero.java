@@ -52,6 +52,9 @@ public class Tablero {
 		mapeoControl.put(misCeldas[1][1], true);
 		mapeoControl.put(misCeldas[2][1], true);
 		mapeoControl.put(misCeldas[1][2], true);
+		mapeoControl.put(misCeldas[Const.CANT_CELDAS_ANCHO-2][Const.CANT_CELDAS_ALTO-2], true);
+		mapeoControl.put(misCeldas[Const.CANT_CELDAS_ANCHO-2][Const.CANT_CELDAS_ALTO-3], true);
+		mapeoControl.put(misCeldas[Const.CANT_CELDAS_ANCHO-3][Const.CANT_CELDAS_ALTO-2], true);
 
 		crearNoDestruibles();
 

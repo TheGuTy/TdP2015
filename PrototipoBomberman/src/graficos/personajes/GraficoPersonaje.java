@@ -30,7 +30,7 @@ public abstract class GraficoPersonaje {
 	protected GraficoPersonaje(int velocidad, int x, int y) {
 		this.pos = new Point(x * this.ancho, y * this.alto+Const.ALTO_ENCABEZADO);
 		this.velocidad = velocidad;
-		this.imagenes = new Icon[4];
+		this.imagenes = new Icon[8];
 	}
 
 	
@@ -56,7 +56,7 @@ public abstract class GraficoPersonaje {
 	 */
 	public JLabel getLabel() {
 		if (this.grafico == null) {
-			this.grafico = new JLabel(imagenes[0]);
+			this.grafico = new JLabel(imagenes[4]);
 			this.grafico.setBounds(this.pos.x, this.pos.y, ancho, alto);
 		}
 		return this.grafico;
