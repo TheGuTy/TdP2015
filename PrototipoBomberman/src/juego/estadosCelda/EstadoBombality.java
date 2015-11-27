@@ -55,7 +55,6 @@ public class EstadoBombality extends EstadoCelda {
 			
 			celdaSiguiente.getMiTablero().getJuego().aumentarPuntaje(PUNTAJE);
 			
-			System.out.println("BOMBERMAN SE TOMO EL BOMBALITY");
 			
 		} else
 			System.out.println("Bomberman esta bloqueado");

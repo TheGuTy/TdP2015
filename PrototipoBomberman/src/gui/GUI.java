@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import juego.Juego;
@@ -270,7 +271,7 @@ public class GUI extends JFrame {
 		JFrame controles = new JFrame("Controles");
 		controles.setSize(700, 400);
 		controles.setLayout(null);
-		controles.setDefaultCloseOperation(controles.DISPOSE_ON_CLOSE);
+		controles.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		controles.setVisible(true);
 		
 		JLabel fondo = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/fondoControl.png")));
@@ -347,7 +348,7 @@ public class GUI extends JFrame {
 			@Override
 			public void keyReleased(KeyEvent keyEvent) {
 				mover(keyEvent);
-				System.out.println("movimiento");
+//				System.out.println("movimiento");
 			}
 		});
 		
