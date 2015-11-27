@@ -22,6 +22,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
@@ -242,11 +243,6 @@ public class GUI extends JFrame {
 		fondo.add(botonControles);
 		fondo.add(botonSalir);
 		
-		
-//		getContentPane().add(botonIniciar);
-//		getContentPane().add(botonControles);
-//		getContentPane().add(botonSalir);
-		
 		getContentPane().add(fondo);
 
 		this.setLocationRelativeTo(null);
@@ -291,8 +287,31 @@ public class GUI extends JFrame {
 		
 		JButton botonAtras = new JButton("Atrás");
 		botonAtras.setSize(150, 30); 
-		
 		botonAtras.setLocation(50,300);
+		
+		JLabel indicacionesUp = new JLabel("FLECHA ARRIBA: MOVIMIENTO HACIA ARRIBA");
+		JLabel indicacionesDown = new JLabel("FLECHA ABAJO: MOVIMIENTO HACIA ABAJO");
+		JLabel indicacionesLeft = new JLabel("FLECHA IZQUIERDA: MOVIMIENTO HACIA LA IZQUIERDA");
+		JLabel indicacionesRight = new JLabel("FLECHA DERECHA: MOVIMIENTO HACIA LA DERECHA");
+		JLabel indicacionesSpace = new JLabel("ESPACIO: COLOCAR BOMBA");
+		
+		indicacionesUp.setLocation(300, 250);
+		indicacionesUp.setSize(300, 10);
+		indicacionesDown.setLocation(300, 265);
+		indicacionesDown.setSize(300, 10);
+		indicacionesLeft.setLocation(300, 280);
+		indicacionesLeft.setSize(300, 10);
+		indicacionesRight.setLocation(300, 295);
+		indicacionesRight.setSize(300, 10);
+		indicacionesSpace.setLocation(300, 310);
+		indicacionesSpace.setSize(300, 10);
+//		indicaciones.setOpaque(true);
+		
+		fondo.add(indicacionesUp);
+		fondo.add(indicacionesDown);
+		fondo.add(indicacionesLeft);
+		fondo.add(indicacionesRight);
+		fondo.add(indicacionesSpace);
 		
 		fondo.add(botonAtras);
 		
