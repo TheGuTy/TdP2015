@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -11,10 +12,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -212,29 +215,53 @@ public class GUI extends JFrame {
 		setPreferredSize(new Dimension(Const.ANCHO_GUI, Const.ALTO_GUI + Const.ALTO_ENCABEZADO));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
-		setLayout(null);
-		getContentPane().setLayout(new FlowLayout());
+//		setLayout(new BorderLayout());
+		getContentPane().setLayout(null); //new FlowLayout());
 		setBounds(0, 0, Const.ANCHO_GUI, Const.ALTO_GUI);
 		panelControl.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
+		
+		JLabel fondo = new JLabel(new ImageIcon(this.getClass().getResource("/Recursos/fondo2.png")));
+		fondo.setLayout(null);
+		fondo.setSize(Const.ANCHO_GUI, Const.ALTO_GUI);
+		
 		
 		botonIniciar = new JButton("Iniciar");
 		botonControles = new JButton("Controles");
 		botonSalir = new JButton("Salir");
-
+		
+		
 		botonIniciar.setSize(150, 30);
 		botonControles.setSize(150, 30);
 		botonSalir.setSize(150, 30);
+		
+		botonIniciar.setLocation( Const.ANCHO_GUI/4-75 , Const.ALTO_GUI-100);
+		botonControles.setLocation( (Const.ANCHO_GUI/4)*2-75 , Const.ALTO_GUI-100);
+		botonSalir.setLocation( (Const.ANCHO_GUI/4)*3-75 , Const.ALTO_GUI-100);
 
-		getContentPane().add(botonIniciar);
-		getContentPane().add(botonControles);
-		getContentPane().add(botonSalir);
+		fondo.add(botonIniciar);
+		fondo.add(botonControles);
+		fondo.add(botonSalir);
+		
+		
+//		getContentPane().add(botonIniciar);
+//		getContentPane().add(botonControles);
+//		getContentPane().add(botonSalir);
+		
+		getContentPane().add(fondo);
 
 		this.setLocationRelativeTo(null);
-
+		repaint();
 
 		botonIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				g.iniciarJuego();
+
+			}
+		});
+		
+		botonControles.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarControles();
 
 			}
 		});
@@ -246,7 +273,45 @@ public class GUI extends JFrame {
 			}
 		});
 	}
-
+	
+	public void mostrarControles(){
+		
+		JFrame controles = new JFrame("Controles");
+		controles.setSize(700, 400);
+		controles.setLayout(null);
+		controles.setDefaultCloseOperation(controles.DISPOSE_ON_CLOSE);
+		controles.setVisible(true);
+		
+		JLabel fondo = new JLabel(new ImageIcon(this.getClass().getResource("/Recursos/fondoControl.png")));
+		fondo.setLayout(null);
+		fondo.setSize(700, 400);
+		
+		controles.setLocationRelativeTo(null);
+		controles.setResizable(false);
+		
+		JButton botonAtras = new JButton("Atrás");
+		botonAtras.setSize(150, 30); 
+		
+		botonAtras.setLocation(50,300);
+		
+		fondo.add(botonAtras);
+		
+		controles.getContentPane().add(fondo);
+		
+		botonAtras.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controles.dispose();
+			}
+		});
+		
+		
+		
+		
+		
+		
+	}
 
 
 

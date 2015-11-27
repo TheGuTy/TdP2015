@@ -26,13 +26,14 @@ public class EstadoTransitable extends EstadoCelda {
 
 	@Override
 	public int destruir(Celda c) {
-		c.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/explosion.png")));
+		
+		c.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/ExplosionGif2.gif")));
 		new java.util.Timer().schedule(new java.util.TimerTask() {
 			@Override
 			public void run() {
 				c.getLabel().setIcon(null);
 			}
-		}, 1500);
+		}, 1000);
 		
 		c.matarBomberman();
 		return c.destruirEnemigos();

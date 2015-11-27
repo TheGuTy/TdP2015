@@ -37,6 +37,8 @@ public class EnemigoThread extends Thread {
 		}
 	}
 	
+	
+	
 	/**
 	 * Cuando es invocado detiene por completo la ejecucion de este thread.
 	 */
