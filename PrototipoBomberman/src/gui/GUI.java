@@ -1,19 +1,14 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -22,8 +17,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import juego.Juego;
@@ -275,7 +270,7 @@ public class GUI extends JFrame {
 		JFrame controles = new JFrame("Controles");
 		controles.setSize(700, 400);
 		controles.setLayout(null);
-		controles.setDefaultCloseOperation(controles.DISPOSE_ON_CLOSE);
+		controles.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		controles.setVisible(true);
 		
 		JLabel fondo = new JLabel(new ImageIcon(this.getClass().getResource("/Recursos/fondoControl.png")));
@@ -352,7 +347,7 @@ public class GUI extends JFrame {
 			@Override
 			public void keyReleased(KeyEvent keyEvent) {
 				mover(keyEvent);
-				System.out.println("movimiento");
+//				System.out.println("movimiento");
 			}
 		});
 		
