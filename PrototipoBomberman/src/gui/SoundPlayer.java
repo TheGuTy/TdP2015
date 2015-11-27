@@ -56,4 +56,9 @@ public class SoundPlayer {
 		URL url = SoundPlayer.class.getResource(pathToFile + "wall.wav");
 		playSound(url);
 	}
+	
+	public static void click() {
+		URL url = SoundPlayer.class.getResource(pathToFile + "click.wav");
+		playSound(url);
+	}
 }

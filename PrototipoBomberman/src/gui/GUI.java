@@ -231,6 +231,7 @@ public class GUI extends JFrame {
 
 		botonIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SoundPlayer.click();
 				g.iniciarJuego();
 
 			}
@@ -238,6 +239,7 @@ public class GUI extends JFrame {
 		
 		botonControles.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SoundPlayer.click();
 				mostrarControles();
 
 			}
@@ -245,6 +247,7 @@ public class GUI extends JFrame {
 
 		botonSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SoundPlayer.click();
 				System.exit(0);
 
 			}
@@ -304,6 +307,7 @@ public class GUI extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				SoundPlayer.click();
 				controles.dispose();
 			}
 		});
