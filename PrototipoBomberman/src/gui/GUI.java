@@ -75,29 +75,10 @@ public class GUI extends JFrame {
 		labelPuntaje = new JLabel("SCORE: 0");
 		labelTiempo = new JLabel("TIME: " + "00:00");
 
-
-		// Oyente encargado de recibir el input desde el teclado del usuario y
-		// reaccionar en consecuencia
-//				addKeyListener(new KeyAdapter() {
-//					@Override
-//					public void keyReleased(KeyEvent keyEvent) {
-//						mover(keyEvent);
-//						System.out.println("movimiento");
-//					}
-//				});
-
 		this.setVisible(true);
 	}
 
 	private void configurarJPanel(JPanel panelControl) {
-		//		setPreferredSize(new Dimension(Const.ANCHO_GUI, Const.ALTO_GUI + Const.ALTO_ENCABEZADO));
-		//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//		setResizable(false);
-		//		setLayout(null);
-		//		getContentPane().setLayout(null);
-		//		setBounds(0, 0, Const.ANCHO_GUI, Const.ALTO_GUI);
-		//		panelControl.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
-
 		setContentPane(panelControl);
 
 		panelControl.setLocation(0, 50);
@@ -211,8 +192,7 @@ public class GUI extends JFrame {
 		setPreferredSize(new Dimension(Const.ANCHO_GUI, Const.ALTO_GUI + Const.ALTO_ENCABEZADO));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
-//		setLayout(new BorderLayout());
-		getContentPane().setLayout(null); //new FlowLayout());
+		getContentPane().setLayout(null); 
 		setBounds(0, 0, Const.ANCHO_GUI, Const.ALTO_GUI);
 		panelControl.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
 		
@@ -345,7 +325,6 @@ public class GUI extends JFrame {
 			@Override
 			public void keyReleased(KeyEvent keyEvent) {
 				mover(keyEvent);
-//				System.out.println("movimiento");
 			}
 		});
 		

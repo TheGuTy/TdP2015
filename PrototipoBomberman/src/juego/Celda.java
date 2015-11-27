@@ -101,14 +101,6 @@ public class Celda {
 		return puntaje;
 	}
 	
-//	/**
-//	 * Incrementa el puntaje del juego en una cantidad indicada.
-//	 * @param p Cantidad de puntaje a incrementar.
-//	 */
-//	public void aumentarPuntaje(int p) {
-//
-//		miTablero.aumentarPuntaje(p);
-//	}
 
 	/**
 	 * Agrega un enemigo a la lista de enemigos perteneciente a la celda.

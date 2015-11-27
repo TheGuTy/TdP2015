@@ -50,8 +50,6 @@ public class Bomberman extends Personaje implements Runnable {
 			SoundPlayer.muerteBomberman();
 			
 			this.getGrafico().getLabel().setIcon(null);
-			//TODO Parar el thread que mueve a Bomberman
-			//TODO Notificar al juego que murio Bomberman! Traigan ambulancias
 			miTablero.notificarMuerteBomberman();
 		}
 	}
@@ -88,8 +86,6 @@ public class Bomberman extends Personaje implements Runnable {
 	public void mover(int dir) {
 		
 		calcularCeldaSiguiente(dir).avanzar(this, dir);
-		
-//		System.out.println("Soy " + this.getClass().getName() + ". Mi posicion nueva es x: " + getCelda().getX() + " - y: " + getCelda().getY());
 	}
 	
 	/**

@@ -39,18 +39,12 @@ public class Bomba {
 			public void run() {
 				SoundPlayer.explosionBomba();
 				
-//				System.out.println("Explotó la bomba");
-				// TODO Cambiar la imagen por un humito o algo asi. Quizas
-				// convenga que tenga varias imagenes la bomba y las recorremos
-				// con un for. Estamos dentro de un thread, asi que podemos llamar
-				// a Thread.sleep entre cada imagen y asi lograr el efecto.
-				
+//				
 				//TODO la explosion de la bomba se saltea las paredes noDestruibles cuando el alcance es grande #viti
 				List<Celda> celdasAfectadas = calcularCeldasAfectadas();
 				celdasAfectadas.add(miCelda);
 				for (Celda c : celdasAfectadas){
 					int puntaje = c.detonar();
-//					System.out.println("puntaje: "+puntaje);
 					miTablero.getJuego().aumentarPuntaje(puntaje);
 				}				
 				miTablero.devolverBombaABomberman();

@@ -60,7 +60,6 @@ public class Tablero {
 
 		distribuirDestruibles();
 		
-//		distribuirEnemigos(); 
 
 		//luego de setear todos los estados a la celda, agrego el JLabel de cada celda a la gui
 		for (int i = 0; i < Const.CANT_CELDAS_ANCHO; i++)
@@ -144,52 +143,12 @@ public class Tablero {
 				cantCeldas--;
 				mapeoControl.put(nueva, true);
 				misParedesDestruibles.add(nueva);
-//				System.out.println("agregue celda en "+nueva.getX()+" "+nueva.getY());
 			}
 		}
-//		System.out.println("Cantidad destruibles colocadas"+mapeoControl.size());
 	}
-	
-//	public void distribuirEnemigos(){
-//		int cantAltair = Const.CANT_ALTAIR;
-//		int cantRugulus = Const.CANT_RUGULUS;
-//		int cantSirius = Const.CANT_SIRIUS;
-//		
-//		boolean termine = false;
-//		
-//		Random rnd = new Random();
-//
-//		while(!termine){
-//			Celda nueva = misCeldas[rnd.nextInt(Const.CANT_CELDAS_ANCHO)][rnd.nextInt(Const.CANT_CELDAS_ALTO)];
-//
-//			if(mapeoControl.get(nueva)==null){
-//
-//				if(cantAltair>0){
-//					Enemigo alt1 = new Altair(nueva, this);
-//					alt1.getLabel().setLocation(alt1.getPos());
-//					gui.add(alt1.getLabel());
-//					EnemigoThread altair1 = new EnemigoThread(alt1);
-//					miJuego.getMisEnemigos().add(altair1);
-//					cantAltair--;
-//				}
-//				
-//				
-//				mapeoControl.put(nueva, true);
-//				System.out.println("agregue celda en "+nueva.getX()+" "+nueva.getY());
-//
-//			}
-//		}
-//	}
 
 
-//	/**
-//	 * Recibe un entero que determina cuánto puntaje se debe sumar
-//	 * @param p puntaje que se debe sumar
-//	 */
-//	public void aumentarPuntaje (int p) {
-//
-//		miJuego.aumentarPuntaje(p);
-//	}	
+
 	
 	/**
 	 * Devuelve una lista con las paredes destruibles actualmente en pie
@@ -232,8 +191,6 @@ public class Tablero {
 	 * @param alcance alcance de la bomba que sera colocada en esta celda
 	 */
 	public void colocarBomba (int x, int y, int alcance) {
-//		System.out.println("poner bomba en " + x + " " + y);
-
 		Celda celda = getCelda(x, y);
 		Bomba bomba = new Bomba(celda, alcance, this);
 		celda.setEstado(new EstadoBomba());		

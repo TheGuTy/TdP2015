@@ -23,7 +23,6 @@ public class EstadoFatality extends EstadoCelda {
 	 */
 	public EstadoFatality() {
 		super(new GraficoFatality());
-		//TODO buscar imagenes
 	}
 
 	@Override
