@@ -19,7 +19,7 @@ public class GraficoBombality extends GraficoEstructuras {
 	public GraficoBombality() {
 		super();
 		
-		imagen = new ImageIcon(this.getClass().getResource("/Recursos/bombality.png"));	
+		imagen = new ImageIcon(this.getClass().getResource("/recursos/bombality.png"));	
 		
 	}	
 }

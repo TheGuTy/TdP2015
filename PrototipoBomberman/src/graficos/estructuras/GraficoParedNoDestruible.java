@@ -18,6 +18,6 @@ public class GraficoParedNoDestruible extends GraficoEstructuras {
 	public GraficoParedNoDestruible() {
 		super();
 		
-		imagen = new ImageIcon(this.getClass().getResource("/Recursos/muroindestructible2.png"));			
+		imagen = new ImageIcon(this.getClass().getResource("/recursos/muroindestructible2.png"));			
 	}	
 }

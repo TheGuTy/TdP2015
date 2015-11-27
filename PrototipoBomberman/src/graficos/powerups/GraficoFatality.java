@@ -19,7 +19,7 @@ public class GraficoFatality extends GraficoEstructuras {
 	public GraficoFatality() {
 		super();
 		
-		imagen = new ImageIcon(this.getClass().getResource("/Recursos/aba.png"));	
+		imagen = new ImageIcon(this.getClass().getResource("/recursos/aba.png"));	
 		
 	}	
 }

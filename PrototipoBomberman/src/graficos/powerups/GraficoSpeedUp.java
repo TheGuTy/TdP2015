@@ -19,7 +19,7 @@ public class GraficoSpeedUp extends GraficoEstructuras {
 	public GraficoSpeedUp() {
 		super();
 		
-		imagen = new ImageIcon(this.getClass().getResource("/Recursos/speedup.png"));	
+		imagen = new ImageIcon(this.getClass().getResource("/recursos/speedup.png"));	
 	
 	}	
 }

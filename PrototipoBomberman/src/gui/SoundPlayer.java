@@ -11,7 +11,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class SoundPlayer {
 
-	private static String pathToFile = "/Recursos/audio/";
+	private static String pathToFile = "/recursos/audio/";
 
 	private static synchronized void playSound(final URL url) {
 		

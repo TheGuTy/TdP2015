@@ -29,7 +29,7 @@ public class EstadoBomba extends EstadoCelda {
 	@Override
 	public int destruir(Celda celda) {
 
-		celda.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/ExplosionGif2.gif")));
+		celda.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/recursos/ExplosionGif2.gif")));
 		
 		celda.matarBomberman();
 		int puntaje = celda.destruirEnemigos();

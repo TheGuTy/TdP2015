@@ -42,7 +42,7 @@ public class EstadoDestruible extends EstadoCelda {
 		
 		SoundPlayer.destroyedWall();
 		
-		celda.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/Recursos/ExplosionGif2.gif")));
+		celda.getLabel().setIcon(new ImageIcon(this.getClass().getResource("/recursos/ExplosionGif2.gif")));
 		celda.getMiTablero().getMisParedesDestruibles().remove(celda);
 		
 		celda.matarBomberman();

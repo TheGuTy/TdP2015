@@ -150,7 +150,7 @@ public class GUI extends JFrame {
 	private Font loadArcadeFont() {
 		Font customFont = null;
 		try {
-			URL url = getClass().getResource("/Recursos/fonts/arcade.ttf");
+			URL url = getClass().getResource("/recursos/fonts/arcade.ttf");
 			customFont = Font.createFont(Font.TRUETYPE_FONT, url.openStream()).deriveFont(20f);
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			ge.registerFont(customFont);
@@ -265,7 +265,6 @@ public class GUI extends JFrame {
 		});
 	}
 	
-	@SuppressWarnings("static-access")
 	public void mostrarControles(){
 		
 		JFrame controles = new JFrame("Controles");
@@ -331,8 +330,6 @@ public class GUI extends JFrame {
 
 
 	public void iniciarJuego(){
-		System.out.println("Relanzar juego");
-
 		panelControl = new JPanel();
 		panelControl.setLayout(null);
 		panelControl.setSize(Const.ANCHO_GUI, Const.ALTO_ENCABEZADO);

@@ -18,7 +18,7 @@ public class GraficoCeldaBomba extends GraficoEstructuras {
 	public GraficoCeldaBomba() {
 		super();
 
-		imagen = new ImageIcon(this.getClass().getResource("/Recursos/bomb.png"));	
+		imagen = new ImageIcon(this.getClass().getResource("/recursos/bomb.png"));	
 	
 	}
 }
