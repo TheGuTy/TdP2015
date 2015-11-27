@@ -1,8 +1,5 @@
 package personajes;
 
-import java.util.Random;
-
-import graficos.personajes.GraficoAltair;
 import graficos.personajes.GraficoSirius;
 import juego.Celda;
 import juego.Tablero;

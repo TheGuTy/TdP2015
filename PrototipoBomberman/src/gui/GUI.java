@@ -1,19 +1,14 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -22,7 +17,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
@@ -221,7 +215,7 @@ public class GUI extends JFrame {
 		setBounds(0, 0, Const.ANCHO_GUI, Const.ALTO_GUI);
 		panelControl.setBorder(new EmptyBorder(Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER, Const.EMPTY_BORDER));
 		
-		JLabel fondo = new JLabel(new ImageIcon(this.getClass().getResource("/Recursos/fondo2.png")));
+		JLabel fondo = new JLabel(new ImageIcon(getClass().getResource("/recursos/fondo2.png")));
 		fondo.setLayout(null);
 		fondo.setSize(Const.ANCHO_GUI, Const.ALTO_GUI);
 		
@@ -270,6 +264,7 @@ public class GUI extends JFrame {
 		});
 	}
 	
+	@SuppressWarnings("static-access")
 	public void mostrarControles(){
 		
 		JFrame controles = new JFrame("Controles");
@@ -278,7 +273,7 @@ public class GUI extends JFrame {
 		controles.setDefaultCloseOperation(controles.DISPOSE_ON_CLOSE);
 		controles.setVisible(true);
 		
-		JLabel fondo = new JLabel(new ImageIcon(this.getClass().getResource("/Recursos/fondoControl.png")));
+		JLabel fondo = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/fondoControl.png")));
 		fondo.setLayout(null);
 		fondo.setSize(700, 400);
 		
