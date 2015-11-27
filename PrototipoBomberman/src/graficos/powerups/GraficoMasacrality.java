@@ -19,7 +19,7 @@ public class GraficoMasacrality extends GraficoEstructuras {
 	public GraficoMasacrality() {
 		super();
 		
-		imagen = new ImageIcon(this.getClass().getResource("/recursos/speedup.png"));	
+		imagen = new ImageIcon(this.getClass().getResource("/recursos/masacrality.png"));	
 	
 	}	
 }
