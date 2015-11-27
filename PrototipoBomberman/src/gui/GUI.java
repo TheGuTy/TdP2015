@@ -200,10 +200,13 @@ public class GUI extends JFrame {
 		fondo.setLayout(null);
 		fondo.setSize(Const.ANCHO_GUI, Const.ALTO_GUI);
 		
-		
-		botonIniciar = new JButton("Iniciar");
-		botonControles = new JButton("Controles");
-		botonSalir = new JButton("Salir");
+		loadArcadeFont();
+		botonIniciar = new JButton();
+		botonIniciar.setText("<html><font face='Press Start 2P'>Iniciar</font></html>");
+		botonControles = new JButton();
+		botonControles.setText("<html><font face='Press Start 2P'>Controles</font></html>");
+		botonSalir = new JButton();
+		botonSalir.setText("<html><font face='Press Start 2P'>Salir</font></html>");
 		
 		
 		botonIniciar.setSize(150, 30);
@@ -260,7 +263,8 @@ public class GUI extends JFrame {
 		controles.setLocationRelativeTo(null);
 		controles.setResizable(false);
 		
-		JButton botonAtras = new JButton("Atrás");
+		JButton botonAtras = new JButton();
+		botonAtras.setText("<html><font face='Press Start 2P'>Atrás</font></html>");
 		botonAtras.setSize(150, 30); 
 		botonAtras.setLocation(50,300);
 		
